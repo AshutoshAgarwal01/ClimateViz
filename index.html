@@ -96,6 +96,7 @@ var createGrid = function(xscale, yscale, height, width, margin) {
 async function updateBubbleChart(year) {
 	d3.select('#lineChart').remove();
 	d3.select('#bubbleChart').remove()
+	d3.select('#bubbleChartlegend').remove()
 	await bubbleChart(year)
 }
 
@@ -105,12 +106,14 @@ async function updateLineChart(d) {
 	d3.select('#lineChart').remove()
 	d3.select('#bubble-chart-summary').style("display", "none")
 	d3.select('#bubbleChart').remove()
+	d3.select('#bubbleChartlegend').remove()
 	await lineChart(d.Country)
 }
 
 async function backToHome() {
 	d3.select('#lineChart').remove();
 	d3.select('#bubbleChart').remove();
+	d3.select('#bubbleChartlegend').remove()
 	await init();
 }
 
@@ -118,6 +121,7 @@ async function reset() {
 	bubbleChartButtonStatus = BubbleChartButtonStatus.PerCapita;
 	d3.select('#lineChart').remove();
 	d3.select('#bubbleChart').remove();
+	d3.select('#bubbleChartlegend').remove()
 	
     d3.select("#yearRange").property("value", 2019);
 	await init();

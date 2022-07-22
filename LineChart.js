@@ -49,6 +49,18 @@ async function lineChart(country) {
 			.text("Total CO2 emission(kt)")
 			.attr("transform", "rotate(90)"))
 
+	// verticle axis - Total CO2
+	const yscale1 = d3.scaleLinear().domain([0, maxPerCapitaCO2 + 1000]).range([height, 0]); 
+	yaxis1 = g => g
+		.call(formatYAxis(d3.axisLeft(yscale1)))
+		.call(g => g.append("text")
+			.attr("x", 10)
+			.attr("y", margin - 3)
+			.attr("fill", "currentColor")
+			.attr("text-anchor", "start")
+			.text("Per capita CO2 emission(mt)")
+			.attr("transform", "rotate(90)"))
+
 	// Grid
 	grid = g => g
 		.attr("stroke", "currentColor")
@@ -106,6 +118,10 @@ async function lineChart(country) {
 	lineSvg.append("g") 
 		.attr("transform", "translate("+margin+","+margin+")") 
 		.call(yaxis) 	
+
+	lineSvg.append("g") 
+		.attr("transform", "translate("+margin+","+margin+")") 
+		.call(yaxis1) 
 
 	lineSvg.append("g") 
 		.attr("transform", "translate("+margin+","+(height+margin)+")")
