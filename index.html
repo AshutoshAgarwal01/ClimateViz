@@ -40,12 +40,14 @@
 		</div>
 	</div>
 	<div id="lineChart-outerdiv" class="annotation-text" style="width:1400px">
-		<div id="line-chart-wrapper">
-			<div id="line-chart-text" class="chart-text">
-				<h2 id="total-emission"></h2>
+		<div class="chart-legend-container" style="width:1400px">
+			<div id="line-chart-wrapper" class="chart-and-legend" style="width:88%">
+				<div id="line-chart-text" class="chart-text">
+					<h2 id="total-emission"></h2>
+				</div>
+				<!--<svg id="bubbleChart" width=1400 height=700></svg>-->
 			</div>
-			<div id="countryName"/>
-			<!--<svg id="bubbleChart" width=1400 height=700></svg>-->
+			<div id="lineChart-legend" class="chart-and-legend" style="width:10%"></div>
 		</div>
 	</div>
 <script>
@@ -90,10 +92,24 @@ var createGrid = function(xscale, yscale, height, width, margin) {
 			.attr("x2", width + margin));
 }
 
+// Remove bubble chart.
+async function removeBubbleChart() {
+	d3.select('#bubbleChart').remove()
+	d3.select('#bubbleChartlegend').remove()
+}
+
+// Remove line chart
+async function removeLineChart() {
+	d3.select('#lineChart').remove();
+	d3.select('#lineChartlegend').remove()
+	d3.select("#line-chart-text #total-emission").text("")
+}
 
 // Update bubble chart when year is changed.
 async function updateBubbleChart(year) {
 	d3.select('#lineChart').remove();
+	d3.select('#lineChartlegend').remove()
+	
 	d3.select('#bubbleChart').remove()
 	d3.select('#bubbleChartlegend').remove()
 	await bubbleChart(year)
@@ -102,15 +118,17 @@ async function updateBubbleChart(year) {
 // Update line chart when country is selected
 async function updateLineChart(d) {
 	d3.select("#back-to-home").style("display", "block")
-	d3.select('#lineChart').remove()
+	removeLineChart();
+	removeBubbleChart();
+	
 	d3.select('#bubble-chart-summary').style("display", "none")
-	d3.select('#bubbleChart').remove()
-	d3.select('#bubbleChartlegend').remove()
 	await lineChart(d.Country)
 }
 
 async function backToHome() {
 	d3.select('#lineChart').remove();
+	d3.select('#lineChartlegend').remove()
+	
 	d3.select('#bubbleChart').remove();
 	d3.select('#bubbleChartlegend').remove()
 	await init();
@@ -119,6 +137,8 @@ async function backToHome() {
 async function reset() {
 	bubbleChartButtonStatus = BubbleChartButtonStatus.PerCapita;
 	d3.select('#lineChart').remove();
+	d3.select('#lineChartlegend').remove()
+	
 	d3.select('#bubbleChart').remove();
 	d3.select('#bubbleChartlegend').remove()
 	

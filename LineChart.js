@@ -2,12 +2,13 @@ async function lineChart(country) {
 	const fulldata = await d3.csv("YearCountryWiseIndicators.csv");
 	const margin = 50; 
 	
-	const outerwidth = 1400; 
+	const outerwidth = 1400 * 0.88; 
 	const outerheight = 700; 
 	
 	const width = outerwidth - 2 * margin; 
 	const height = outerheight - 2 * margin; 
-	
+	const rightAxisXPos = width + margin;
+		
 	var lineSvg = d3.select("#line-chart-wrapper")
 	.append("svg")
     .attr("width", outerwidth)
@@ -50,11 +51,11 @@ async function lineChart(country) {
 			.attr("transform", "rotate(90)"))
 
 	// verticle axis - Total CO2
-	const yscale1 = d3.scaleLinear().domain([0, maxPerCapitaCO2 + 1000]).range([height, 0]); 
+	const yscale1 = d3.scaleLinear().domain([0, maxPerCapitaCO2 + 1]).range([height, 0]); 
 	yaxis1 = g => g
-		.call(formatYAxis(d3.axisLeft(yscale1)))
+		.call(formatYAxis(d3.axisRight(yscale1)))
 		.call(g => g.append("text")
-			.attr("x", 10)
+			.attr("x", rightAxisXPos - 10)
 			.attr("y", margin - 3)
 			.attr("fill", "currentColor")
 			.attr("text-anchor", "start")
@@ -82,6 +83,10 @@ async function lineChart(country) {
 			.attr("x1", margin)
 			.attr("x2", width + margin)); 
 	
+	// Create legend.
+	lineChartLegend(outerheight);
+	
+	// Left line chart
 	lineSvg.append("g") 
 		.attr("transform", "translate("+margin+","+margin+")") 
 		.append("path").datum(data)
@@ -94,6 +99,28 @@ async function lineChart(country) {
 						.y(function(d) { return yscale(d.TotalCO2) })
 			);
 	
+	// Right line chart
+	lineSvg.append("g") 
+		.attr("transform", "translate("+margin+","+margin+")") 
+		.append("path").datum(data)
+		.style("fill", "none")
+		.attr("stroke-width", 1.5)
+		.attr("stroke", "red")
+		.attr("d", d3.line()
+						.x(function(d) { return xscale(d.Year) })
+						.y(function(d) { return yscale1(d.PerCapitaCo2) })
+			);
+	
+	lineSvg.append("g") 
+		.attr("transform", "translate("+margin+","+margin+")") 
+		.selectAll("circle").data(data).enter().append("circle")
+		.call(g => g.attr("cx", function(d, i) {return xscale(d.Year)}) 
+					.attr("cy", function(d, i) {return yscale1(d.PerCapitaCo2)})
+					.attr("r", "4"))
+		.append("title")
+		.text(function(d) {return TooltipText(d)});
+
+	// Add points on lines.
 	lineSvg.append("g") 
 		.attr("transform", "translate("+margin+","+margin+")") 
 		.selectAll("circle").data(data).enter().append("circle")
@@ -102,7 +129,8 @@ async function lineChart(country) {
 					.attr("r", "4"))
 		.append("title")
 		.text(function(d) {return TooltipText(d)});
-
+	
+	// Add styling and events to the points.
 	lineSvg.selectAll("circle")
 		.call(g => g.style("stroke", "steelblue")
 					.attr("fill-opacity", .2))
@@ -115,12 +143,13 @@ async function lineChart(country) {
 			.duration(1000)
 			.attr('stroke-width',1)});
 	
+	// add axis
 	lineSvg.append("g") 
 		.attr("transform", "translate("+margin+","+margin+")") 
 		.call(yaxis) 	
 
 	lineSvg.append("g") 
-		.attr("transform", "translate("+margin+","+margin+")") 
+		.attr("transform", "translate( " +rightAxisXPos+ ", "+margin+" )") 
 		.call(yaxis1) 
 
 	lineSvg.append("g") 
@@ -129,4 +158,40 @@ async function lineChart(country) {
 		
 	lineSvg.append("g") 
 		.call(grid)
+}
+
+// Method - Genereate line chart legends
+var lineChartLegend = function(outerheight) {
+	var marginLengend = 5
+	var legendW = 200
+	var legendH = outerheight
+	
+	const colorKeys = [{col: "steelblue", indicator: "Total CO2 emission"}, {col: "red", indicator: "Per capita CO2 emission"}]
+	var legendSvg = d3.select("#lineChart-legend")
+		.append("svg")
+		.attr("transform", "translate("+marginLengend+","+marginLengend+")")
+		.attr("width", legendW)
+		.attr("height", legendH)
+		.attr("id", "lineChartlegend");
+	
+	legendSvg.selectAll("rect")
+	  .data(colorKeys)
+	  .enter()
+	  .append("rect")
+		.attr("x", 10)
+		.attr("y", function(d,i){ return 110 + i*25})
+		.attr("width", 10)
+		.attr("height", 10)
+		.style("fill", function(d){ return d.col})
+
+	legendSvg.selectAll("mylabels")
+	  .data(colorKeys)
+	  .enter()
+	  .append("text")
+		.attr("x", 30)
+		.attr("y", function(d,i){ return 117 + i*25})
+		.style("fill", function(d){ return d.col})
+		.text(function(d){ return d.indicator})
+		.attr("text-anchor", "left")
+		.style("alignment-baseline", "middle")
 }
