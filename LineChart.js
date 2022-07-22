@@ -16,7 +16,8 @@ async function lineChart(country) {
 	.attr("id", "lineChart");
 	
 	// Set name of country in the chart description.
-	d3.select("#line-chart-text #total-emission").text(`Total CO2 emission (kt) for ${country} over the years.`)
+	d3.select("#chart-summary #chart-title").text(`Total and per capita CO2 emission for ${country} over the years.`)
+	d3.select("#chart-summary p").text("This visualization displays total and per capita CO2 emission for a country over the years. This chart utilizes dual scales on y-axis because both of these indicators have different range of values. Left axis indicate TotalCO2 emission and right axis indicates Per capits CO2 emission.")
 	
 	let data = fulldata.filter(o => o.Country == country)
 	
@@ -85,6 +86,10 @@ async function lineChart(country) {
 	
 	// Create legend.
 	lineChartLegend(outerheight);
+	
+	// Create annotationData
+	const annotationData = lineChartAnnotation(data, xscale, margin, yscale, width, height)
+	const makeAnnotations = d3.annotation().annotations(annotationData)
 	
 	// Left line chart
 	lineSvg.append("g") 
@@ -158,7 +163,44 @@ async function lineChart(country) {
 		
 	lineSvg.append("g") 
 		.call(grid)
+		
+	lineSvg
+		.append("g")
+		.call(makeAnnotations);
 }
+
+// Method - Create bubble chart annotations.
+var lineChartAnnotation = function(data, xscale, margin, yscale, chartWidth, chartHeight){
+	let annotationData = []
+	
+	var generateAnnotation = function(annotationInfo){
+		for (const ann of annotationInfo) {
+			const xofctry = xscale(ann.y) + margin;
+			const yofctry = yscale(data.find(o => o.Year == ann.y).TotalCO2) + margin;
+			const dx = xofctry + 100 > chartWidth ? -40 : 40; // Ensure that annotations are not going outside chart dimensions.
+			const dy = yofctry + 240 > chartHeight ? -40 : 40;
+			var a = {
+				note: {
+					label: ann.l,
+					title: ann.y,
+					wrap: 200,
+					padding: 10
+				},
+				color: ["#cc0000"],
+				x: xofctry,
+				y: yofctry,
+				dy: dy,
+				dx: dx
+			}
+			annotationData.push(a);
+		}
+	}
+	
+	generateAnnotation([{y:2009, l:'Economic recession'}])
+		
+	return annotationData;
+}
+
 
 // Method - Genereate line chart legends
 var lineChartLegend = function(outerheight) {

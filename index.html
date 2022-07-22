@@ -6,19 +6,16 @@
 <link rel="stylesheet" href="slider.css"/>
 <link rel="stylesheet" href="style.css"/>
 
-<body onload='init()'>
+<body onload='init()' style="width:1400px">
 	<h1>CS411 - Narrative Visualization.</h1>
-	<div id="buttons">
-		<button id="back-to-home" onclick="backToHome()">Back</button>
-		<button id="reset-chart" onclick="reset()">Reset</button>
+	<div id="chart-summary" class="chart-text" style="width:88%">
+		<h2 id="chart-title"></h2>
+		<p id="chart-desc"></p>
 	</div>
-	<div id="bubbleChart-outerdiv" class="annotation-text" style="width:1400px">
-		<div id="bubble-chart-summary">
-			<div id="bubble-chart-text" class="chart-text">
-				<h2 id="per-capita-co2-emission">Weath, population and per capita CO2 emission of nations.</h2>
-				<p>This visualization shows GDP(<em>x</em>), per capita CO2 emission (<em>y</em>) and population (<em>area</em>) of nations between 1990 and 2019, colored by income group. There was no data available for CO2 emission before 1990 on <a href="https://data.worldbank.org/topic/climate-change">The World Bank website</a> therefore this visualization shows data for years 1990-2019.</p>
-			</div>
-			<div class="slidecontainer" style="width:100%">
+	<button id="reset-chart" onclick="reset()">Reset</button>
+	<div id="bubbleChart-outerdiv" class="annotation-text" style="width:100%">
+		<div id="bubble-chart-controls">
+			<div class="slidecontainer" style="width:85%">
 				<input id="yearRange"
 					type="range" 
 					min="1990" 
@@ -26,26 +23,27 @@
 					value="2019" 
 					step="1" 
 					class="slider" 
-					style="width:50%" />
+					style="width:100%" />
 				<div id="yearValue"/>
 			</div>
-		</div>
-
-		<!--Radio Buttons for chart selection-->
-		<input type="radio" id="btn-per-capita-co2" name="b_chart" checked="checked" onclick="onBubbleButtonClick(BubbleChartButtonStatus.PerCapita)">
+			<!--Radio Buttons for chart selection-->
+			<input type="radio" id="btn-per-capita-co2" name="b_chart" checked="checked" onclick="onBubbleButtonClick(BubbleChartButtonStatus.PerCapita)">
 			<label for="btn-per-capita-co2">CO2 Per Capita</label>
-		<input type="radio" id="btn-total-co2" name="b_chart" onclick="onBubbleButtonClick(BubbleChartButtonStatus.Total)">
+			
+			<input type="radio" id="btn-total-co2" name="b_chart" onclick="onBubbleButtonClick(BubbleChartButtonStatus.Total)">
 			<label for="btn-total-co2">Total CO2</label>
+		</div>
 		
-		<div class="chart-legend-container" style="width:1400px">
+		<div class="chart-legend-container" style="width:100%">
 			<div id="bubbleChart-wrapper" class="chart-and-legend" style="width:88%">
 				<!--<svg id="bubbleChart" width=1400 height=700></svg>-->
 			</div>
 			<div id="bubbleChart-legend" class="chart-and-legend" style="width:10%"></div>
 		</div>
 	</div>
-	<div id="lineChart-outerdiv" class="annotation-text" style="width:1400px">
-		<div class="chart-legend-container" style="width:1400px">
+	<div id="lineChart-outerdiv" class="annotation-text" style="100%">
+		<button id="back-to-home" onclick="backToHome()">Back</button>
+		<div class="chart-legend-container" style="100%">
 			<div id="line-chart-wrapper" class="chart-and-legend" style="width:88%">
 				<div id="line-chart-text" class="chart-text">
 					<h2 id="total-emission"></h2>
@@ -126,7 +124,7 @@ async function updateLineChart(d) {
 	removeLineChart();
 	removeBubbleChart();
 	
-	d3.select('#bubble-chart-summary').style("display", "none")
+	d3.select('#bubble-chart-controls').style("display", "none")
 	await lineChart(d.Country)
 }
 

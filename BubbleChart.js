@@ -14,7 +14,11 @@ async function bubbleChart(year) {
 	const width = outerwidth - 2 * margin; 
 	const height = outerheight - 2 * margin; 
 	
-	d3.select('#bubble-chart-summary').style("display", "block")
+	d3.select('#bubble-chart-controls').style("display", "block")
+	
+	// Set name of country in the chart description.
+	d3.select("#chart-summary #chart-title").text("Weath, population and per capita CO2 emission of nations.")
+	document.getElementById("chart-desc").innerHTML = "This visualization shows GDP(<em>x</em>), per capita CO2 emission (<em>y</em>) and population (<em>area</em>) of nations between 1990 and 2019, colored by income group. There was no data available for CO2 emission before 1990 on <a href=\"https://data.worldbank.org/topic/climate-change\">The World Bank website</a> therefore this visualization shows data for years 1990-2019."
 	
 	let data = fulldata.filter(o => o.Year == year)
 	const maxPcCO2 =  Math.max(...data.map(a => a.PerCapitaCo2));
