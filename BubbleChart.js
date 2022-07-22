@@ -91,14 +91,6 @@ async function bubbleChart(year) {
 	annotationData = bubbleChartAnnotation(data, xscale, margin, yscale, width, height)
 	const makeAnnotations = d3.annotation().annotations(annotationData)
 	
-	// ***** Start - Voronoi *****
-	// TODO: Fix tooltip
-	// Refer https://www.visualcinnamon.com/2015/07/voronoi/ for voronoi
-	var vorono = d3.voronoi()
-		.x(function(d) { return xscale(d.GDPB); })
-		.y(function(d) { return yscale(d.PerCapitaCo2); })
-		.extent([[margin, margin], [width + margin, height + margin]]);
-	
 	var chartSvg = d3.select("#bubbleChart-wrapper")
 		.append("svg")
 		.attr("width", outerwidth)
