@@ -105,19 +105,6 @@ async function bubbleChart(year) {
 		.attr("height", outerheight)
 		.attr("id", "bubbleChart");
 	
-	//Create the voronoi grid
-//	chartSvg.append("g").selectAll("path")
-//		.data(vorono(data).polygons()) //Use vononoi() with your dataset inside
-//		.enter().append("path")
-//		.attr("d", function(d, i) { return d ? "M" + d.join("L") + "Z" : null; })
-//		.attr("stroke", "black") //If you want to look at the cells
-//		.attr("fill", "none")
-//		.style("pointer-events", "all");
-        // .on("mouseover", showVornoTooltip)					
-        // .on("mouseout", removeVornoTooltip)
-	
-	// ***** End - Tooltip *****
-	
 	chartSvg.append("g") 
 		.attr("transform", "translate("+margin+","+margin+")") 
 		.selectAll("circle").data(data).enter().append("circle")
@@ -288,22 +275,4 @@ var bubbleChartLegend = function(outerheight, colorKeys, colors, population2radi
       .attr("y", legendH - 450 + 30)
       .text("Population (M)")
       .attr("text-anchor", "middle")
-}
-
-var vornoTooltipDiv = d3.select("#bubbleChart-wrapper")
-    .append("div");
-
-//Show the tooltip on the hovered over element
-function showVornoTooltip(event, d) {
-	const[x, y] = d3.pointer(event);		
-	vornoTooltipDiv.style("opacity", .9);		
-	vornoTooltipDiv.html(d.data.Country + "<br/>"  + d.data.PerCapitaCo2);
-	vornoTooltipDiv.style("left", (x) + "px")		
-		.style("top", (y) + "px");
-}
-
-//Hide the tooltip when the mouse moves away
-function removeVornoTooltip(event, d) {
-    //Hide the tooltip
-    vornoTooltipDiv.style("opacity", 0);
 }
