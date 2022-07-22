@@ -15,23 +15,27 @@
 	<button id="reset-chart" onclick="reset()">Reset</button>
 	<div id="bubbleChart-outerdiv" class="annotation-text" style="width:100%">
 		<div id="bubble-chart-controls">
-			<div class="slidecontainer" style="width:85%">
-				<input id="yearRange"
-					type="range" 
-					min="1990" 
-					max="2019" 
-					value="2019" 
-					step="1" 
-					class="slider" 
-					style="width:100%" />
-				<div id="yearValue"/>
+			<div class="slidecontainer" style="width:100%">
+				<div class="slider-block" style="width:80%">
+					<input id="yearRange"
+						type="range" 
+						min="1990" 
+						max="2019" 
+						value="2019" 
+						step="1" 
+						class="slider"  />
+				</div>
+				<div id="yearValue" class="slider-label slider-block" style="width:10%"/>
 			</div>
+			<br><br><br>
+			<div>
 			<!--Radio Buttons for chart selection-->
-			<input type="radio" id="btn-per-capita-co2" name="b_chart" checked="checked" onclick="onBubbleButtonClick(BubbleChartButtonStatus.PerCapita)">
-			<label for="btn-per-capita-co2">CO2 Per Capita</label>
+				<input type="radio" id="btn-per-capita-co2" name="b_chart" checked="checked" onclick="onBubbleButtonClick(BubbleChartButtonStatus.PerCapita)">
+				<label for="btn-per-capita-co2">CO2 Per Capita</label>
 			
-			<input type="radio" id="btn-total-co2" name="b_chart" onclick="onBubbleButtonClick(BubbleChartButtonStatus.Total)">
-			<label for="btn-total-co2">Total CO2</label>
+				<input type="radio" id="btn-total-co2" name="b_chart" onclick="onBubbleButtonClick(BubbleChartButtonStatus.Total)">
+				<label for="btn-total-co2">Total CO2</label>
+			</<div>
 		</div>
 		
 		<div class="chart-legend-container" style="width:100%">
