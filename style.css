@@ -25,6 +25,11 @@ circle {stroke: black;}
 	padding-right:20px;
 }
 
+.slider-label {
+	font-size: 1.5rem;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 h1, h2, h3, h4, h5, h6{
     font-weight: 300;
     font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -38,9 +43,4 @@ p {
     font-weight: 300;
     font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height: 1.75;
-}
-
-.slider-label {
-	font-size: 1.5rem;
-    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
