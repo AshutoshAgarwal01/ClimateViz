@@ -1,0 +1,142 @@
+<html>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://d3js.org/d3-voronoi.v1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script>
+<script src="BubbleChart.js"></script>
+<script src="LineChart.js"></script>
+<link rel="stylesheet" href="styles/slider.css"/>
+<link rel="stylesheet" href="styles/style.css"/>
+
+<body onload='init()'>
+	<h1>CS411 - Narrative Visualization.</h1>
+	<div id="buttons">
+		<button id="back-to-home" onclick="backToHome()">Back</button>
+		<button id="reset-chart" onclick="reset()">Reset</button>
+	</div>
+	<div id="bubbleChart-outerdiv" class="annotation-text" style="width:1400px">
+		<div id="bubble-chart-summary">
+			<div id="bubble-chart-text" class="chart-text">
+				<h2 id="per-capita-co2-emission">Weath, population and per capita CO2 emission of nations.</h2>
+				<p>This visualization shows GDP(<em>x</em>), per capita CO2 emission (<em>y</em>) and population (<em>area</em>) of nations between 1990 and 2019, colored by income group. There was no data available for CO2 emission before 1990 on <a href="https://data.worldbank.org/topic/climate-change">The World Bank website</a> therefore this visualization shows data for years 1990-2019.</p>
+			</div>
+			<div class="slidecontainer" style="width:100%">
+				<input id="yearRange"
+					type="range" 
+					min="1990" 
+					max="2019" 
+					value="2019" 
+					step="1" 
+					class="slider" 
+					style="width:50%" />
+				<div id="yearValue"/>
+			</div>
+		</div>
+		<button id="btn-per-capita-co2" onclick="onBubbleButtonClick(BubbleChartButtonStatus.PerCapita)">CO2 Per Capita</button>
+		<button id="btn-total-co2" onclick="onBubbleButtonClick(BubbleChartButtonStatus.Total)">Total CO2</button>
+		<div class="chart-legend-container" style="width:1400px">
+			<div id="bubbleChart-wrapper" class="chart-and-legend" style="width:88%">
+				<!--<svg id="bubbleChart" width=1400 height=700></svg>-->
+			</div>
+			<div id="bubbleChart-legend" class="chart-and-legend" style="width:10%"></div>
+		</div>
+	</div>
+	<div id="lineChart-outerdiv" class="annotation-text" style="width:1400px">
+		<div id="line-chart-wrapper">
+			<div id="line-chart-text" class="chart-text">
+				<h2 id="total-emission"></h2>
+			</div>
+			<div id="countryName"/>
+			<!--<svg id="bubbleChart" width=1400 height=700></svg>-->
+		</div>
+	</div>
+<script>
+var bubbleChartButtonStatus = BubbleChartButtonStatus.PerCapita;
+
+// Common tooltip for all charts
+var TooltipText = function(d) {
+	return `${d.Country}\nYear: ${d.Year}\nCO2 emission per capita (metric tons): ${d.PerCapitaCo2}\nToal CO2 emission (kt): ${d.TotalCO2}\nGDP (Billion dollars): ${d.GDPB}\nPopulation (Millions): ${d.Population/ 1000000}`;
+}
+
+// Get time slider value
+var getTimeSliderValue = function() {
+	return document.getElementById("yearRange").value;
+}
+
+// Update bubble charts based on button selection.
+var onBubbleButtonClick = async function(value) {
+	bubbleChartButtonStatus = value;
+	await updateBubbleChart(getTimeSliderValue());
+}
+
+// Create grid
+var createGrid(xscale, yscale, height, width, margin) {
+	return g => g
+		.attr("stroke", "currentColor")
+		.attr("stroke-opacity", 0.1)
+		.call(g => g.append("g")
+		  .selectAll("line")
+		  .data(xscale.ticks())
+		  .join("line")
+			.attr("x1", d => margin + xscale(d))
+			.attr("x2", d => margin + xscale(d))
+			.attr("y1", margin)
+			.attr("y2", height + margin))
+		.call(g => g.append("g")
+		  .selectAll("line")
+		  .data(yscale.ticks())
+		  .join("line")
+			.attr("y1", d => yscale(d) + margin)
+			.attr("y2", d => yscale(d) + margin)
+			.attr("x1", margin)
+			.attr("x2", width + margin));
+}
+
+
+// Update bubble chart when year is changed.
+async function updateBubbleChart(year) {
+	d3.select('#lineChart').remove();
+	d3.select('#bubbleChart').remove()
+	await bubbleChart(year)
+}
+
+// Update line chart when country is selected
+async function updateLineChart(d) {
+	d3.select("#back-to-home").style("display", "block")
+	d3.select('#lineChart').remove()
+	d3.select('#bubble-chart-summary').style("display", "none")
+	d3.select('#bubbleChart').remove()
+	await lineChart(d.Country)
+}
+
+async function backToHome() {
+	d3.select('#lineChart').remove();
+	d3.select('#bubbleChart').remove();
+	await init();
+}
+
+async function reset() {
+	bubbleChartButtonStatus = BubbleChartButtonStatus.PerCapita;
+	d3.select('#lineChart').remove();
+	d3.select('#bubbleChart').remove();
+	
+    d3.select("#yearRange").property("value", 2019);
+	await init();
+}
+
+async function init() {
+	d3.select("#back-to-home").style("display", "none")
+	var slider = document.getElementById("yearRange");
+	var output = document.getElementById("yearValue");
+	output.innerHTML = slider.value;
+	
+	// Update the current slider value (each time you drag the slider handle)
+	slider.oninput = async function() {
+		output.innerHTML = this.value;
+		await updateBubbleChart(this.value);
+	}
+	
+	await bubbleChart(slider.value);
+}
+</script>
+</body>
+</html>
