@@ -69,7 +69,7 @@ var onBubbleButtonClick = async function(value) {
 }
 
 // Create grid
-var createGrid(xscale, yscale, height, width, margin) {
+var createGrid = function(xscale, yscale, height, width, margin) {
 	return g => g
 		.attr("stroke", "currentColor")
 		.attr("stroke-opacity", 0.1)
