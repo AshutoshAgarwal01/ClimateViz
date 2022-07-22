@@ -30,8 +30,13 @@
 				<div id="yearValue"/>
 			</div>
 		</div>
-		<button id="btn-per-capita-co2" onclick="onBubbleButtonClick(BubbleChartButtonStatus.PerCapita)">CO2 Per Capita</button>
-		<button id="btn-total-co2" onclick="onBubbleButtonClick(BubbleChartButtonStatus.Total)">Total CO2</button>
+
+		<!--Radio Buttons for chart selection-->
+		<input type="radio" id="btn-per-capita-co2" name="b_chart" checked="checked" onclick="onBubbleButtonClick(BubbleChartButtonStatus.PerCapita)">
+			<label for="btn-per-capita-co2">CO2 Per Capita</label>
+		<input type="radio" id="btn-total-co2" name="b_chart" onclick="onBubbleButtonClick(BubbleChartButtonStatus.Total)">
+			<label for="btn-total-co2">Total CO2</label>
+		
 		<div class="chart-legend-container" style="width:1400px">
 			<div id="bubbleChart-wrapper" class="chart-and-legend" style="width:88%">
 				<!--<svg id="bubbleChart" width=1400 height=700></svg>-->
