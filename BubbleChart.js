@@ -33,10 +33,11 @@ async function bubbleChart(year) {
 	xaxis = g => g
 		.call(formatXAxis(d3.axisBottom(xscale)))
 		.call(g => g.append("text")
-			.attr("x", width)
+			.attr("x", width / 2)
 			.attr("y", margin - 10)
 			.attr("fill", "currentColor")
-			.attr("text-anchor", "end")
+			// .attr("text-anchor", "end")
+			.attr("class", "chart-axis")
 			.text("GDP (Billion dollars) - Log scale"))
 			
 	// verticle axis - CO2 per capita 
@@ -49,10 +50,11 @@ async function bubbleChart(year) {
 	yaxis = g => g
 		.call(formatYAxis(d3.axisLeft(yscale)))
 		.call(g => g.append("text")
-			.attr("x", 10)
+			.attr("x", height / 2)
 			.attr("y", margin - 10)
 			.attr("fill", "currentColor")
-			.attr("text-anchor", "start")
+			// .attr("text-anchor", "start")
+			.attr("class", "chart-axis")
 			.text(yaxisText)
 			.attr("transform", "rotate(90)"))
 
@@ -188,7 +190,7 @@ var bubbleChartAnnotation = function(data, xscale, margin, yscale, chartWidth, c
 		{c:countrySortedByEmission[3], l:'#4'},
 		{c:countrySortedByEmission[4], l:'#5'},
 		{c:'United States', l: `#${countrySortedByEmission.indexOf("United States") + 1}`},
-		{c:'India', l:`#${countrySortedByEmission.indexOf("India") + 1} Very high population but less per capita carbon emission`},
+		{c:'India', l:`#${countrySortedByEmission.indexOf("India") + 1}`},
 		{c:'Canada', l:`#${countrySortedByEmission.indexOf("Canada") + 1}`},
 		{c:'China', l:`#${countrySortedByEmission.indexOf("China") + 1}`},
 		{c:'Ethiopia', l:`#${countrySortedByEmission.indexOf("Ethiopia") + 1}`}])
@@ -213,7 +215,7 @@ var bubbleChartLegend = function(outerheight, colorKeys, colors, population2radi
 	  .enter()
 	  .append("circle")
 		.attr("cx", 10) // 1150
-		.attr("cy", function(d,i){ return 60 + i*25})
+		.attr("cy", function(d,i){ return 57 + i*25})
 		.attr("r", 7)
 		.style("fill", function(d){ return colors(d)})
 
@@ -224,9 +226,7 @@ var bubbleChartLegend = function(outerheight, colorKeys, colors, population2radi
 		.attr("x", 30)
 		.attr("y", function(d,i){ return 60 + i*25})
 		.style("fill", function(d){ return colors(d)})
-		.text(function(d){ return d})
-		.attr("text-anchor", "left")
-		.style("alignment-baseline", "middle")
+		.text(function(d){ return d});
 	// ****** End - Income Group legend. ****
 	
 	

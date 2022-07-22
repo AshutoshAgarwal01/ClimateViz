@@ -6,59 +6,61 @@
 <link rel="stylesheet" href="slider.css"/>
 <link rel="stylesheet" href="style.css"/>
 
-<body onload='init()' style="width:1400px">
-	<h1>CS411 - Narrative Visualization.</h1>
-	<div id="chart-summary" class="chart-text" style="width:88%">
-		<h2 id="chart-title"></h2>
-		<p id="chart-desc"></p>
-	</div>
-	<div>
-		<button id="reset-chart" onclick="reset()">Reset</button>
-		<button id="back-to-home" onclick="backToHome()">Back</button>
-	</div>
-	<div id="bubbleChart-outerdiv" class="annotation-text" style="width:100%">
-		<div id="bubble-chart-controls">
-			<div class="slidecontainer" style="width:100%">
-				<div class="slider-block" style="width:80%">
-					<input id="yearRange"
-						type="range" 
-						min="1990" 
-						max="2019" 
-						value="2019" 
-						step="1" 
-						class="slider"  />
+<body onload='init()'>
+	<div class="main-container">
+		<h1>CS411 - Narrative Visualization.</h1>
+		<div id="chart-summary" class="chart-text" style="width:88%">
+			<h2 id="chart-title"></h2>
+			<p id="chart-desc"></p>
+		</div>
+		<div>
+			<button id="reset-chart" onclick="reset()">Reset</button>
+			<button id="back-to-home" onclick="backToHome()">Back</button>
+		</div>
+		<div id="bubbleChart-outerdiv" class="annotation-text" style="width:100%">
+			<div id="bubble-chart-controls">
+				<div class="slidecontainer" style="width:100%">
+					<div class="slider-block" style="width:80%">
+						<input id="yearRange"
+							type="range" 
+							min="1990" 
+							max="2019" 
+							value="2019" 
+							step="1" 
+							class="slider"  />
+					</div>
+					<div id="yearValue" class="slider-label slider-block" style="width:10%"/>
 				</div>
-				<div id="yearValue" class="slider-label slider-block" style="width:10%"/>
+				<br><br><br>
+				<div>
+				<!--Radio Buttons for chart selection-->
+					<input type="radio" id="btn-per-capita-co2" name="b_chart" checked="checked" onclick="onBubbleButtonClick(BubbleChartButtonStatus.PerCapita)">
+					<label for="btn-per-capita-co2">CO2 Per Capita</label>
+				
+					<input type="radio" id="btn-total-co2" name="b_chart" onclick="onBubbleButtonClick(BubbleChartButtonStatus.Total)">
+					<label for="btn-total-co2">Total CO2</label>
+				</div>
 			</div>
-			<br><br><br>
-			<div>
-			<!--Radio Buttons for chart selection-->
-				<input type="radio" id="btn-per-capita-co2" name="b_chart" checked="checked" onclick="onBubbleButtonClick(BubbleChartButtonStatus.PerCapita)">
-				<label for="btn-per-capita-co2">CO2 Per Capita</label>
 			
-				<input type="radio" id="btn-total-co2" name="b_chart" onclick="onBubbleButtonClick(BubbleChartButtonStatus.Total)">
-				<label for="btn-total-co2">Total CO2</label>
-			</div>
-		</div>
-		
-		<div class="chart-legend-container" style="width:100%">
-			<div id="bubbleChart-wrapper" class="chart-and-legend" style="width:88%">
-				<!--<svg id="bubbleChart" width=1400 height=700></svg>-->
-			</div>
-			<div id="bubbleChart-legend" class="chart-and-legend" style="width:10%"></div>
-		</div>
-	</div>
-	<div id="lineChart-outerdiv" class="annotation-text" style="100%">
-		<div class="chart-legend-container" style="100%">
-			<div id="line-chart-wrapper" class="chart-and-legend" style="width:88%">
-				<div id="line-chart-text" class="chart-text">
-					<h2 id="total-emission"></h2>
+			<div class="chart-legend-container" style="width:100%">
+				<div id="bubbleChart-wrapper" class="chart-and-legend-block" style="width:88%">
+					<!--<svg id="bubbleChart" width=1400 height=700></svg>-->
 				</div>
-				<!--<svg id="bubbleChart" width=1400 height=700></svg>-->
+				<div id="bubbleChart-legend" class="chart-and-legend-block chart-legend" style="width:10%"></div>
 			</div>
-			<div id="lineChart-legend" class="chart-and-legend" style="width:10%"></div>
 		</div>
-	</div>
+		<div id="lineChart-outerdiv" class="annotation-text" style="100%">
+			<div class="chart-legend-container" style="100%">
+				<div id="line-chart-wrapper" class="chart-and-legend-block" style="width:88%">
+					<div id="line-chart-text" class="chart-text">
+						<h2 id="total-emission"></h2>
+					</div>
+					<!--<svg id="bubbleChart" width=1400 height=700></svg>-->
+				</div>
+				<div id="lineChart-legend" class="chart-and-legend-block chart-legend" style="width:10%"></div>
+			</div>
+		</div>
+	<div>
 <script>
 var bubbleChartButtonStatus = BubbleChartButtonStatus.PerCapita;
 
@@ -116,11 +118,8 @@ async function removeLineChart() {
 
 // Update bubble chart when year is changed.
 async function updateBubbleChart(year) {
-	d3.select('#lineChart').remove();
-	d3.select('#lineChartlegend').remove()
-	
-	d3.select('#bubbleChart').remove()
-	d3.select('#bubbleChartlegend').remove()
+	removeLineChart();
+	removeBubbleChart();
 	await bubbleChart(year)
 }
 

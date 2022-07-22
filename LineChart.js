@@ -9,6 +9,8 @@ async function lineChart(country) {
 	const height = outerheight - 2 * margin; 
 	const rightAxisXPos = width + margin;
 		
+	const axisKeys = {x:{col: "black", indicator: "Year"}, y:[{col: "steelblue", indicator: "Total CO2 emission (kt)"}, {col: "red", indicator: "Per capita CO2 emission"}]}
+		
 	var lineSvg = d3.select("#line-chart-wrapper")
 	.append("svg")
     .attr("width", outerwidth)
@@ -25,7 +27,7 @@ async function lineChart(country) {
 	const maxPerCapitaCO2 =  Math.max(...data.map(a => a.PerCapitaCo2));
 	
 	// Common methods to format axis.
-	formatXAxis = (a) => { return a.tickValues(['1990', '1991', '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019']); }
+	formatXAxis = (a) => { return a.tickValues(['1990', '1991', '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019']).tickFormat(d3.format("d")); }
 	formatYAxis = (a) => { return a.tickFormat(d3.format("~s")); }
 
 	// Horizontal axis - GDP
@@ -33,35 +35,35 @@ async function lineChart(country) {
 	xaxis = g => g
 		.call(formatXAxis(d3.axisBottom(xscale)))
 		.call(g => g.append("text")
-			.attr("x", width)
+			.attr("x", width / 2)
 			.attr("y", margin - 10)
-			.attr("fill", "currentColor")
-			.attr("text-anchor", "end")
-			.text("Year"))
+			.attr("fill", axisKeys.x.col)
+			.attr("class", "chart-axis")
+			.text(axisKeys.x.indicator))
 			
 	// verticle axis - CO2 per capita 
 	const yscale = d3.scaleLinear().domain([0, maxCO2 + 1000]).range([height, 0]); 
 	yaxis = g => g
 		.call(formatYAxis(d3.axisLeft(yscale)))
 		.call(g => g.append("text")
-			.attr("x", 10)
+			.attr("x", height/ 2)
 			.attr("y", margin - 3)
-			.attr("fill", "currentColor")
-			.attr("text-anchor", "start")
-			.text("Total CO2 emission(kt)")
-			.attr("transform", "rotate(90)"))
+			.attr("fill", axisKeys.y[0].col)
+			.attr("class", "chart-axis")
+			.text(axisKeys.y[0].indicator)
+			.attr("transform", "rotate(90)"));
 
 	// verticle axis - Total CO2
 	const yscale1 = d3.scaleLinear().domain([0, maxPerCapitaCO2 + 1]).range([height, 0]); 
 	yaxis1 = g => g
 		.call(formatYAxis(d3.axisRight(yscale1)))
 		.call(g => g.append("text")
-			.attr("x", rightAxisXPos - 10)
-			.attr("y", margin - 3)
-			.attr("fill", "currentColor")
-			.attr("text-anchor", "start")
-			.text("Per capita CO2 emission(mt)")
-			.attr("transform", "rotate(90)"))
+			.attr("x", height/ 2 - 140)
+			.attr("y", -(margin / 2) - 5)
+			.attr("fill", axisKeys.y[1].col)
+			.attr("class", "chart-axis")
+			.text(axisKeys.y[1].indicator)
+			.attr("transform", "rotate(90)"));
 
 	// Grid
 	grid = g => g
@@ -85,7 +87,7 @@ async function lineChart(country) {
 			.attr("x2", width + margin)); 
 	
 	// Create legend.
-	lineChartLegend(outerheight);
+	lineChartLegend(outerheight, axisKeys);
 	
 	// Create annotationData
 	const annotationData = lineChartAnnotation(data, xscale, margin, yscale, width, height)
@@ -95,7 +97,6 @@ async function lineChart(country) {
 	lineSvg.append("g") 
 		.attr("transform", "translate("+margin+","+margin+")") 
 		.append("path").datum(data)
-		// .selectAll("path").data(data).enter().append("path")
 		.style("fill", "none")
 		.attr("stroke-width", 1.5)
 		.attr("stroke", "steelblue")
@@ -203,12 +204,11 @@ var lineChartAnnotation = function(data, xscale, margin, yscale, chartWidth, cha
 
 
 // Method - Genereate line chart legends
-var lineChartLegend = function(outerheight) {
+var lineChartLegend = function(outerheight, axisKeys) {
 	var marginLengend = 5
 	var legendW = 200
 	var legendH = outerheight
 	
-	const colorKeys = [{col: "steelblue", indicator: "Total CO2 emission"}, {col: "red", indicator: "Per capita CO2 emission"}]
 	var legendSvg = d3.select("#lineChart-legend")
 		.append("svg")
 		.attr("transform", "translate("+marginLengend+","+marginLengend+")")
@@ -217,23 +217,21 @@ var lineChartLegend = function(outerheight) {
 		.attr("id", "lineChartlegend");
 	
 	legendSvg.selectAll("rect")
-	  .data(colorKeys)
+	  .data(axisKeys.y)
 	  .enter()
 	  .append("rect")
 		.attr("x", 10)
-		.attr("y", function(d,i){ return 110 + i*25})
+		.attr("y", function(d,i){ return 107 + i*25})
 		.attr("width", 10)
 		.attr("height", 10)
 		.style("fill", function(d){ return d.col})
 
 	legendSvg.selectAll("mylabels")
-	  .data(colorKeys)
+	  .data(axisKeys.y)
 	  .enter()
 	  .append("text")
 		.attr("x", 30)
 		.attr("y", function(d,i){ return 117 + i*25})
 		.style("fill", function(d){ return d.col})
-		.text(function(d){ return d.indicator})
-		.attr("text-anchor", "left")
-		.style("alignment-baseline", "middle")
+		.text(function(d){ return d.indicator});
 }
