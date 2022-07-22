@@ -1,18 +1,14 @@
+const years = ['1990', '1991', '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019'];
+
 async function lineChart(country) {
-	const fulldata = await d3.csv("YearCountryWiseIndicators.csv");
-	const margin = 50; 
-	
-	const outerwidth = 1400 * 0.88; 
-	const outerheight = 700; 
-	
-	const width = outerwidth - 2 * margin; 
-	const height = outerheight - 2 * margin; 
 	const rightAxisXPos = width + margin;
 		
 	const axisKeys = {x:{col: "black", indicator: "Year"}, y:[{col: "steelblue", indicator: "Total CO2 emission (kt)"}, {col: "red", indicator: "Per capita CO2 emission"}]}
-		
+	
 	var lineSvg = d3.select("#line-chart-wrapper")
 	.append("svg")
+	// .on("pointerenter pointermove", pointermoved)
+	// .on("pointerleave", pointerleft)
     .attr("width", outerwidth)
     .attr("height", outerheight)
 	.attr("id", "lineChart");
@@ -27,7 +23,7 @@ async function lineChart(country) {
 	const maxPerCapitaCO2 =  Math.max(...data.map(a => a.PerCapitaCo2));
 	
 	// Common methods to format axis.
-	formatXAxis = (a) => { return a.tickValues(['1990', '1991', '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019']).tickFormat(d3.format("d")); }
+	formatXAxis = (a) => { return a.tickValues(years).tickFormat(d3.format("d")); }
 	formatYAxis = (a) => { return a.tickFormat(d3.format("~s")); }
 
 	// Horizontal axis - GDP
@@ -65,6 +61,55 @@ async function lineChart(country) {
 			.text(axisKeys.y[1].indicator)
 			.attr("transform", "rotate(90)"));
 
+	// Tooltip	
+	var focus = lineSvg.append("g")
+			.attr("class", "focus")
+            .style("display", "none");
+
+	focus.append("circle")
+		.attr("transform", "translate("+margin+","+margin+")") 
+		.attr("r", 8);
+
+	focus.append("rect")
+		.attr("transform", "translate("+margin+","+margin+")") 
+		.attr("class", "tooltip")
+		.attr("width", 300).attr("height", 100)
+		.attr("x", 10).attr("y", 10);
+
+	for (let i = 0; i < 6; i++) {
+		focus.append("text")
+			.attr("transform", "translate("+margin+","+margin+")") 
+			.attr("id", `linetooltip${i}`)
+			.attr("x", 18).attr("y", 27 + i * 15);
+	}
+		
+	lineSvg.append("rect")
+		.attr("class", "overlay")
+		.attr("width", outerwidth)
+		.attr("height", outerheight)
+		.on("mouseover", function() { focus.style("display", null); })
+		.on("mouseout", function() { focus.style("display", "none"); })
+		.on("mousemove", mousemove);
+		
+	function mousemove() {
+		const i = d3.bisectCenter(years, xscale.invert(d3.pointer(event)[0])) - 1;
+		const yearData = data.filter(o => o.Year == years[i])[0];
+		const yvalue = yearData.TotalCO2;
+		const xvalue = yearData.Year;
+		console.log(`${i} - ${xvalue}`);
+		
+		const rectx = xvalue <= 2008 ? 10 : -310;
+		const textx = xvalue <= 2008 ? 18 : -300;
+		focus.select(".tooltip").attr("x", rectx);
+		focus.attr("transform", "translate("+xscale(xvalue)+", "+yscale(yvalue)+")");
+		
+		const tipTxtArr = toolTipTextArray(yearData);
+		for (let i = 0; i < 6; i++) {
+			focus.select(`#linetooltip${i}`).attr("x", textx);
+			focus.select(`#linetooltip${i}`).html(tipTxtArr[i]);
+		}
+	}
+	
 	// Grid
 	grid = g => g
 		.attr("stroke", "currentColor")
@@ -201,7 +246,6 @@ var lineChartAnnotation = function(data, xscale, margin, yscale, chartWidth, cha
 		
 	return annotationData;
 }
-
 
 // Method - Genereate line chart legends
 var lineChartLegend = function(outerheight, axisKeys) {

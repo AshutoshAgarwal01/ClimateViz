@@ -57,3 +57,22 @@ html, body { margin: 0; padding: 0; }
 .chart-axis {
 	font-weight: 700;
 }
+
+/* Following are taken from https://bl.ocks.org/Qizly/8f6ba236b79d9bb03a80 */ 
+.overlay {
+	fill: none;
+	pointer-events: all;
+}
+
+.focus circle {
+	fill: steelblue;
+}
+
+.focus text {
+	font-size: 10px;
+}
+
+.tooltip {
+	fill: white;
+	stroke: #000;
+}

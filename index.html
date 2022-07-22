@@ -62,11 +62,34 @@
 		</div>
 	<div>
 <script>
+var fulldata;
+
 var bubbleChartButtonStatus = BubbleChartButtonStatus.PerCapita;
+const margin = 50; 
+const outerwidth = 1400 * 0.88; 
+const outerheight = 700; 
+const width = outerwidth - 2 * margin; 
+const height = outerheight - 2 * margin; 
+
+var toolTipTextArray = function(d) {
+	return [`${d.Country}`,
+			`Year: ${d.Year}`,
+			`CO2 emission per capita (metric tons): ${d.PerCapitaCo2}`,
+			`Toal CO2 emission (kt): ${d.TotalCO2}`,
+			`GDP (Billion dollars): ${d.GDPB}`,
+			`Population (Millions): ${d.Population/ 1000000}`];
+}
+
 
 // Common tooltip for all charts
 var TooltipText = function(d) {
-	return `${d.Country}\nYear: ${d.Year}\nCO2 emission per capita (metric tons): ${d.PerCapitaCo2}\nToal CO2 emission (kt): ${d.TotalCO2}\nGDP (Billion dollars): ${d.GDPB}\nPopulation (Millions): ${d.Population/ 1000000}`;
+	let txt = '';
+	for (const x of toolTipTextArray(d)) {
+		txt = txt === '' ?  x : txt + '\n' + x;
+	}	
+	
+	//return `${d.Country}\nYear: ${d.Year}\nCO2 emission per capita (metric tons): ${d.PerCapitaCo2}\nToal CO2 emission (kt): ${d.TotalCO2}\nGDP (Billion dollars): ${d.GDPB}\nPopulation (Millions): ${d.Population/ 1000000}`;
+	return txt;
 }
 
 // Get time slider value
@@ -149,6 +172,7 @@ async function reset() {
 }
 
 async function init() {
+	fulldata = await d3.csv("YearCountryWiseIndicators.csv");
 	d3.select("#back-to-home").style("display", "none")
 	var slider = document.getElementById("yearRange");
 	var output = document.getElementById("yearValue");
