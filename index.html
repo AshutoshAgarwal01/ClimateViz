@@ -12,7 +12,10 @@
 		<h2 id="chart-title"></h2>
 		<p id="chart-desc"></p>
 	</div>
-	<button id="reset-chart" onclick="reset()">Reset</button>
+	<div>
+		<button id="reset-chart" onclick="reset()">Reset</button>
+		<button id="back-to-home" onclick="backToHome()">Back</button>
+	</div>
 	<div id="bubbleChart-outerdiv" class="annotation-text" style="width:100%">
 		<div id="bubble-chart-controls">
 			<div class="slidecontainer" style="width:100%">
@@ -46,7 +49,6 @@
 		</div>
 	</div>
 	<div id="lineChart-outerdiv" class="annotation-text" style="100%">
-		<button id="back-to-home" onclick="backToHome()">Back</button>
 		<div class="chart-legend-container" style="100%">
 			<div id="line-chart-wrapper" class="chart-and-legend" style="width:88%">
 				<div id="line-chart-text" class="chart-text">

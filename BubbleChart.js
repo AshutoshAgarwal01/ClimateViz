@@ -125,7 +125,7 @@ async function bubbleChart(year) {
 			.style("cursor", "default"); })
 		.append("title")
 		.text(function(d) {return TooltipText(d)});
-		
+	
 	chartSvg
 		.append("g") 
 		.attr("transform", "translate("+margin+","+margin+")") 
