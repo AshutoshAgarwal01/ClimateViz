@@ -76,7 +76,8 @@
 	const outerheight = 700; 
 	const width = outerwidth - 2 * margin; 
 	const height = outerheight - 2 * margin; 
-
+	const incomeGroups = [{name: 'Low income', id: "lowincome"},{name: 'Upper middle income', id: "upmidincome"}, {name: 'Lower middle income', id: "lowmidincome"}, {name: 'High income', id: "highincome"}]
+	
 	var toolTipTextArray = function(d) {
 		return [`${d.Country}`,
 				`Year: ${d.Year}`,
@@ -94,6 +95,30 @@
 		}	
 
 		return txt;
+	}
+
+	// Get selected income groupd
+	var getIncomeGroupSelectionStatus = function() {
+		let selectionStatus = [];
+		for (incomeGroup of incomeGroups) {
+			const groupid = `btn-${incomeGroup.id}`;
+			const element = d3.selectAll(`#${groupid}`);
+			const isSelected = element === "undefined" ? true : element.attr("selected") === 'true' ? true : false;
+			selectionStatus.push({name: incomeGroup.name, selected: isSelected});
+		}
+		
+		return selectionStatus;
+	}
+
+	var getSelectedIncomeGroups = function() {
+		return getIncomeGroupSelectionStatus().filter(s => s.selected == true).map(m => m.name);
+	}
+
+	var resetIncomeGroupSelectionStatus = function() {
+		for (incomeGroup of incomeGroups) {
+			const groupid = `btn-${incomeGroup.id}`;
+			d3.selectAll(`#${groupid}`).attr("selected", true);;
+		}
 	}
 
 	// Get time slider value
@@ -130,12 +155,6 @@
 				.attr("x2", width + margin));
 	}
 
-	// Remove bubble chart.
-	async function removeBubbleChart() {
-		d3.select('#bubbleChart').remove()
-		d3.select('#bubbleChartlegend').remove()
-	}
-
 	// Remove line chart
 	async function removeLineChart() {
 		d3.select('#lineChart').remove();
@@ -164,15 +183,16 @@
 	async function backToHome() {
 		removeLineChart();
 		removeBubbleChart();
-		await init();
+		await init(false);
 	}
 
 	async function reset() {
 		isPaused = true;
 		bubbleChartButtonStatus = BubbleChartButtonStatus.PerCapita;
+		resetIncomeGroupSelectionStatus()
 		removeLineChart();
 		removeBubbleChart();
-		
+		d3.select("#btn-per-capita-co2").property("checked", true);
 		d3.select("#yearRange").property("value", 2019);
 		await init();
 	}
@@ -188,7 +208,7 @@
 		  
 		  if (tyear > 2019 || isPaused == true) {
 			timer.stop();
-			isPaused == true;
+			isPaused = true;
 		  }
 		  else {
 			slider.dispatchEvent(new Event('input'));
@@ -204,7 +224,17 @@
 		}
 	}
 
-	async function init() {
+	// Color scale by Income group.
+	colors = d3.scaleOrdinal()
+		.domain(incomeGroups.map(n => n.name))
+		.range(d3.schemeSet2);
+
+	// Circle size by population.
+	population2radius = d3.scaleSqrt()
+	  .domain([0, 2e9])
+	  .range([0, 60])
+
+	async function init(isreset = true) {
 		fulldata = await d3.csv("YearCountryWiseIndicators.csv");
 		fulldata = fulldata.filter(o => o.Country != 'World');
 		d3.select("#back-to-home").style("display", "none")
@@ -217,7 +247,12 @@
 			output.innerHTML = this.value;
 			await updateBubbleChart(this.value);
 		}
-		
+
+		// Create bubble bar chart legend. We can create it here because this will not change durign chart interactions.
+		if (isreset){
+			removeBubbleChartLegend()
+			createBubbleChartLegend(outerheight, incomeGroups, colors, population2radius);
+		}
 		await bubbleChart(slider.value);
 	}
 </script>

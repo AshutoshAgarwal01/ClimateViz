@@ -4,6 +4,15 @@ const BubbleChartButtonStatus = {
 	Total: 1
 }
 
+// Remove bubble chart.
+async function removeBubbleChart() {
+	d3.select('#bubbleChart').remove()
+}
+
+removeBubbleChartLegend = function() {
+	d3.select('#bubbleChartlegend').remove()
+}
+
 async function bubbleChart(year) {
 	d3.select('#bubble-chart-controls').style("display", "block")
 	
@@ -13,30 +22,39 @@ async function bubbleChart(year) {
 	const indicator = bubbleChartButtonStatus == BubbleChartButtonStatus.PerCapita ? "Per capita CO2 emission" : "Total CO2 emission";
 	document.getElementById("chart-desc").innerHTML = `This visualization shows GDP(<em>x</em>), ${indicator} (<em>y</em>) and population (<em>area</em>) of nations between 1990 and 2019, colored by income group. There was no data available for CO2 emission before 1990 on <a href=\"https://data.worldbank.org/topic/climate-change\">The World Bank website</a> therefore this visualization shows data for years 1990-2019.`
 	
-	let data = fulldata.filter(o => o.Year == year)
-	const maxPcCO2 =  Math.max(...data.map(a => a.PerCapitaCo2));
+	// let data = fulldata.filter(o => o.Year == year)
+	
+	const selectedIncomeGroups = getSelectedIncomeGroups();
+	let data = fulldata.filter(o => o.Year == year && selectedIncomeGroups.includes(o.IncomeGroup));
 	
 	// Common method to format axis.
 	formatXAxis = (a) => { return a.tickValues([100, 1000, 5000, 10000, 20000]).tickFormat(d3.format("~s")); }
 	
 	formatYAxis = (a) => { return bubbleChartButtonStatus == BubbleChartButtonStatus.PerCapita ? a.tickFormat(d3.format("~s")) : a.tickValues([100, 1000, 10000, 100000, 1000000, 10000000, 500000000]).tickFormat(d3.format("~s")); }
 
+	// max values for axis
+	// We are getting max for each indicator regardless of time so that chart remains stable when income group is toggled.
+	const dataForAxisRange = fulldata.filter(o => selectedIncomeGroups.includes(o.IncomeGroup));
+	const maxGdpb = Math.max(...dataForAxisRange.map(a => a.GDPB));
+	let maxPcCO2 =  Math.max(...dataForAxisRange.map(a => a.PerCapitaCo2));
+	maxPcCO2 = maxPcCO2 > 45 ? 45 : maxPcCO2;
+	const maxTotalCO2 =  Math.max(...dataForAxisRange.map(a => a.TotalCO2));
+
 	// Horizontal axis - GDP
-	const xscale = d3.scaleLog().domain([1, 22500]).range([0, width]); 
+	const xscale = d3.scaleLog().domain([1, maxGdpb + 100]).range([0, width]); 
 	xaxis = g => g
 		.call(formatXAxis(d3.axisBottom(xscale)))
 		.call(g => g.append("text")
 			.attr("x", width / 2)
 			.attr("y", margin - 10)
 			.attr("fill", "currentColor")
-			// .attr("text-anchor", "end")
 			.attr("class", "chart-axis")
 			.text("GDP (Billion dollars) - Log scale"))
 			
 	// verticle axis - CO2 per capita 
 	var yaxisText = bubbleChartButtonStatus == BubbleChartButtonStatus.PerCapita ? "CO2 emission per capita (metric tons)" : "Total CO2 emission (kt) - Log Scale";
 	
-	var ydomain = bubbleChartButtonStatus == BubbleChartButtonStatus.PerCapita ? [0, 45] : [50, Math.max(...data.map(a => a.TotalCO2)) + 20000000];
+	var ydomain = bubbleChartButtonStatus == BubbleChartButtonStatus.PerCapita ? [0, maxPcCO2 + 0.1] : [50, maxTotalCO2 + 20000000];
 	let yscale = bubbleChartButtonStatus == BubbleChartButtonStatus.PerCapita ? d3.scaleLinear() : d3.scaleLog(); 
 	yscale = yscale.domain(ydomain).range([height, 0]);
 	
@@ -46,21 +64,9 @@ async function bubbleChart(year) {
 			.attr("x", height / 2)
 			.attr("y", margin - 10)
 			.attr("fill", "currentColor")
-			// .attr("text-anchor", "start")
 			.attr("class", "chart-axis")
 			.text(yaxisText)
 			.attr("transform", "rotate(90)"))
-
-	// Color scale by Income group.
-	const colorKeys = ['Low income','Upper middle income', 'Lower middle income', 'High income']
-    colors = d3.scaleOrdinal()
-       .domain(colorKeys)
-	   .range(d3.schemeSet2);
-
-	// Circle size by population.
-	population2radius = d3.scaleSqrt()
-	  .domain([0, 2e9])
-	  .range([0, 60])
 
 	// Grid
 	grid = g => g
@@ -82,9 +88,6 @@ async function bubbleChart(year) {
 			.attr("y2", d => yscale(d) + margin)
 			.attr("x1", margin)
 			.attr("x2", width + margin)); 
-		
-	// Create legend.
-	bubbleChartLegend(outerheight, colorKeys, colors, population2radius);
 	
 	// Create annotations
 	annotationData = bubbleChartAnnotation(data, xscale, margin, yscale, width, height)
@@ -146,7 +149,7 @@ var bubbleChartAnnotation = function(data, xscale, margin, yscale, chartWidth, c
 																	data.sort((a,b) => b.PerCapitaCo2 - a.PerCapitaCo2).map(a => a.Country) : 
 																	data.sort((a,b) => b.TotalCO2 - a.TotalCO2).map(a => a.Country);;
 	
-	const annotationY = function(country) {
+	const annotationY = function(country, data) {
 		return bubbleChartButtonStatus == BubbleChartButtonStatus.PerCapita ? 
 											data.find(o => o.Country == country.c).PerCapitaCo2 : 
 											data.find(o => o.Country == country.c).TotalCO2;
@@ -154,26 +157,30 @@ var bubbleChartAnnotation = function(data, xscale, margin, yscale, chartWidth, c
 	
 	let annotationData = []
 	
-	var generateAnnotation = function(countries){
+	var generateAnnotation = function(countries, data){
+		const selectedIncomeGroups = getSelectedIncomeGroups();
 		for (const country of countries) {
-			const xofctry = xscale(data.find(o => o.Country == country.c).GDPB) + margin;
-			const yofctry = yscale(annotationY(country)) + margin;
-			const dx = xofctry + 100 > chartWidth ? -40 : 40; // Ensure that annotations are not going outside chart dimensions.
-			const dy = yofctry + 240 > chartHeight ? -40 : 40;
-			var a = {
-				note: {
-					label: country.l,
-					title: country.c,
-					wrap: 200,
-					padding: 10
-				},
-				color: ["#cc0000"],
-				x: xofctry,
-				y: yofctry,
-				dy: dy,
-				dx: dx
+			const conuntryData = data.find(o => o.Country == country.c);
+			if (conuntryData && selectedIncomeGroups.includes(conuntryData.IncomeGroup)) {
+				const xofctry = xscale(data.find(o => o.Country == country.c).GDPB) + margin;
+				const yofctry = yscale(annotationY(country, data)) + margin;
+				const dx = xofctry + 100 > chartWidth ? -40 : 40; // Ensure that annotations are not going outside chart dimensions.
+				const dy = yofctry + 240 > chartHeight ? -40 : 40;
+				var a = {
+					note: {
+						label: country.l,
+						title: country.c,
+						wrap: 200,
+						padding: 10
+					},
+					color: ["#cc0000"],
+					x: xofctry,
+					y: yofctry,
+					dy: dy,
+					dx: dx
+				}
+				annotationData.push(a);
 			}
-			annotationData.push(a);
 		}
 	}
 	
@@ -186,13 +193,27 @@ var bubbleChartAnnotation = function(data, xscale, margin, yscale, chartWidth, c
 		{c:'India', l:`#${countrySortedByEmission.indexOf("India") + 1}`},
 		{c:'Canada', l:`#${countrySortedByEmission.indexOf("Canada") + 1}`},
 		{c:'China', l:`#${countrySortedByEmission.indexOf("China") + 1}`},
-		{c:'Ethiopia', l:`#${countrySortedByEmission.indexOf("Ethiopia") + 1}`}])
+		{c:'Ethiopia', l:`#${countrySortedByEmission.indexOf("Ethiopia") + 1}`}], data)
 		
 	return annotationData;
 }
 
+var incomeLegendClickHandler = async function(event, selectedIncomeGroup) {
+	const id = event.target.id;
+	const labelId = id.replace("btn-", "lbl-");
+	const isSelected = d3.selectAll(`#${id}`).attr("selected");
+	
+	// toggle fill.
+	const newSelected = isSelected === 'true' ? false : true;
+	var newfill = newSelected == true ? d3.selectAll(`#${labelId}`).style("fill") : "black";
+	d3.selectAll(`#${id}`).style("fill", newfill);
+	d3.selectAll(`#${id}`).attr("selected", newSelected);
+
+	await updateBubbleChart(getTimeSliderValue());
+}
+
 // Method - Genereate bubble chart legends
-var bubbleChartLegend = function(outerheight, colorKeys, colors, population2radius) {
+var createBubbleChartLegend = function(outerheight, incomeGroups, colors, population2radius) {
 	var marginLengend = 5
 	var legendW = 200
 	var legendH = outerheight
@@ -203,23 +224,39 @@ var bubbleChartLegend = function(outerheight, colorKeys, colors, population2radi
 		.attr("height", legendH)
 		.attr("id", "bubbleChartlegend");
 	
-	legendSvg.selectAll("mydots")
-	  .data(colorKeys)
+	legendSvg.selectAll("incomeGroupLegendCircle")
+	  .data(incomeGroups)
 	  .enter()
 	  .append("circle")
-		.attr("cx", 10) // 1150
+		.attr("cx", 10)
 		.attr("cy", function(d,i){ return 57 + i*25})
 		.attr("r", 7)
-		.style("fill", function(d){ return colors(d)})
+		.attr("id", function(d) { return `btn-${d.id}`} )
+		.attr("selected", true )
+		.style("fill", function(d){ return colors(d.name)})
+		.on("click", function(event, d) { incomeLegendClickHandler(event, d); } )
+		.on('mouseover',function() {
+			d3.select(this)
+			.transition()
+			.duration(500)
+			.attr('stroke-width',2)
+			.style("cursor", "pointer")})
+		.on('mouseout',function () {
+			d3.select(this)
+			.transition()
+			.duration(500)
+			.attr('stroke-width',1)
+			.style("cursor", "default"); })
 
-	legendSvg.selectAll("mylabels")
-	  .data(colorKeys)
+	legendSvg.selectAll("incomeGroupLegendLabel")
+	  .data(incomeGroups)
 	  .enter()
 	  .append("text")
+		.attr("id", function(d) { return `lbl-${d.id}`} )
 		.attr("x", 30)
 		.attr("y", function(d,i){ return 60 + i*25})
-		.style("fill", function(d){ return colors(d)})
-		.text(function(d){ return d});
+		.style("fill", function(d){ return colors(d.name)})
+		.text(function(d){ return d.name});
 	// ****** End - Income Group legend. ****
 	
 	
