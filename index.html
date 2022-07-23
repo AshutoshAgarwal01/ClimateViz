@@ -68,160 +68,158 @@
 		</div>
 	<div>
 <script>
-var fulldata;
-var isPaused = true;
-var bubbleChartButtonStatus = BubbleChartButtonStatus.PerCapita;
-const margin = 50; 
-const outerwidth = 1400 * 0.88; 
-const outerheight = 700; 
-const width = outerwidth - 2 * margin; 
-const height = outerheight - 2 * margin; 
+	var fulldata;
+	var isPaused = true;
+	var bubbleChartButtonStatus = BubbleChartButtonStatus.PerCapita;
+	const margin = 50; 
+	const outerwidth = 1400 * 0.88; 
+	const outerheight = 700; 
+	const width = outerwidth - 2 * margin; 
+	const height = outerheight - 2 * margin; 
 
-var toolTipTextArray = function(d) {
-	return [`${d.Country}`,
-			`Year: ${d.Year}`,
-			`CO2 emission per capita (metric tons): ${d.PerCapitaCo2}`,
-			`Toal CO2 emission (kt): ${d.TotalCO2}`,
-			`GDP (Billion dollars): ${d.GDPB}`,
-			`Population (Millions): ${d.Population/ 1000000}`];
-}
-
-
-// Common tooltip for all charts
-var TooltipText = function(d) {
-	let txt = '';
-	for (const x of toolTipTextArray(d)) {
-		txt = txt === '' ?  x : txt + '\n' + x;
-	}	
-	
-	//return `${d.Country}\nYear: ${d.Year}\nCO2 emission per capita (metric tons): ${d.PerCapitaCo2}\nToal CO2 emission (kt): ${d.TotalCO2}\nGDP (Billion dollars): ${d.GDPB}\nPopulation (Millions): ${d.Population/ 1000000}`;
-	return txt;
-}
-
-// Get time slider value
-var getTimeSliderValue = function() {
-	return document.getElementById("yearRange").value;
-}
-
-// Update bubble charts based on button selection.
-var onBubbleButtonClick = async function(value) {
-	bubbleChartButtonStatus = value;
-	await updateBubbleChart(getTimeSliderValue());
-}
-
-// Create grid
-var createGrid = function(xscale, yscale, height, width, margin) {
-	return g => g
-		.attr("stroke", "currentColor")
-		.attr("stroke-opacity", 0.1)
-		.call(g => g.append("g")
-		  .selectAll("line")
-		  .data(xscale.ticks())
-		  .join("line")
-			.attr("x1", d => margin + xscale(d))
-			.attr("x2", d => margin + xscale(d))
-			.attr("y1", margin)
-			.attr("y2", height + margin))
-		.call(g => g.append("g")
-		  .selectAll("line")
-		  .data(yscale.ticks())
-		  .join("line")
-			.attr("y1", d => yscale(d) + margin)
-			.attr("y2", d => yscale(d) + margin)
-			.attr("x1", margin)
-			.attr("x2", width + margin));
-}
-
-// Remove bubble chart.
-async function removeBubbleChart() {
-	d3.select('#bubbleChart').remove()
-	d3.select('#bubbleChartlegend').remove()
-}
-
-// Remove line chart
-async function removeLineChart() {
-	d3.select('#lineChart').remove();
-	d3.select('#lineChartlegend').remove()
-	d3.select("#line-chart-text #total-emission").text("")
-}
-
-// Update bubble chart when year is changed.
-async function updateBubbleChart(year) {
-	removeLineChart();
-	removeBubbleChart();
-	await bubbleChart(year)
-}
-
-// Update line chart when country is selected
-async function updateLineChart(d) {
-	isPaused = true;
-	d3.select("#back-to-home").style("display", "block")
-	removeLineChart();
-	removeBubbleChart();
-	
-	d3.select('#bubble-chart-controls').style("display", "none")
-	await lineChart(d.Country)
-}
-
-async function backToHome() {
-	removeLineChart();
-	removeBubbleChart();
-	await init();
-}
-
-async function reset() {
-	isPaused = true;
-	
-	bubbleChartButtonStatus = BubbleChartButtonStatus.PerCapita;
-	removeLineChart();
-	removeBubbleChart();
-	
-    d3.select("#yearRange").property("value", 2019);
-	await init();
-}
-
-async function pauseTimer() {
-	isPaused = true;
-}
-
-async function startTimer() {
-	let func = async function(e) {
-	  var slider = document.getElementById("yearRange");
-	  slider.value = tyear;
-	  
-	  if (tyear > 2019 || isPaused == true) {
-		timer.stop();
-	  }
-	  else {
-	  	slider.dispatchEvent(new Event('input'));
-		tyear = tyear + 1;
-	  }
-    }
-
-	var tyear = parseInt(document.getElementById("yearRange").value);
-	tyear = tyear == 2019 ? 1990 : tyear + 1;
-	if (isPaused == true) {
-		isPaused = false;
-		var timer = d3.interval(func, 200);
+	var toolTipTextArray = function(d) {
+		return [`${d.Country}`,
+				`Year: ${d.Year}`,
+				`CO2 emission per capita (metric tons): ${d.PerCapitaCo2}`,
+				`Toal CO2 emission (kt): ${d.TotalCO2}`,
+				`GDP (Billion dollars): ${d.GDPB}`,
+				`Population (Millions): ${d.Population/ 1000000}`];
 	}
-}
 
-async function init() {
-	fulldata = await d3.csv("YearCountryWiseIndicators.csv");
-	fulldata = fulldata.filter(o => o.Country != 'World');
-	d3.select("#back-to-home").style("display", "none")
-	var slider = document.getElementById("yearRange");	
-	var output = document.getElementById("yearValue");
-	output.innerHTML = slider.value;
-	
-	// Update the current slider value (each time you drag the slider handle)
-	slider.oninput = async function() {
-		output.innerHTML = this.value;
-		await updateBubbleChart(this.value);
+	// Common tooltip for all charts
+	var TooltipText = function(d) {
+		let txt = '';
+		for (const x of toolTipTextArray(d)) {
+			txt = txt === '' ?  x : txt + '\n' + x;
+		}	
+
+		return txt;
 	}
-	
-	await bubbleChart(slider.value);
-}
+
+	// Get time slider value
+	var getTimeSliderValue = function() {
+		return document.getElementById("yearRange").value;
+	}
+
+	// Update bubble charts based on button selection.
+	var onBubbleButtonClick = async function(value) {
+		bubbleChartButtonStatus = value;
+		await updateBubbleChart(getTimeSliderValue());
+	}
+
+	// Create grid
+	var createGrid = function(xscale, yscale, height, width, margin) {
+		return g => g
+			.attr("stroke", "currentColor")
+			.attr("stroke-opacity", 0.1)
+			.call(g => g.append("g")
+			  .selectAll("line")
+			  .data(xscale.ticks())
+			  .join("line")
+				.attr("x1", d => margin + xscale(d))
+				.attr("x2", d => margin + xscale(d))
+				.attr("y1", margin)
+				.attr("y2", height + margin))
+			.call(g => g.append("g")
+			  .selectAll("line")
+			  .data(yscale.ticks())
+			  .join("line")
+				.attr("y1", d => yscale(d) + margin)
+				.attr("y2", d => yscale(d) + margin)
+				.attr("x1", margin)
+				.attr("x2", width + margin));
+	}
+
+	// Remove bubble chart.
+	async function removeBubbleChart() {
+		d3.select('#bubbleChart').remove()
+		d3.select('#bubbleChartlegend').remove()
+	}
+
+	// Remove line chart
+	async function removeLineChart() {
+		d3.select('#lineChart').remove();
+		d3.select('#lineChartlegend').remove()
+		d3.select("#line-chart-text #total-emission").text("")
+	}
+
+	// Update bubble chart when year is changed.
+	async function updateBubbleChart(year) {
+		removeLineChart();
+		removeBubbleChart();
+		await bubbleChart(year)
+	}
+
+	// Update line chart when country is selected
+	async function updateLineChart(d) {
+		isPaused = true;
+		d3.select("#back-to-home").style("display", "block")
+		removeLineChart();
+		removeBubbleChart();
+		
+		d3.select('#bubble-chart-controls').style("display", "none")
+		await lineChart(d.Country)
+	}
+
+	async function backToHome() {
+		removeLineChart();
+		removeBubbleChart();
+		await init();
+	}
+
+	async function reset() {
+		isPaused = true;
+		bubbleChartButtonStatus = BubbleChartButtonStatus.PerCapita;
+		removeLineChart();
+		removeBubbleChart();
+		
+		d3.select("#yearRange").property("value", 2019);
+		await init();
+	}
+
+	async function pauseTimer() {
+		isPaused = true;
+	}
+
+	async function startTimer() {
+		let func = async function(e) {
+		  var slider = document.getElementById("yearRange");
+		  slider.value = tyear;
+		  
+		  if (tyear > 2019 || isPaused == true) {
+			timer.stop();
+			isPaused == true;
+		  }
+		  else {
+			slider.dispatchEvent(new Event('input'));
+			tyear = tyear + 1;
+		  }
+		}
+
+		var tyear = parseInt(document.getElementById("yearRange").value);
+		tyear = tyear == 2019 ? 1990 : tyear + 1;
+		if (isPaused == true) {
+			isPaused = false;
+			var timer = d3.interval(func, 200);
+		}
+	}
+
+	async function init() {
+		fulldata = await d3.csv("YearCountryWiseIndicators.csv");
+		fulldata = fulldata.filter(o => o.Country != 'World');
+		d3.select("#back-to-home").style("display", "none")
+		var slider = document.getElementById("yearRange");	
+		var output = document.getElementById("yearValue");
+		output.innerHTML = slider.value;
+		
+		// Update the current slider value (each time you drag the slider handle)
+		slider.oninput = async function() {
+			output.innerHTML = this.value;
+			await updateBubbleChart(this.value);
+		}
+		
+		await bubbleChart(slider.value);
+	}
 </script>
 </body>
 </html>
