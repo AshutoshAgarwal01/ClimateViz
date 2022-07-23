@@ -240,7 +240,7 @@ var createBubbleChartLegend = function(outerheight, incomeGroups, colors, popula
 			.transition()
 			.duration(500)
 			.attr('stroke-width',2)
-			.style("cursor", "pointer")})
+			.style("cursor", "pointer")})	
 		.on('mouseout',function () {
 			d3.select(this)
 			.transition()
@@ -257,6 +257,13 @@ var createBubbleChartLegend = function(outerheight, incomeGroups, colors, popula
 		.attr("y", function(d,i){ return 60 + i*25})
 		.style("fill", function(d){ return colors(d.name)})
 		.text(function(d){ return d.name});
+		
+	legendSvg.append("text")
+      .attr('x', 10)
+      .attr("y", 57 - 25 )
+      .text("Income Group")
+	  .style("fill", "black");
+      // .attr("text-anchor", "middle");
 	// ****** End - Income Group legend. ****
 	
 	
