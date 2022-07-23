@@ -100,7 +100,7 @@
 	// Get selected income groupd
 	var getIncomeGroupSelectionStatus = function() {
 		let selectionStatus = [];
-		for (incomeGroup of incomeGroups) {
+		for (const incomeGroup of incomeGroups) {
 			const groupid = `btn-${incomeGroup.id}`;
 			const element = d3.selectAll(`#${groupid}`);
 			const isSelected = element === "undefined" ? true : element.attr("selected") === 'true' ? true : false;
@@ -115,7 +115,7 @@
 	}
 
 	var resetIncomeGroupSelectionStatus = function() {
-		for (incomeGroup of incomeGroups) {
+		for (const incomeGroup of incomeGroups) {
 			const groupid = `btn-${incomeGroup.id}`;
 			d3.selectAll(`#${groupid}`).attr("selected", true);;
 		}
