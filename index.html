@@ -202,7 +202,7 @@ async function startTimer() {
 	tyear = tyear == 2019 ? 1990 : tyear + 1;
 	if (isPaused == true) {
 		isPaused = false;
-		var timer = d3.interval(func, 500);
+		var timer = d3.interval(func, 200);
 	}
 }
 
