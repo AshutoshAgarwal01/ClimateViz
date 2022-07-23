@@ -224,30 +224,48 @@ var createBubbleChartLegend = function(outerheight, incomeGroups, colors, popula
 		.attr("height", legendH)
 		.attr("id", "bubbleChartlegend");
 	
+	const legendOuterCircleRadius = 7;
+	const radioMouseOverEventHandler = function(id) {
+		d3.select(`#${id}`)
+			.transition()
+			.duration(500)
+			.attr('stroke-width',2);
+	}
+
+	const radioMouseOutEventHandler = function(id) {
+		d3.select(`#${id}`)
+			.transition()
+			.duration(500)
+			.attr('stroke-width',1);
+	}
+	
 	legendSvg.selectAll("incomeGroupLegendCircle")
 	  .data(incomeGroups)
 	  .enter()
 	  .append("circle")
 		.attr("cx", 10)
 		.attr("cy", function(d,i){ return 57 + i*25})
-		.attr("r", 7)
+		.attr("r", legendOuterCircleRadius)
+		.attr("id", function(d) { return `btno-${d.id}`} )
+		.style("fill", "white")
+		.on('mouseover',function() { radioMouseOverEventHandler(this.id) })
+		.on('mouseout',function () { radioMouseOutEventHandler(this.id) });
+			
+	legendSvg.selectAll("innerIncomeGroupLegendCircle")
+	  .data(incomeGroups)
+	  .enter()
+	  .append("circle")
+		.attr("cx", 10)
+		.attr("cy", function(d,i){ return 57 + i*25})
+		.attr("r", legendOuterCircleRadius - 2)
 		.attr("id", function(d) { return `btn-${d.id}`} )
+		.attr('stroke-width',0)
 		.attr("selected", true )
 		.style("fill", function(d){ return colors(d.name)})
 		.on("click", function(event, d) { incomeLegendClickHandler(event, d); } )
-		.on('mouseover',function() {
-			d3.select(this)
-			.transition()
-			.duration(500)
-			.attr('stroke-width',2)
-			.style("cursor", "pointer")})	
-		.on('mouseout',function () {
-			d3.select(this)
-			.transition()
-			.duration(500)
-			.attr('stroke-width',1)
-			.style("cursor", "default"); })
-
+		.on('mouseover',function() { radioMouseOverEventHandler(this.id.replace("btn-", "btno-")) })
+		.on('mouseout',function () { radioMouseOutEventHandler(this.id.replace("btn-", "btno-")) });
+			
 	legendSvg.selectAll("incomeGroupLegendLabel")
 	  .data(incomeGroups)
 	  .enter()
