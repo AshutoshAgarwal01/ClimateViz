@@ -205,7 +205,7 @@ var incomeLegendClickHandler = async function(event, selectedIncomeGroup) {
 	
 	// toggle fill.
 	const newSelected = isSelected === 'true' ? false : true;
-	var newfill = newSelected == true ? d3.selectAll(`#${labelId}`).style("fill") : "black";
+	var newfill = newSelected == true ? d3.selectAll(`#${labelId}`).style("fill") : "white";
 	d3.selectAll(`#${id}`).style("fill", newfill);
 	d3.selectAll(`#${id}`).attr("selected", newSelected);
 
