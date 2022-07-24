@@ -14,7 +14,7 @@ removeBubbleChartLegend = function() {
 }
 
 async function bubbleChart(year) {
-	d3.select('#bubble-chart-controls').style("display", "block")
+	showBubbleChartControls();
 	
 	// Set name of country in the chart description.
 	d3.select("#chart-summary #chart-title").text("Wealth, population and per capita CO2 emission of nations.")
@@ -108,7 +108,7 @@ async function bubbleChart(year) {
 					.style("fill", function(d){ return colors(d.IncomeGroup) })
 					.attr("fill-opacity", .8)
 					.attr("r", function(d, i) {return population2radius(parseInt(d.Population))} ))
-		.on("click", function(event, d) {updateLineChart(d)} )
+		.on("click", function(event, d) {updateDrillDownLineChart(d)} )
 		.on('mouseover',function() {
 			d3.select(this)
 			.transition()

@@ -18,6 +18,20 @@
 			<button id="reset-chart" onclick="reset()">Reset</button>
 			<button id="back-to-home" onclick="backToHome()">Back</button>
 		</div>
+		<div id="chart-selection-buttons" class="annotation-text" style="width:100%">
+			<!--Radio Buttons for chart selection-->
+			<input type="radio" id="btn-per-capita-co2" name="b_chart" checked="checked" onclick="onChartSelection(ChartType.Bubble, Co2Indicator.PerCapita)">
+			<label for="btn-per-capita-co2">CO2 Per Capita</label>
+		
+			<input type="radio" id="btn-total-co2" name="b_chart" onclick="onChartSelection(ChartType.Bubble, Co2Indicator.Total)">
+			<label for="btn-total-co2">Total CO2</label>
+			
+			<input type="radio" id="btn-top10-total" name="b_chart" onclick="onChartSelection(ChartType.Line, Co2Indicator.Total)">
+			<label for="btn-top10-total">Top 10 by total CO2 emission</label>
+			
+			<input type="radio" id="btn-top10-per-capita" name="b_chart" onclick="onChartSelection(ChartType.Line, Co2Indicator.PerCapita)">
+			<label for="btn-top10-per-capita">Top 10 by per capita CO2 emission</label>
+		</div>
 		<div id="bubbleChart-outerdiv" class="annotation-text" style="width:100%">
 			<div id="bubble-chart-controls" style="width:100%">
 				<div class="slider-block" style="width:2%">
@@ -38,29 +52,19 @@
 					</div>
 					<div id="yearValue" class="slider-label slider-block" style="width:10%"/>
 				</div>
-				<br><br><br>
-				<div>
-				<!--Radio Buttons for chart selection-->
-					<input type="radio" id="btn-per-capita-co2" name="b_chart" checked="checked" onclick="onChartSelection(ChartType.Bubble, Co2Indicator.PerCapita)">
-					<label for="btn-per-capita-co2">CO2 Per Capita</label>
-				
-					<input type="radio" id="btn-total-co2" name="b_chart" onclick="onChartSelection(ChartType.Bubble, Co2Indicator.Total)">
-					<label for="btn-total-co2">Total CO2</label>
-					
-					<!--<input type="radio" id="btn-top10-total" name="b_chart" onclick="onChartSelection(ChartType.Line, Co2Indicator.Total)">
-					<label for="btn-top10-total">Top 10 by total CO2 emission</label>
-					
-					<input type="radio" id="btn-top10-per-capita" name="b_chart" onclick="onChartSelection(ChartType.Line, Co2Indicator.PerCapita)">
-					<label for="btn-top10-per-capita">Top 10 by per capita CO2 emission</label>-->
-				</div>
 			</div>
-			
+			<br><br><br>
 			<div class="chart-legend-container" style="width:100%">
 				<div id="bubbleChart-wrapper" class="chart-and-legend-block" style="width:88%">
 					<!--<svg id="bubbleChart" width=1400 height=700></svg>-->
 				</div>
 				<div id="bubbleChart-legend" class="chart-and-legend-block chart-legend" style="width:10%"></div>
 			</div>
+			<!--<div id ="top10-new" class="chart-legend-container" style="width:100%">
+				<div id="top10line-chart-wrapper" class="chart-and-legend-block" style="width:88%">
+				</div>
+				<div id="top10line-chart-legend" class="chart-and-legend-block chart-legend" style="width:10%"></div>
+			</div>-->
 		</div>
 		<div id="lineChart-outerdiv" class="annotation-text" style="100%">
 			<div class="chart-legend-container" style="100%">
@@ -77,6 +81,12 @@
 <script>
 	var fulldata;
 	var isPaused = true;
+	
+	// Global variables indicating which chart is selected.
+	// Following values will be used when chart will initially load.
+	var currentChartSelection;
+	var prevChartSelection;
+	
 	var bubbleChartButtonStatus = BubbleChartButtonStatus.PerCapita;
 	const margin = 50; 
 	const outerwidth = 1400 * 0.88; 
@@ -97,6 +107,16 @@
 		Total: 1
 	}
 	
+	// Color scale by Income group.
+	var colors = d3.scaleOrdinal()
+		.domain(incomeGroups.map(n => n.name))
+		.range(d3.schemeSet2);
+
+	// Circle size by population.
+	var population2radius = d3.scaleSqrt()
+	  .domain([0, 2e9])
+	  .range([0, 60])
+	
 	// Co2 indicator names
 	var getCo2IndicatorNames = function(indicator) {
 		return indicator == Co2Indicator.PerCapita ? "Per capita CO2 emission" : "Total CO2 emission (kt)";
@@ -105,13 +125,6 @@
 	// Co2 indicator color mapping.
 	var getCo2indicatorColorMap = function(indicator) {
 		return indicator == Co2Indicator.PerCapita ? "red" : "steelblue";
-	}
-
-	// Global variables indicating which chart is selected.
-	// Following values will be used when chart will initially load.
-	let CurrentChartSelection = {
-		Type: ChartType.Bubble,
-		Indicator: Co2Indicator.PerCapita
 	}
 	
 	var toolTipTextArray = function(d) {
@@ -169,8 +182,11 @@
 		}
 		
 		// Set global values.
-		CurrentChartSelection.Type = chartType;
-		CurrentChartSelection.Indicator = indicatorValue;
+		prevChartSelection.Type = currentChartSelection.Type;
+		prevChartSelection.Indicator = currentChartSelection.Indicator;
+		
+		currentChartSelection.Type = chartType;
+		currentChartSelection.Indicator = indicatorValue;
 		await updateMainCanvas(getTimeSliderValue());
 	}
 
@@ -209,44 +225,81 @@
 		removeLineChart();
 		removeBubbleChart();
 		
-		if (CurrentChartSelection.Type == ChartType.Bubble) {
+		showChartSelectionButtons();
+		if (currentChartSelection.Type == ChartType.Bubble) {
+			if (currentChartSelection.Type != prevChartSelection.Type) {
+				showBubbleChartControls();
+				showBubbleChartLegend();
+			}
 			await bubbleChart(year)
 		}
 		else {
-			const detail = CurrentChartSelection.Indicator == Co2Indicator.Total ? "total CO2" : "per capita CO2"
+			if (currentChartSelection.Type != prevChartSelection.Type) {
+				hideBubbleChartControls();
+				hideBubbleChartLegend();
+			}
+		
+			const detail = currentChartSelection.Indicator == Co2Indicator.Total ? "total CO2" : "per capita CO2"
 			const chart_title = 'Comparing trend of top CO2 emission.';
 			var chart_description = `This visualization displays trend of ${detail} emission for the countries that were highest ${detail} emittors in 2019.`;
-			await lineChartForCountries(["India"], CurrentChartSelection.Indicator, chart_title, chart_description)
+			
+			await lineChartForCountries(["India"], currentChartSelection.Indicator, chart_title, chart_description)
 		}
 	}
 
-	// Update line chart when country is selected
-	async function updateLineChart(d) {
+	var hideBackToHomeButton = function() {
+		d3.select("#back-to-home").style("display", "none");
+	}
+
+	var showBackToHomeButton = function() {
+		d3.select("#back-to-home").style("display", "block");
+	}
+
+	var hideBubbleChartControls = function() {
+		d3.select('#bubble-chart-controls').style("display", "none");
+	}
+
+	var showBubbleChartControls = function() {
+		d3.select('#bubble-chart-controls').style("display", "block");
+	}
+
+	var hideChartSelectionButtons = function() {
+		d3.select('#chart-selection-buttons').style("display", "none");
+	}
+
+	var showChartSelectionButtons = function() {
+		d3.select('#chart-selection-buttons').style("display", "block");
+	}
+
+	var hideBubbleChartLegend = function() {
+		d3.select('#bubbleChartlegend').style("display", "none");
+	}
+
+	var showBubbleChartLegend = function() {
+		d3.select('#bubbleChartlegend').style("display", "block");
+	}
+
+	// Update drill down line chart when country is selected
+	async function updateDrillDownLineChart(d) {
 		isPaused = true;
-		d3.select("#back-to-home").style("display", "block")
+		showBackToHomeButton();
 		removeLineChart();
 		removeBubbleChart();
 		
-		d3.select('#bubble-chart-controls').style("display", "none")
+		hideChartSelectionButtons();
+		hideBubbleChartControls();
 		await lineChart(d.Country)
 	}
 
+	// Method - Handler of back to home button from drill down line chart.
 	async function backToHome() {
 		removeLineChart();
 		removeBubbleChart();
-		await init(false);
-	}
-
-	async function reset() {
-		isPaused = true;
-		bubbleChartButtonStatus = BubbleChartButtonStatus.PerCapita;
-		CurrentChartSelection = { Type: ChartType.Bubble, Indicator: Co2Indicator.PerCapita };
-		resetIncomeGroupSelectionStatus()
-		removeLineChart();
-		removeBubbleChart();
-		d3.select("#btn-per-capita-co2").property("checked", true);
-		d3.select("#yearRange").property("value", 2019);
-		await init();
+		
+		hideBackToHomeButton();
+		showChartSelectionButtons();
+		var slider = document.getElementById("yearRange");
+		await bubbleChart(slider.value);
 	}
 
 	async function pauseTimer() {
@@ -276,36 +329,54 @@
 		}
 	}
 
-	// Color scale by Income group.
-	colors = d3.scaleOrdinal()
-		.domain(incomeGroups.map(n => n.name))
-		.range(d3.schemeSet2);
-
-	// Circle size by population.
-	population2radius = d3.scaleSqrt()
-	  .domain([0, 2e9])
-	  .range([0, 60])
-
-	async function init(isreset = true) {
+	async function init() {
+		// Load data
 		fulldata = await d3.csv("YearCountryWiseIndicators.csv");
 		fulldata = fulldata.filter(o => o.Country != 'World');
-		d3.select("#back-to-home").style("display", "none")
-		var slider = document.getElementById("yearRange");	
-		var output = document.getElementById("yearValue");
-		output.innerHTML = slider.value;
 		
-		// Update the current slider value (each time you drag the slider handle)
+		// Bind slider oninput event.
+		var slider = document.getElementById("yearRange");	
 		slider.oninput = async function() {
-			output.innerHTML = this.value;
+			document.getElementById("yearValue").innerHTML = this.value;
 			await updateMainCanvas(this.value);
 		}
+		
+		reset();
+	}
 
-		// Create bubble bar chart legend. We can create it here because this will not change durign chart interactions.
-		if (isreset){
-			removeBubbleChartLegend()
-			createBubbleChartLegend(outerheight, incomeGroups, colors, population2radius);
-		}
-		await bubbleChart(slider.value);
+	function delay(time) {
+		return new Promise(resolve => setTimeout(resolve, time));
+	}
+
+	async function reset() {	
+		// Initialize parameters.
+		isPaused = true;
+		bubbleChartButtonStatus = BubbleChartButtonStatus.PerCapita;
+		
+		currentChartSelection = { Type: ChartType.Bubble, Indicator: Co2Indicator.PerCapita };
+		prevChartSelection = { Type: ChartType.Bubble, Indicator: Co2Indicator.PerCapita };
+		
+		resetIncomeGroupSelectionStatus()
+		removeLineChart(); // This removes all components of line chart.
+		removeBubbleChart(); // Removes only bubble chart canvas. Not legends.
+		
+		// Recreate bubble chart legend.
+		removeBubbleChartLegend();
+		createBubbleChartLegend(outerheight, incomeGroups, colors, population2radius);
+		
+		// Hide back to home button.
+		hideBackToHomeButton();
+		
+		// select first radio button.
+		d3.select("#btn-per-capita-co2").property("checked", true);
+		
+		// set slider to 2019.
+		delay(210).then(async function() { 
+			d3.select("#yearRange").property("value", 2019);
+			document.getElementById("yearValue").innerHTML = getTimeSliderValue();
+			var slider = document.getElementById("yearRange");	
+			await bubbleChart(slider.value);
+		});
 	}
 </script>
 </body>
