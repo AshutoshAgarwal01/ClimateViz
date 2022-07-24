@@ -209,7 +209,7 @@ var incomeLegendClickHandler = async function(event, selectedIncomeGroup) {
 	d3.selectAll(`#${id}`).style("fill", newfill);
 	d3.selectAll(`#${id}`).attr("selected", newSelected);
 
-	await updateBubbleChart(getTimeSliderValue());
+	await updateMainCanvas(getTimeSliderValue());
 }
 
 // Method - Genereate bubble chart legends

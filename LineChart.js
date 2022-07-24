@@ -7,8 +7,6 @@ async function lineChart(country) {
 	
 	var lineSvg = d3.select("#line-chart-wrapper")
 	.append("svg")
-	// .on("pointerenter pointermove", pointermoved)
-	// .on("pointerleave", pointerleft)
     .attr("width", outerwidth)
     .attr("height", outerheight)
 	.attr("id", "lineChart");
@@ -26,7 +24,7 @@ async function lineChart(country) {
 	formatXAxis = (a) => { return a.tickValues(years).tickFormat(d3.format("d")); }
 	formatYAxis = (a) => { return a.tickFormat(d3.format("~s")); }
 
-	// Horizontal axis - GDP
+	// Horizontal axis - Year
 	const xscale = d3.scaleLinear().domain([1990, 2019]).range([0, width]); 
 	xaxis = g => g
 		.call(formatXAxis(d3.axisBottom(xscale)))
@@ -61,81 +59,18 @@ async function lineChart(country) {
 			.text(axisKeys.y[1].indicator)
 			.attr("transform", "rotate(90)"));
 
-	// Tooltip	
-	var focus = lineSvg.append("g")
-			.attr("class", "focus")
-            .style("display", "none");
-
-	focus.append("circle")
-		.attr("transform", "translate("+margin+","+margin+")") 
-		.attr("r", 8);
-
-	focus.append("rect")
-		.attr("transform", "translate("+margin+","+margin+")") 
-		.attr("class", "tooltip")
-		.attr("width", 300).attr("height", 100)
-		.attr("x", 10).attr("y", 10);
-
-	for (let i = 0; i < 6; i++) {
-		focus.append("text")
-			.attr("transform", "translate("+margin+","+margin+")") 
-			.attr("id", `linetooltip${i}`)
-			.attr("x", 18).attr("y", 27 + i * 15);
-	}
-		
-	lineSvg.append("rect")
-		.attr("class", "overlay")
-		.attr("width", outerwidth)
-		.attr("height", outerheight)
-		.on("mouseover", function() { focus.style("display", null); })
-		.on("mouseout", function() { focus.style("display", "none"); })
-		.on("mousemove", mousemove);
-		
-	function mousemove() {
-		const i = d3.bisectCenter(years, xscale.invert(d3.pointer(event)[0])) - 1;
-		const yearData = data.filter(o => o.Year == years[i])[0];
-		const yvalue = yearData.TotalCO2;
-		const xvalue = yearData.Year;
-		console.log(`${i} - ${xvalue}`);
-		
-		const rectx = xvalue <= 2008 ? 10 : -310;
-		const textx = xvalue <= 2008 ? 18 : -300;
-		focus.select(".tooltip").attr("x", rectx);
-		focus.attr("transform", "translate("+xscale(xvalue)+", "+yscale(yvalue)+")");
-		
-		const tipTxtArr = toolTipTextArray(yearData);
-		for (let i = 0; i < 6; i++) {
-			focus.select(`#linetooltip${i}`).attr("x", textx);
-			focus.select(`#linetooltip${i}`).html(tipTxtArr[i]);
-		}
-	}
+	// Tooltip - idprefix is kept null to avoid any regression.
+	createLineChartToolTip(lineSvg, data, xscale, yscale, 6, '', years)
 	
 	// Grid
-	grid = g => g
-		.attr("stroke", "currentColor")
-		.attr("stroke-opacity", 0.1)
-		.call(g => g.append("g")
-		  .selectAll("line")
-		  .data(xscale.ticks())
-		  .join("line")
-			.attr("x1", d => margin + xscale(d))
-			.attr("x2", d => margin + xscale(d))
-			.attr("y1", margin)
-			.attr("y2", height + margin))
-		.call(g => g.append("g")
-		  .selectAll("line")
-		  .data(yscale.ticks())
-		  .join("line")
-			.attr("y1", d => yscale(d) + margin)
-			.attr("y2", d => yscale(d) + margin)
-			.attr("x1", margin)
-			.attr("x2", width + margin)); 
+	grid = g => createLineChartGrid(g, xscale, yscale)
 	
 	// Create legend.
 	lineChartLegend(outerheight, axisKeys);
 	
 	// Create annotationData
-	const annotationData = lineChartAnnotation(data, xscale, margin, yscale, width, height)
+	const annotationInfo = [{y:2009, l:'Economic recession'}];
+	const annotationData = lineChartAnnotation(data, annotationInfo, Co2Indicator.Total, xscale, margin, yscale, width, height)
 	const makeAnnotations = d3.annotation().annotations(annotationData)
 	
 	// Left line chart
@@ -216,33 +151,30 @@ async function lineChart(country) {
 }
 
 // Method - Create bubble chart annotations.
-var lineChartAnnotation = function(data, xscale, margin, yscale, chartWidth, chartHeight){
+var lineChartAnnotation = function(data, annotationInfo, indicator, xscale, margin, yscale, chartWidth, chartHeight){
 	let annotationData = []
 	
-	var generateAnnotation = function(annotationInfo){
-		for (const ann of annotationInfo) {
-			const xofctry = xscale(ann.y) + margin;
-			const yofctry = yscale(data.find(o => o.Year == ann.y).TotalCO2) + margin;
-			const dx = xofctry + 100 > chartWidth ? -40 : 40; // Ensure that annotations are not going outside chart dimensions.
-			const dy = yofctry + 240 > chartHeight ? -40 : 40;
-			var a = {
-				note: {
-					label: ann.l,
-					title: ann.y,
-					wrap: 200,
-					padding: 10
-				},
-				color: ["#cc0000"],
-				x: xofctry,
-				y: yofctry,
-				dy: dy,
-				dx: dx
-			}
-			annotationData.push(a);
+	for (const ann of annotationInfo) {
+		const xofctry = xscale(ann.y) + margin;
+		const dataOfYear = data.find(o => o.Year == ann.y);
+		const yofctry = yscale( indicator == Co2Indicator.Total ? dataOfYear.TotalCO2 : dataOfYear.PerCapitaCo2) + margin;
+		const dx = xofctry + 100 > chartWidth ? -40 : 40; // Ensure that annotations are not going outside chart dimensions.
+		const dy = yofctry + 240 > chartHeight ? -40 : 40;
+		var a = {
+			note: {
+				label: ann.l,
+				title: ann.y,
+				wrap: 200,
+				padding: 10
+			},
+			color: ["#cc0000"],
+			x: xofctry,
+			y: yofctry,
+			dy: dy,
+			dx: dx
 		}
+		annotationData.push(a);
 	}
-	
-	generateAnnotation([{y:2009, l:'Economic recession'}])
 		
 	return annotationData;
 }
@@ -278,4 +210,76 @@ var lineChartLegend = function(outerheight, axisKeys) {
 		.attr("y", function(d,i){ return 117 + i*25})
 		.style("fill", function(d){ return d.col})
 		.text(function(d){ return d.indicator});
+}
+
+// Method - Create line chart grid.
+const createLineChartGrid = function(g, xscale, yscale) {
+	g.attr("stroke", "currentColor")
+		.attr("stroke-opacity", 0.1)
+		.call(g => g.append("g")
+		  .selectAll("line")
+		  .data(xscale.ticks())
+		  .join("line")
+			.attr("x1", d => margin + xscale(d))
+			.attr("x2", d => margin + xscale(d))
+			.attr("y1", margin)
+			.attr("y2", height + margin))
+		.call(g => g.append("g")
+		  .selectAll("line")
+		  .data(yscale.ticks())
+		  .join("line")
+			.attr("y1", d => yscale(d) + margin)
+			.attr("y2", d => yscale(d) + margin)
+			.attr("x1", margin)
+			.attr("x2", width + margin)); 
+}
+
+const createLineChartToolTip = function(lineSvg, data, xscale, yscale, itemCount, idPrefix, years) {
+	var focus = lineSvg.append("g")
+		.attr("class", "focus")
+		.style("display", "none");
+
+	focus.append("circle")
+		.attr("transform", "translate("+margin+","+margin+")") 
+		.attr("r", 8);
+
+	focus.append("rect")
+		.attr("transform", "translate("+margin+","+margin+")") 
+		.attr("class", "tooltip")
+		.attr("width", 300).attr("height", 100)
+		.attr("x", 10).attr("y", 10);
+
+	for (let i = 0; i < itemCount; i++) {
+		focus.append("text")
+			.attr("transform", "translate("+margin+","+margin+")") 
+			.attr("id", `${idPrefix}linetooltip${i}`)
+			.attr("x", 18).attr("y", 27 + i * 15);
+	}
+		
+	lineSvg.append("rect")
+		.attr("class", "overlay")
+		.attr("width", outerwidth)
+		.attr("height", outerheight)
+		.on("mouseover", function() { focus.style("display", null); })
+		.on("mouseout", function() { focus.style("display", "none"); })
+		.on("mousemove", mousemove);
+		
+	function mousemove() {
+		const i = d3.bisectCenter(years, xscale.invert(d3.pointer(event)[0])) - 1;
+		const yearData = data.filter(o => o.Year == years[i])[0];
+		const yvalue = yearData.TotalCO2;
+		const xvalue = yearData.Year;
+		// console.log(`${i} - ${xvalue}`);
+		
+		const rectx = xvalue <= 2008 ? 10 : -310;
+		const textx = xvalue <= 2008 ? 18 : -300;
+		focus.select(".tooltip").attr("x", rectx);
+		focus.attr("transform", "translate("+xscale(xvalue)+", "+yscale(yvalue)+")");
+		
+		const tipTxtArr = toolTipTextArray(yearData);
+		for (let i = 0; i < 6; i++) {
+			focus.select(`#${idPrefix}linetooltip${i}`).attr("x", textx);
+			focus.select(`#${idPrefix}linetooltip${i}`).html(tipTxtArr[i]);
+		}
+	}
 }
