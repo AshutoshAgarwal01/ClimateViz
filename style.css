@@ -76,3 +76,7 @@ html, body { margin: 0; padding: 0; }
 	fill: white;
 	stroke: #000;
 }
+
+.dashed{
+   stroke-dasharray: 5,5; 
+}

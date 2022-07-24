@@ -70,7 +70,7 @@ async function lineChart(country) {
 	
 	// Create annotationData
 	const annotationInfo = [{y:2009, l:'Economic recession'}];
-	const annotationData = lineChartAnnotation(data, annotationInfo, Co2Indicator.Total, xscale, margin, yscale, width, height)
+	const annotationData = lineChartAnnotation(data, annotationInfo, Co2Indicator.Total, xscale, margin, yscale, width, height);
 	const makeAnnotations = d3.annotation().annotations(annotationData)
 	
 	// Left line chart

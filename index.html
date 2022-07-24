@@ -27,10 +27,10 @@
 			<label for="btn-total-co2">Total CO2</label>
 			
 			<input type="radio" id="btn-top10-total" name="b_chart" onclick="onChartSelection(ChartType.Line, Co2Indicator.Total)">
-			<label for="btn-top10-total">Top 10 by total CO2 emission</label>
+			<label for="btn-top10-total">Top countries by total CO2 emission</label>
 			
 			<input type="radio" id="btn-top10-per-capita" name="b_chart" onclick="onChartSelection(ChartType.Line, Co2Indicator.PerCapita)">
-			<label for="btn-top10-per-capita">Top 10 by per capita CO2 emission</label>
+			<label for="btn-top10-per-capita">Top countries by per capita CO2 emission</label>
 		</div>
 		<div id="bubbleChart-outerdiv" class="annotation-text" style="width:100%">
 			<div id="bubble-chart-controls" style="width:100%">
@@ -243,7 +243,7 @@
 			const chart_title = 'Comparing trend of top CO2 emission.';
 			var chart_description = `This visualization displays trend of ${detail} emission for the countries that were highest ${detail} emittors in 2019.`;
 			
-			await lineChartForCountries(["India"], currentChartSelection.Indicator, chart_title, chart_description)
+			await lineChartForCountries(currentChartSelection.Indicator, chart_title, chart_description)
 		}
 	}
 
