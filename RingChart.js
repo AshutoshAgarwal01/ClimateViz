@@ -167,5 +167,17 @@ async function ringChart(year) {
 			.attr("y", function(d, i) {return yval + 135 + i * 20})
 			.style("fill", "black")
 			.text(function(d, i) {return d;});
+			
+		// 2019 in the center.
+		legendSvg.selectAll("ringLegnedLabel")
+		  .data(label10)
+		  .enter()
+		  .append("text")
+			.attr("x", -80)
+			.attr("y", 20)
+			.attr("font-weight", 700)
+			.style("fill", "grey")
+			.style("font-size", "5em")
+			.text(2019);
 	}
 }
