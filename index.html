@@ -1,6 +1,7 @@
 <html>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script>
+<script src="RingChart.js"></script>
 <script src="BubbleChart.js"></script>
 <script src="LineChart.js"></script>
 <script src="Top10LineChart.js"></script>
@@ -32,6 +33,13 @@
 			<input type="radio" id="btn-top10-per-capita" name="b_chart" onclick="onChartSelection(ChartType.Line, Co2Indicator.PerCapita)">
 			<label for="btn-top10-per-capita">Top countries by per capita CO2 emission</label>
 		</div>
+		<!--<div id="ringChart-outerdiv" class="annotation-text" style="width:100%">
+			<div class="chart-legend-container" style="width:100%">
+				<div id="ringChart-wrapper" class="chart-and-legend-block" style="width:88%">
+				</div>
+				<div id="ringChart-legend" class="chart-and-legend-block chart-legend" style="width:10%"></div>
+			</div>
+		</div>-->
 		<div id="bubbleChart-outerdiv" class="annotation-text" style="width:100%">
 			<div id="bubble-chart-controls" style="width:100%">
 				<div class="slider-block" style="width:2%">
@@ -376,6 +384,7 @@
 			document.getElementById("yearValue").innerHTML = getTimeSliderValue();
 			var slider = document.getElementById("yearRange");	
 			await bubbleChart(slider.value);
+			// await ringChart(2019);
 		});
 	}
 </script>

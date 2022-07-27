@@ -1,3 +1,29 @@
+function topCountries(fulldata, year, indicator, countOfCountries) {
+	const data2019 = fulldata.filter(o => o.Year == year);
+	
+	const countrySortedByEmission = indicator == Co2Indicator.PerCapita ? 
+				data2019.sort((a,b) => b.PerCapitaCo2 - a.PerCapitaCo2).map(a => a.Country) : 
+				data2019.sort((a,b) => b.TotalCO2 - a.TotalCO2).map(a => a.Country);
+	
+	var totalEmission = 0;
+	for (d of data2019) {
+		totalEmission = parseInt(indicator == Co2Indicator.PerCapita ? d.PerCapitaCo2 : d.TotalCO2) + totalEmission;
+	}
+	
+	let topCountries = [];
+	
+	for (const rank in countrySortedByEmission) {
+		var ctryData = data2019.filter(o => o.Country == countrySortedByEmission[rank])[0]
+		var contribution = parseInt(indicator == Co2Indicator.PerCapita ? ctryData.PerCapitaCo2 : ctryData.TotalCO2);
+		topCountries.push({r: rank, c: countrySortedByEmission[rank], displayName: `${parseInt(rank) + 1} - ${countrySortedByEmission[rank]}`, percentTotal: contribution / totalEmission});
+		if (rank == countOfCountries - 1) {
+			break;
+		}
+	}
+	
+	return topCountries;
+}
+
 async function lineChartForCountries(indicator, chart_title, chart_description) {
 	const rightAxisXPos = width + margin;
 	
@@ -13,22 +39,7 @@ async function lineChartForCountries(indicator, chart_title, chart_description) 
 	d3.select("#chart-summary #chart-title").text(chart_title);
 	d3.select("#chart-summary p").text(chart_description);
 	
-	const data2019 = fulldata.filter(o => o.Year == 2019)
-	
-	const countrySortedByEmission = indicator == Co2Indicator.PerCapita ? 
-				data2019.sort((a,b) => b.PerCapitaCo2 - a.PerCapitaCo2).map(a => a.Country) : 
-				data2019.sort((a,b) => b.TotalCO2 - a.TotalCO2).map(a => a.Country);
-	
-	let countryCount = 5;
-	
-	let top10Countries = [];
-	
-	for (const rank in countrySortedByEmission) {
-		top10Countries.push({r: rank, c: countrySortedByEmission[rank], displayName: `${parseInt(rank) + 1} - ${countrySortedByEmission[rank]}`});
-		if (rank == countryCount - 1) {
-			break;
-		}
-	}
+	top10Countries = topCountries(fulldata, 2019, indicator, 5);
 	
 	let data = fulldata.filter(o => top10Countries.map(k => k.c).includes(o.Country))
 	

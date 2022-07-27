@@ -70,7 +70,7 @@ Honduras,Latin America & Caribbean,Lower middle income,1990,4923009552,0.4944199
 Iceland,Europe & Central Asia,High income,1990,6468736356,7.65228038,1950,254826,6.468736356
 India,South Asia,Lower middle income,1990,3.21E+11,0.645361649,563580,873277799,321
 Indonesia,East Asia & Pacific,Lower middle income,1990,1.06E+11,0.818737765,148530,181413398,106
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,1990,1.25E+11,3.521081033,198470,56366212,125
+Iran,Middle East & North Africa,Lower middle income,1990,1.25E+11,3.521081033,198470,56366212,125
 Iraq,Middle East & North Africa,Upper middle income,1990,1.80E+11,3.686180806,64210,17419113,180
 Ireland,Europe & Central Asia,High income,1990,49305632408,8.810537585,30960,3513974,49.30563241
 Italy,Europe & Central Asia,High income,1990,1.18E+12,7.145018163,405260,56719240,1180
@@ -80,7 +80,7 @@ Jordan,Middle East & North Africa,Upper middle income,1990,4160003917,2.78472010
 Kazakhstan,Europe & Central Asia,Upper middle income,1990,26932729103,14.51247859,237250,16348000,26.9327291
 Kenya,Sub-Saharan Africa,Lower middle income,1990,8572359163,0.258803383,6140,23724574,8.572359163
 Kiribati,East Asia & Pacific,Lower middle income,1990,39809538.68,0.276265989,20,72394,0.039809539
-"Korea, Rep.",East Asia & Pacific,High income,1990,2.83E+11,5.77756339,247680,42869283,283
+S. Korea,East Asia & Pacific,High income,1990,2.83E+11,5.77756339,247680,42869283,283
 Kuwait,Middle East & North Africa,High income,1990,18427777778,13.90221204,29130,2095350,18.42777778
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,1990,2675000000,5.18309346,22760,4391200,2.675
 Lao PDR,East Asia & Pacific,Lower middle income,1990,865559856.2,0.119761295,510,4258471,0.865559856
@@ -120,7 +120,7 @@ Poland,Europe & Central Asia,High income,1990,65977749037,9.189263028,350210,381
 Portugal,Europe & Central Asia,High income,1990,78713860217,4.113903954,41070,9983218,78.71386022
 Qatar,Middle East & North Africa,High income,1990,7360439423,26.32932654,12540,476275,7.360439423
 Romania,Europe & Central Asia,High income,1990,38995454545,7.440359782,172630,23201835,38.99545455
-Russian Federation,Europe & Central Asia,Upper middle income,1990,5.17E+11,14.62146834,2163530,147969407,517
+Russia,Europe & Central Asia,Upper middle income,1990,5.17E+11,14.62146834,2163530,147969407,517
 Rwanda,Sub-Saharan Africa,Low income,1990,2550185618,0.075457378,550,7288883,2.550185618
 Samoa,East Asia & Pacific,Lower middle income,1990,125766269.8,0.55283574,90,162797,0.12576627
 Saudi Arabia,Middle East & North Africa,High income,1990,1.18E+11,10.55884314,171410,16233786,118
@@ -245,7 +245,7 @@ Jordan,Middle East & North Africa,Upper middle income,1991,4344250257,2.60072283
 Kazakhstan,Europe & Central Asia,Upper middle income,1991,24923076923,14.97534208,246370,16451711,24.92307692
 Kenya,Sub-Saharan Africa,Lower middle income,1991,8151479004,0.240195282,5890,24521714,8.151479004
 Kiribati,East Asia & Pacific,Lower middle income,1991,47515189.28,0.271399881,20,73692,0.047515189
-"Korea, Rep.",East Asia & Pacific,High income,1991,3.31E+11,6.346819075,274790,43295704,331
+S. Korea,East Asia & Pacific,High income,1991,3.31E+11,6.346819075,274790,43295704,331
 Kuwait,Middle East & North Africa,High income,1991,11008793176,3.849757076,7820,2031297,11.00879318
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,1991,2569444444,4.574782687,20420,4463600,2.569444444
 Lao PDR,East Asia & Pacific,Lower middle income,1991,1028087972,0.125592741,550,4379234,1.028087972
@@ -287,7 +287,7 @@ Poland,Europe & Central Asia,High income,1991,85500935935,9.193594772,351620,382
 Portugal,Europe & Central Asia,High income,1991,89233599278,4.294075391,42770,9960235,89.23359928
 Qatar,Middle East & North Africa,High income,1991,6883516484,30.73741059,14980,487354,6.883516484
 Romania,Europe & Central Asia,High income,1991,28998684211,6.20664484,142760,23001155,28.99868421
-Russian Federation,Europe & Central Asia,Upper middle income,1991,5.18E+11,14.39705709,2136440,148394216,518
+Russia,Europe & Central Asia,Upper middle income,1991,5.18E+11,14.39705709,2136440,148394216,518
 Rwanda,Sub-Saharan Africa,Low income,1991,1911600970,0.07058231,500,7083928,1.91160097
 Samoa,East Asia & Pacific,Lower middle income,1991,125597205.4,0.609756098,100,164000,0.125597205
 Saudi Arabia,Middle East & North Africa,High income,1991,1.32E+11,11.2045202,187930,16772695,132
@@ -412,7 +412,7 @@ Jordan,Middle East & North Africa,Upper middle income,1992,5311329067,2.99924553
 Kazakhstan,Europe & Central Asia,Upper middle income,1992,24917355372,15.44123931,253840,16439095,24.91735537
 Kenya,Sub-Saharan Africa,Lower middle income,1992,8209129172,0.234935687,5950,25326080,8.209129172
 Kiribati,East Asia & Pacific,Lower middle income,1992,47737955.35,0.267497693,20,74767,0.047737955
-"Korea, Rep.",East Asia & Pacific,High income,1992,3.56E+11,6.790030585,297050,43747962,356
+S. Korea,East Asia & Pacific,High income,1992,3.56E+11,6.790030585,297050,43747962,356
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,1992,2316562500,3.056207645,13800,4515400,2.3165625
 Lao PDR,East Asia & Pacific,Lower middle income,1992,1127806945,0.133323082,600,4500346,1.127806945
 Lebanon,Middle East & North Africa,Lower middle income,1992,5843579161,2.282085983,7020,3076133,5.843579161
@@ -455,7 +455,7 @@ Poland,Europe & Central Asia,High income,1992,94337050693,8.950395696,343370,383
 Portugal,Europe & Central Asia,High income,1992,1.08E+11,4.699324611,46770,9952494,108
 Qatar,Middle East & North Africa,High income,1992,7646153984,29.63244066,14680,495403,7.646153984
 Romania,Europe & Central Asia,High income,1992,25121666667,5.536037017,126190,22794284,25.12166667
-Russian Federation,Europe & Central Asia,Upper middle income,1992,4.60E+11,13.67197153,2030810,148538197,460
+Russia,Europe & Central Asia,Upper middle income,1992,4.60E+11,13.67197153,2030810,148538197,460
 Rwanda,Sub-Saharan Africa,Low income,1992,2029026704,0.074601935,500,6702239,2.029026704
 Samoa,East Asia & Pacific,Lower middle income,1992,132303041.4,0.604266119,100,165490,0.132303041
 Saudi Arabia,Middle East & North Africa,High income,1992,1.37E+11,11.69031249,202040,17282686,137
@@ -572,7 +572,7 @@ Hungary,Europe & Central Asia,High income,1993,40124916941,5.636482777,58380,103
 Iceland,Europe & Central Asia,High income,1993,6218581532,7.507820647,1980,263725,6.218581532
 India,South Asia,Lower middle income,1993,2.79E+11,0.702336947,651350,927403866,279
 Indonesia,East Asia & Pacific,Lower middle income,1993,1.58E+11,0.969813213,185090,190851184,158
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,1993,63743623232,3.963749034,236730,59723761,63.74362323
+Iran,Middle East & North Africa,Lower middle income,1993,63743623232,3.963749034,236730,59723761,63.74362323
 Iraq,Middle East & North Africa,Upper middle income,1993,1031944881,4.724853017,89560,18955087,1.031944881
 Ireland,Europe & Central Asia,High income,1993,52417477614,8.850025208,31650,3576261,52.41747761
 Italy,Europe & Central Asia,High income,1993,1.06E+12,6.984291424,396930,56831821,1060
@@ -582,7 +582,7 @@ Jordan,Middle East & North Africa,Upper middle income,1993,5605841536,2.90368408
 Kazakhstan,Europe & Central Asia,Upper middle income,1993,23409260880,13.38406629,219240,16380672,23.40926088
 Kenya,Sub-Saharan Africa,Lower middle income,1993,5751789915,0.224209954,5860,26136217,5.751789915
 Kiribati,East Asia & Pacific,Lower middle income,1993,46919624.64,0.396243611,30,75711,0.046919625
-"Korea, Rep.",East Asia & Pacific,High income,1993,3.93E+11,7.41266563,327600,44194628,393
+S. Korea,East Asia & Pacific,High income,1993,3.93E+11,7.41266563,327600,44194628,393
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,1993,2028295455,2.238359865,10110,4516700,2.028295455
 Lao PDR,East Asia & Pacific,Lower middle income,1993,1327748655,0.132036175,610,4619946,1.327748655
 Lebanon,Middle East & North Africa,Lower middle income,1993,7941744492,3.182251845,10330,3246129,7.941744492
@@ -625,7 +625,7 @@ Poland,Europe & Central Asia,High income,1993,96045645026,8.94455034,344020,3846
 Portugal,Europe & Central Asia,High income,1993,95009751901,4.595232659,45790,9964675,95.0097519
 Qatar,Middle East & North Africa,High income,1993,7156593654,33.12202505,16610,501479,7.156593654
 Romania,Europe & Central Asia,High income,1993,26362894737,5.170608102,117700,22763280,26.36289474
-Russian Federation,Europe & Central Asia,Upper middle income,1993,4.35E+11,12.66513195,1880250,148458777,435
+Russia,Europe & Central Asia,Upper middle income,1993,4.35E+11,12.66513195,1880250,148458777,435
 Rwanda,Sub-Saharan Africa,Low income,1993,1971525999,0.08142077,510,6263758,1.971525999
 Samoa,East Asia & Pacific,Lower middle income,1993,133122897.2,0.658221486,110,167117,0.133122897
 Saudi Arabia,Middle East & North Africa,High income,1993,1.33E+11,11.44269558,203260,17763297,133
@@ -743,7 +743,7 @@ Hungary,Europe & Central Asia,High income,1994,43166678735,5.586195195,57780,103
 Iceland,Europe & Central Asia,High income,1994,6389460343,7.856522605,2090,266021,6.389460343
 India,South Asia,Lower middle income,1994,3.27E+11,0.725358158,685900,945601828,327
 Indonesia,East Asia & Pacific,Lower middle income,1994,1.77E+11,1.027138052,199180,193917458,177
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,1994,71841461173,4.401507243,266690,60590608,71.84146117
+Iran,Middle East & North Africa,Lower middle income,1994,71841461173,4.401507243,266690,60590608,71.84146117
 Iraq,Middle East & North Africa,Upper middle income,1994,3991349283,5.226377052,102120,19539348,3.991349283
 Ireland,Europe & Central Asia,High income,1994,57097656066,9.141078424,32820,3590386,57.09765607
 Italy,Europe & Central Asia,High income,1994,1.10E+12,6.901240953,392290,56843400,1100
@@ -753,7 +753,7 @@ Jordan,Middle East & North Africa,Upper middle income,1994,6237739516,2.94533979
 Kazakhstan,Europe & Central Asia,Upper middle income,1994,21250792886,12.33574177,199170,16145766,21.25079289
 Kenya,Sub-Saharan Africa,Lower middle income,1994,7148145376,0.217806655,5870,26950508,7.148145376
 Kiribati,East Asia & Pacific,Lower middle income,1994,54832577.86,0.391297543,30,76668,0.054832578
-"Korea, Rep.",East Asia & Pacific,High income,1994,4.64E+11,7.936106147,354280,44641540,464
+S. Korea,East Asia & Pacific,High income,1994,4.64E+11,7.936106147,354280,44641540,464
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,1994,1681006993,1.450687692,6550,4515100,1.681006993
 Lao PDR,East Asia & Pacific,Lower middle income,1994,1543606345,0.135139786,640,4735837,1.543606345
 Lebanon,Middle East & North Africa,Lower middle income,1994,9599127050,3.31143438,11270,3403359,9.59912705
@@ -796,7 +796,7 @@ Poland,Europe & Central Asia,High income,1994,1.11E+11,8.814909778,339750,385426
 Portugal,Europe & Central Asia,High income,1994,99688641304,4.734012075,47300,9991525,99.6886413
 Qatar,Middle East & North Africa,High income,1994,7374450769,36.46626328,18490,507044,7.374450769
 Romania,Europe & Central Asia,High income,1994,30074440483,5.066384997,115160,22730211,30.07444048
-Russian Federation,Europe & Central Asia,Upper middle income,1994,3.95E+11,11.35417901,1685050,148407912,395
+Russia,Europe & Central Asia,Upper middle income,1994,3.95E+11,11.35417901,1685050,148407912,395
 Rwanda,Sub-Saharan Africa,Low income,1994,753636370.5,0.079174523,470,5936253,0.753636371
 Samoa,East Asia & Pacific,Lower middle income,1994,221098106.5,0.592806881,100,168689,0.221098107
 Saudi Arabia,Middle East & North Africa,High income,1994,1.35E+11,11.32945089,206360,18214475,135
@@ -916,7 +916,7 @@ Hungary,Europe & Central Asia,High income,1995,46425677734,5.56009242,57430,1032
 Iceland,Europe & Central Asia,High income,1995,7123633418,7.477530022,2000,267468,7.123633418
 India,South Asia,Lower middle income,1995,3.60E+11,0.765476409,737860,963922586,360
 Indonesia,East Asia & Pacific,Lower middle income,1995,2.02E+11,1.135810516,223680,196934257,202
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,1995,96419225744,4.419079656,271520,61442658,96.41922574
+Iran,Middle East & North Africa,Lower middle income,1995,96419225744,4.419079656,271520,61442658,96.41922574
 Iraq,Middle East & North Africa,Upper middle income,1995,12894029888,4.96641528,100070,20149342,12.89402989
 Ireland,Europe & Central Asia,High income,1995,69139823232,9.268903784,33450,3608841,69.13982323
 Israel,Middle East & North Africa,High income,1995,1.01E+11,8.436429216,46780,5545000,101
@@ -927,7 +927,7 @@ Jordan,Middle East & North Africa,Upper middle income,1995,6727446632,2.96371067
 Kazakhstan,Europe & Central Asia,Upper middle income,1995,20374302652,11.07974884,175240,15816243,20.37430265
 Kenya,Sub-Saharan Africa,Lower middle income,1995,9046326060,0.229398295,6370,27768297,9.04632606
 Kiribati,East Asia & Pacific,Lower middle income,1995,56338028.17,0.386020897,30,77716,0.056338028
-"Korea, Rep.",East Asia & Pacific,High income,1995,5.67E+11,8.547004567,385410,45092991,567
+S. Korea,East Asia & Pacific,High income,1995,5.67E+11,8.547004567,385410,45092991,567
 Kuwait,Middle East & North Africa,High income,1995,27191353887,22.57291362,36250,1605907,27.19135389
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,1995,1661018519,1.008683449,4600,4560400,1.661018519
 Lao PDR,East Asia & Pacific,Lower middle income,1995,1763536305,0.13824475,670,4846477,1.763536305
@@ -974,7 +974,7 @@ Poland,Europe & Central Asia,High income,1995,1.42E+11,8.80943173,340000,3859499
 Portugal,Europe & Central Asia,High income,1995,1.18E+11,5.055766027,50690,10026176,118
 Qatar,Middle East & North Africa,High income,1995,8137911978,37.10217413,19050,513447,8.137911978
 Romania,Europe & Central Asia,High income,1995,37435317265,5.328802734,120880,22684270,37.43531727
-Russian Federation,Europe & Central Asia,Upper middle income,1995,3.96E+11,11.02262056,1635490,148375787,396
+Russia,Europe & Central Asia,Upper middle income,1995,3.96E+11,11.02262056,1635490,148375787,396
 Rwanda,Sub-Saharan Africa,Low income,1995,1293535011,0.078814493,460,5836490,1.293535011
 Samoa,East Asia & Pacific,Lower middle income,1995,224865731.4,0.705674802,120,170050,0.224865731
 Saudi Arabia,Middle East & North Africa,High income,1995,1.43E+11,10.98944728,204830,18638790,143
@@ -1096,7 +1096,7 @@ Hungary,Europe & Central Asia,High income,1996,46658755152,5.668572484,58450,103
 Iceland,Europe & Central Asia,High income,1996,7426082271,8.441297654,2270,268916,7.426082271
 India,South Asia,Lower middle income,1996,3.93E+11,0.787965578,774070,982365248,393
 Indonesia,East Asia & Pacific,Lower middle income,1996,2.27E+11,1.184184804,236720,199901231,227
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,1996,1.20E+11,4.491698593,279810,62294919,120
+Iran,Middle East & North Africa,Lower middle income,1996,1.20E+11,4.491698593,279810,62294919,120
 Iraq,Middle East & North Africa,Upper middle income,1996,10433698621,4.757717976,98880,20783073,10.43369862
 Ireland,Europe & Central Asia,High income,1996,75790786290,9.572482275,34820,3637510,75.79078629
 Israel,Middle East & North Africa,High income,1996,1.10E+11,8.56113844,48730,5692000,110
@@ -1107,7 +1107,7 @@ Jordan,Middle East & North Africa,Upper middle income,1996,6928359238,2.93058217
 Kazakhstan,Europe & Central Asia,Upper middle income,1996,21035368251,9.846435028,153390,15578227,21.03536825
 Kenya,Sub-Saharan Africa,Lower middle income,1996,12045858436,0.243796174,6970,28589456,12.04585844
 Kiribati,East Asia & Pacific,Lower middle income,1996,66515376.79,0.380208861,30,78904,0.066515377
-"Korea, Rep.",East Asia & Pacific,High income,1996,6.10E+11,9.005884083,409990,45524681,610
+S. Korea,East Asia & Pacific,High income,1996,6.10E+11,9.005884083,409990,45524681,610
 Kuwait,Middle East & North Africa,High income,1996,31493319973,21.90111245,35630,1626858,31.49331997
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,1996,1827570586,1.246651111,5770,4628400,1.827570586
 Lao PDR,East Asia & Pacific,Lower middle income,1996,1873671550,0.157537917,780,4951189,1.87367155
@@ -1153,7 +1153,7 @@ Poland,Europe & Central Asia,High income,1996,1.60E+11,9.199373349,355320,386243
 Portugal,Europe & Central Asia,High income,1996,1.23E+11,4.843031237,48740,10063945,123
 Qatar,Middle East & North Africa,High income,1996,9059340385,40.07417742,20940,522531,9.059340385
 Romania,Europe & Central Asia,High income,1996,36937074278,5.491400063,124210,22619004,36.93707428
-Russian Federation,Europe & Central Asia,Upper middle income,1996,3.92E+11,10.80709102,1601180,148160129,392
+Russia,Europe & Central Asia,Upper middle income,1996,3.92E+11,10.80709102,1601180,148160129,392
 Rwanda,Sub-Saharan Africa,Low income,1996,1382334879,0.079825555,480,6013112,1.382334879
 Samoa,East Asia & Pacific,Lower middle income,1996,249908970.7,0.759501066,130,171165,0.249908971
 Saudi Arabia,Middle East & North Africa,High income,1996,1.59E+11,11.4348952,217650,19033843,159
@@ -1275,7 +1275,7 @@ Hungary,Europe & Central Asia,High income,1997,47296952929,5.538125216,56990,102
 Iceland,Europe & Central Asia,High income,1997,7569666974,7.929833879,2150,271128,7.569666974
 India,South Asia,Lower middle income,1997,4.16E+11,0.818533297,819270,1000900028,416
 Indonesia,East Asia & Pacific,Lower middle income,1997,2.16E+11,1.287603307,261160,202826444,216
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,1997,1.14E+11,4.631249508,292400,63136309,114
+Iran,Middle East & North Africa,Lower middle income,1997,1.14E+11,4.631249508,292400,63136309,114
 Iraq,Middle East & North Africa,Upper middle income,1997,20764857056,5.546284281,118910,21439579,20.76485706
 Ireland,Europe & Central Asia,High income,1997,82856648758,9.789963505,35970,3674171,82.85664876
 Israel,Middle East & North Africa,High income,1997,1.15E+11,8.733721727,50970,5836000,115
@@ -1286,7 +1286,7 @@ Jordan,Middle East & North Africa,Upper middle income,1997,7246188575,2.96378123
 Kazakhstan,Europe & Central Asia,Upper middle income,1997,22165932063,8.623745101,132240,15334405,22.16593206
 Kenya,Sub-Saharan Africa,Lower middle income,1997,13115773738,0.225730104,6640,29415660,13.11577374
 Kiribati,East Asia & Pacific,Lower middle income,1997,67537479.59,0.374120816,30,80188,0.06753748
-"Korea, Rep.",East Asia & Pacific,High income,1997,5.70E+11,9.39295698,431640,45953580,570
+S. Korea,East Asia & Pacific,High income,1997,5.70E+11,9.39295698,431640,45953580,570
 Kuwait,Middle East & North Africa,High income,1997,30355093966,21.80958768,37300,1710257,30.35509397
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,1997,1767864036,1.211566306,5690,4696400,1.767864036
 Lao PDR,East Asia & Pacific,Lower middle income,1997,1747011857,0.164346412,830,5050308,1.747011857
@@ -1333,7 +1333,7 @@ Poland,Europe & Central Asia,High income,1997,1.59E+11,8.916766668,344630,386496
 Portugal,Europe & Central Asia,High income,1997,1.17E+11,5.038096338,50930,10108977,117
 Qatar,Middle East & North Africa,High income,1997,11297802115,47.42957483,25390,535320,11.29780212
 Romania,Europe & Central Asia,High income,1997,35574916295,5.037248861,113610,22553978,35.5749163
-Russian Federation,Europe & Central Asia,Upper middle income,1997,4.05E+11,10.07001565,1489510,147915361,405
+Russia,Europe & Central Asia,Upper middle income,1997,4.05E+11,10.07001565,1489510,147915361,405
 Rwanda,Sub-Saharan Africa,Low income,1997,1851558302,0.079440514,510,6419898,1.851558302
 Samoa,East Asia & Pacific,Lower middle income,1997,285475591.9,0.755528434,130,172065,0.285475592
 Saudi Arabia,Middle East & North Africa,High income,1997,1.66E+11,11.33964215,220070,19407138,166
@@ -1455,7 +1455,7 @@ Hungary,Europe & Central Asia,High income,1998,48706787306,5.586091557,57350,102
 Iceland,Europe & Central Asia,High income,1998,8503693099,7.84536959,2150,274047,8.503693099
 India,South Asia,Lower middle income,1998,4.21E+11,0.820287851,836270,1019483586,421
 Indonesia,East Asia & Pacific,Lower middle income,1998,95445547873,1.276949883,262700,205724597,95.44554787
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,1998,1.10E+11,4.548720471,290990,63971836,110
+Iran,Middle East & North Africa,Lower middle income,1998,1.10E+11,4.548720471,290990,63971836,110
 Iraq,Middle East & North Africa,Upper middle income,1998,20617405044,4.150250087,91780,22114330,20.61740504
 Ireland,Europe & Central Asia,High income,1998,90199410116,10.34827522,38420,3712696,90.19941012
 Israel,Middle East & North Africa,High income,1998,1.16E+11,8.625020935,51500,5971000,116
@@ -1466,7 +1466,7 @@ Jordan,Middle East & North Africa,Upper middle income,1998,7912327362,2.95713469
 Kazakhstan,Europe & Central Asia,Upper middle income,1998,22135254836,9.012954131,135840,15071640,22.13525484
 Kenya,Sub-Saharan Africa,Lower middle income,1998,14093998844,0.236690397,7160,30250488,14.09399884
 Kiribati,East Asia & Pacific,Lower middle income,1998,65334841.06,0.367836386,30,81558,0.065334841
-"Korea, Rep.",East Asia & Pacific,High income,1998,3.83E+11,7.919587271,366570,46286503,383
+S. Korea,East Asia & Pacific,High income,1998,3.83E+11,7.919587271,366570,46286503,383
 Kuwait,Middle East & North Africa,High income,1998,25939960630,23.0077641,42130,1831121,25.93996063
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,1998,1645963750,1.266512896,6040,4769000,1.64596375
 Lao PDR,East Asia & Pacific,Lower middle income,1998,1280177839,0.165221754,850,5144601,1.280177839
@@ -1512,7 +1512,7 @@ Poland,Europe & Central Asia,High income,1998,1.75E+11,8.235419879,318410,386634
 Portugal,Europe & Central Asia,High income,1998,1.24E+11,5.472335376,55600,10160196,124
 Qatar,Middle East & North Africa,High income,1998,10255495027,48.0450209,26500,551566,10.25549503
 Romania,Europe & Central Asia,High income,1998,41694118973,4.422556478,99540,22507344,41.69411897
-Russian Federation,Europe & Central Asia,Upper middle income,1998,2.71E+11,10.07626532,1487970,147670784,271
+Russia,Europe & Central Asia,Upper middle income,1998,2.71E+11,10.07626532,1487970,147670784,271
 Rwanda,Sub-Saharan Africa,Low income,1998,1989343495,0.073246395,510,6962800,1.989343495
 Samoa,East Asia & Pacific,Lower middle income,1998,269481523.2,0.867859684,150,172839,0.269481523
 Saudi Arabia,Middle East & North Africa,High income,1998,1.47E+11,11.82310273,233900,19783301,147
@@ -1634,7 +1634,7 @@ Hungary,Europe & Central Asia,High income,1999,49073380174,5.65663788,57910,1023
 Iceland,Europe & Central Asia,High income,1999,8982047589,7.642917143,2120,277381,8.982047589
 India,South Asia,Lower middle income,1999,4.59E+11,0.868284688,901330,1038058154,459
 Indonesia,East Asia & Pacific,Lower middle income,1999,1.40E+11,1.339691637,279480,208615171,140
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,1999,1.14E+11,4.990056076,323360,64800875,114
+Iran,Middle East & North Africa,Lower middle income,1999,1.14E+11,4.990056076,323360,64800875,114
 Iraq,Middle East & North Africa,Upper middle income,1999,36881601584,3.188746842,72710,22802061,36.88160158
 Ireland,Europe & Central Asia,High income,1999,98893958263,10.6450807,39970,3754786,98.89395826
 Israel,Middle East & North Africa,High income,1999,1.17E+11,8.649795918,52980,6125000,117
@@ -1645,7 +1645,7 @@ Jordan,Middle East & North Africa,Upper middle income,1999,8149106065,2.90753482
 Kazakhstan,Europe & Central Asia,Upper middle income,1999,16870821840,8.215898128,122650,14928374,16.87082184
 Kenya,Sub-Saharan Africa,Lower middle income,1999,12896013577,0.240845592,7490,31098763,12.89601358
 Kiribati,East Asia & Pacific,Lower middle income,1999,69032258.06,0.361580831,30,82969,0.069032258
-"Korea, Rep.",East Asia & Pacific,High income,1999,4.98E+11,8.620949108,401880,46616677,498
+S. Korea,East Asia & Pacific,High income,1999,4.98E+11,8.620949108,401880,46616677,498
 Kuwait,Middle East & North Africa,High income,1999,30123850197,23.43667537,45740,1951642,30.1238502
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,1999,1249061487,0.989587637,4790,4840400,1.249061487
 Lao PDR,East Asia & Pacific,Lower middle income,1999,1454430642,0.168088447,880,5235339,1.454430642
@@ -1691,7 +1691,7 @@ Poland,Europe & Central Asia,High income,1999,1.70E+11,7.992184018,308980,386602
 Portugal,Europe & Central Asia,High income,1999,1.27E+11,6.088378078,62210,10217828,127
 Qatar,Middle East & North Africa,High income,1999,12393131868,50.83385044,29000,570486,12.39313187
 Romania,Europe & Central Asia,High income,1999,35952781582,3.78203314,84990,22472040,35.95278158
-Russian Federation,Europe & Central Asia,Upper middle income,1999,1.96E+11,10.35031973,1523720,147214776,196
+Russia,Europe & Central Asia,Upper middle income,1999,1.96E+11,10.35031973,1523720,147214776,196
 Rwanda,Sub-Saharan Africa,Low income,1999,2155707325,0.070655004,530,7501238,2.155707325
 Samoa,East Asia & Pacific,Lower middle income,1999,255410025.2,0.864025437,150,173606,0.255410025
 Saudi Arabia,Middle East & North Africa,High income,1999,1.62E+11,11.86063692,239520,20194531,162
@@ -1813,7 +1813,7 @@ Hungary,Europe & Central Asia,High income,2000,47218405892,5.350127818,54630,102
 Iceland,Europe & Central Asia,High income,2000,9025660362,7.930157714,2230,281205,9.025660362
 India,South Asia,Lower middle income,2000,4.68E+11,0.887641212,937860,1056575548,468
 Indonesia,East Asia & Pacific,Lower middle income,2000,1.65E+11,1.326863641,280650,211513822,165
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2000,1.10E+11,5.187936248,340450,65623397,110
+Iran,Middle East & North Africa,Lower middle income,2000,1.10E+11,5.187936248,340450,65623397,110
 Iraq,Middle East & North Africa,Upper middle income,2000,48364250944,3.729318782,87630,23497589,48.36425094
 Ireland,Europe & Central Asia,High income,2000,1.00E+11,11.17688705,42530,3805174,100
 Israel,Middle East & North Africa,High income,2000,1.32E+11,9.063444109,57000,6289000,132
@@ -1824,7 +1824,7 @@ Jordan,Middle East & North Africa,Upper middle income,2000,8460424401,3.17618660
 Kazakhstan,Europe & Central Asia,Upper middle income,2000,18291994909,8.072629613,120150,14883626,18.29199491
 Kenya,Sub-Saharan Africa,Lower middle income,2000,12705357103,0.260288294,8320,31964557,12.7053571
 Kiribati,East Asia & Pacific,Lower middle income,2000,67254174.4,0.355429181,30,84405,0.067254174
-"Korea, Rep.",East Asia & Pacific,High income,2000,5.76E+11,9.714493739,456660,47008111,576
+S. Korea,East Asia & Pacific,High income,2000,5.76E+11,9.714493739,456660,47008111,576
 Kuwait,Middle East & North Africa,High income,2000,37712842243,24.37017236,49840,2045123,37.71284224
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2000,1369688498,0.95337253,4670,4898400,1.369688498
 Lao PDR,East Asia & Pacific,Lower middle income,2000,1731198022,0.169055324,900,5323701,1.731198022
@@ -1874,7 +1874,7 @@ Poland,Europe & Central Asia,High income,2000,1.72E+11,7.73080499,295770,3825862
 Portugal,Europe & Central Asia,High income,2000,1.19E+11,5.99228486,61660,10289898,119
 Qatar,Middle East & North Africa,High income,2000,17759890110,48.37400227,28660,592467,17.75989011
 Romania,Europe & Central Asia,High income,2000,37253259017,3.966498018,89020,22442971,37.25325902
-Russian Federation,Europe & Central Asia,Upper middle income,2000,2.60E+11,10.66769032,1563850,146596869,260
+Russia,Europe & Central Asia,Upper middle income,2000,2.60E+11,10.66769032,1563850,146596869,260
 Rwanda,Sub-Saharan Africa,Low income,2000,2067579822,0.068064184,540,7933688,2.067579822
 Samoa,East Asia & Pacific,Lower middle income,2000,258856138.7,0.859825513,150,174454,0.258856139
 Saudi Arabia,Middle East & North Africa,High income,2000,1.90E+11,12.08197508,249660,20663840,190
@@ -1996,7 +1996,7 @@ Hungary,Europe & Central Asia,High income,2001,53749989092,5.524375965,56280,101
 Iceland,Europe & Central Asia,High income,2001,8234846805,7.579798434,2160,284968,8.234846805
 India,South Asia,Lower middle income,2001,4.85E+11,0.887013876,953540,1075000094,485
 Indonesia,East Asia & Pacific,Lower middle income,2001,1.60E+11,1.408681788,302060,214427419,160
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2001,1.27E+11,5.32843848,354070,66449111,127
+Iran,Middle East & North Africa,Lower middle income,2001,1.27E+11,5.32843848,354070,66449111,127
 Iraq,Middle East & North Africa,Upper middle income,2001,36176430129,4.029629987,97550,24208178,36.17643013
 Ireland,Europe & Central Asia,High income,2001,1.09E+11,11.5926495,44820,3866243,109
 Israel,Middle East & North Africa,High income,2001,1.31E+11,8.999844696,57950,6439000,131
@@ -2007,7 +2007,7 @@ Jordan,Middle East & North Africa,Upper middle income,2001,8975689845,3.11462112
 Kazakhstan,Europe & Central Asia,Upper middle income,2001,22152694162,7.903981166,117440,14858335,22.15269416
 Kenya,Sub-Saharan Africa,Lower middle income,2001,12986007426,0.231669148,7610,32848569,12.98600743
 Kiribati,East Asia & Pacific,Lower middle income,2001,63101272.37,0.349471134,30,85844,0.063101272
-"Korea, Rep.",East Asia & Pacific,High income,2001,5.48E+11,9.954155954,471530,47370164,548
+S. Korea,East Asia & Pacific,High income,2001,5.48E+11,9.954155954,471530,47370164,548
 Kuwait,Middle East & North Africa,High income,2001,34887512227,25.28915647,53190,2103273,34.88751223
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2001,1525116370,0.802814908,3970,4945100,1.52511637
 Lao PDR,East Asia & Pacific,Lower middle income,2001,1768619058,0.184857098,1000,5409584,1.768619058
@@ -2057,7 +2057,7 @@ Poland,Europe & Central Asia,High income,2001,1.91E+11,7.676987465,293630,382480
 Portugal,Europe & Central Asia,High income,2001,1.22E+11,5.923154167,61380,10362722,122
 Qatar,Middle East & North Africa,High income,2001,17538461538,46.58438114,28650,615013,17.53846154
 Romania,Europe & Central Asia,High income,2001,40394824679,4.302825279,95230,22131970,40.39482468
-Russian Federation,Europe & Central Asia,Upper middle income,2001,3.07E+11,10.73577044,1567170,145976482,307
+Russia,Europe & Central Asia,Upper middle income,2001,3.07E+11,10.73577044,1567170,145976482,307
 Rwanda,Sub-Saharan Africa,Low income,2001,1965500949,0.068034236,560,8231150,1.965500949
 Samoa,East Asia & Pacific,Lower middle income,2001,266299603.5,0.912231889,160,175394,0.266299604
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2001,75951210.69,0.345399282,50,144760,0.075951211
@@ -2181,7 +2181,7 @@ Hungary,Europe & Central Asia,High income,2002,67608919144,5.473190665,55599.998
 Iceland,Europe & Central Asia,High income,2002,9318395055,7.790681127,2240.00001,287523,9.318395055
 India,South Asia,Lower middle income,2002,5.15E+11,0.901339542,985450.0122,1093317187,515
 Indonesia,East Asia & Pacific,Lower middle income,2002,1.96E+11,1.40616085,305640.0146,217357790,196
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2002,1.29E+11,5.49708091,369869.9951,67284801,129
+Iran,Middle East & North Africa,Lower middle income,2002,1.29E+11,5.49708091,369869.9951,67284801,129
 Iraq,Middle East & North Africa,Upper middle income,2002,32928454672,3.656356845,91160.00366,24931922,32.92845467
 Ireland,Europe & Central Asia,High income,2002,1.29E+11,11.17258201,43930.00031,3931947,129
 Israel,Middle East & North Africa,High income,2002,1.21E+11,9.296803932,61080.00183,6570000,121
@@ -2192,7 +2192,7 @@ Jordan,Middle East & North Africa,Upper middle income,2002,9582453032,3.17253529
 Kazakhstan,Europe & Central Asia,Upper middle income,2002,24636593223,8.820274326,131059.9976,14858948,24.63659322
 Kenya,Sub-Saharan Africa,Lower middle income,2002,13147743911,0.219840481,7420.000076,33751746,13.14774391
 Kiribati,East Asia & Pacific,Lower middle income,2002,72196457.68,0.458148155,39.99999911,87308,0.072196458
-"Korea, Rep.",East Asia & Pacific,High income,2002,6.27E+11,9.717757697,463000,47644736,627
+S. Korea,East Asia & Pacific,High income,2002,6.27E+11,9.717757697,463000,47644736,627
 Kuwait,Middle East & North Africa,High income,2002,38137545245,26.01321211,55590.00015,2136991,38.13754525
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2002,1605643105,0.995852243,4969.99979,4990700,1.605643105
 Lao PDR,East Asia & Pacific,Lower middle income,2002,1758176653,0.202066285,1110.000014,5493247,1.758176653
@@ -2242,7 +2242,7 @@ Poland,Europe & Central Asia,High income,2002,1.99E+11,7.515492328,287320.0073,3
 Portugal,Europe & Central Asia,High income,2002,1.35E+11,6.295808218,65599.99847,10419631,135
 Qatar,Middle East & North Africa,High income,2002,19363736264,50.71215469,32500,640872,19.36373626
 Romania,Europe & Central Asia,High income,2002,46066101951,4.313753256,93739.99786,21730496,46.06610195
-Russian Federation,Europe & Central Asia,Upper middle income,2002,3.45E+11,10.77267705,1565339.966,145306497,345
+Russia,Europe & Central Asia,Upper middle income,2002,3.45E+11,10.77267705,1565339.966,145306497,345
 Rwanda,Sub-Saharan Africa,Low income,2002,1964832512,0.066452587,560.0000024,8427061,1.964832512
 Samoa,East Asia & Pacific,Lower middle income,2002,281793614.9,0.963664202,170.0000018,176410,0.281793615
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2002,85171308.17,0.40691759,59.99999866,147450,0.085171308
@@ -2367,7 +2367,7 @@ Hungary,Europe & Central Asia,High income,2003,85302003908,5.74457771,58189.9986
 Iceland,Europe & Central Asia,High income,2003,11429333038,7.702377441,2230.000019,289521,11.42933304
 India,South Asia,Lower middle income,2003,6.08E+11,0.910255466,1011770.02,1111523146,608
 Indonesia,East Asia & Pacific,Lower middle income,2003,2.35E+11,1.515549968,333890.0146,220309473,235
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2003,1.54E+11,5.721566758,389769.989,68122947,154
+Iran,Middle East & North Africa,Lower middle income,2003,1.54E+11,5.721566758,389769.989,68122947,154
 Iraq,Middle East & North Africa,Upper middle income,2003,21921569479,3.169490116,81279.99878,25644503,21.92156948
 Ireland,Europe & Central Asia,High income,2003,1.65E+11,11.0320952,44090.00015,3996521,165
 Israel,Middle East & North Africa,High income,2003,1.27E+11,9.406998865,62930.00031,6689700,127
@@ -2378,7 +2378,7 @@ Jordan,Middle East & North Africa,Upper middle income,2003,10195660790,3.1854775
 Kazakhstan,Europe & Central Asia,Upper middle income,2003,30833699703,9.802120407,146139.9994,14909019,30.8336997
 Kenya,Sub-Saharan Africa,Lower middle income,2003,14904517650,0.188299589,6530.00021,34678781,14.90451765
 Kiribati,East Asia & Pacific,Lower middle income,2003,90231856.8,0.450247626,39.99999911,88840,0.090231857
-"Korea, Rep.",East Asia & Pacific,High income,2003,7.03E+11,9.723895501,465700.0122,47892330,703
+S. Korea,East Asia & Pacific,High income,2003,7.03E+11,9.723895501,465700.0122,47892330,703
 Kuwait,Middle East & North Africa,High income,2003,47876510067,26.88716685,58119.99893,2161626,47.87651007
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2003,1919008090,1.108401275,5590.000153,5043300,1.91900809
 Lao PDR,East Asia & Pacific,Lower middle income,2003,2023324407,0.20621736,1149.999976,5576640,2.023324407
@@ -2428,7 +2428,7 @@ Poland,Europe & Central Asia,High income,2003,2.18E+11,7.793047036,297730.011,38
 Portugal,Europe & Central Asia,High income,2003,1.65E+11,5.78650313,60520.00046,10458821,165
 Qatar,Middle East & North Africa,High income,2003,23533791209,50.95403383,34740.00168,681791,23.53379121
 Romania,Europe & Central Asia,High income,2003,57806506024,4.548925394,98139.99939,21574326,57.80650602
-Russian Federation,Europe & Central Asia,Upper middle income,2003,4.30E+11,11.13042089,1610000,144648618,430
+Russia,Europe & Central Asia,Upper middle income,2003,4.30E+11,11.13042089,1610000,144648618,430
 Rwanda,Sub-Saharan Africa,Low income,2003,2137156727,0.064273662,550.0000119,8557160,2.137156727
 Samoa,East Asia & Pacific,Lower middle income,2003,333428714.4,0.957849019,170.0000018,177481,0.333428714
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2003,102085583.5,0.465410061,70.0000003,150405,0.102085584
@@ -2553,7 +2553,7 @@ Hungary,Europe & Central Asia,High income,2004,1.04E+11,5.575263133,56349.99847,
 Iceland,Europe & Central Asia,High income,2004,13825302536,7.94319225,2319.999933,292074,13.82530254
 India,South Asia,Lower middle income,2004,7.09E+11,0.961090201,1085670.044,1129623466,709
 Indonesia,East Asia & Pacific,Lower middle income,2004,2.57E+11,1.528266442,341239.9902,223285666,257
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2004,1.90E+11,6.057320614,417660.0037,68951279,190
+Iran,Middle East & North Africa,Lower middle income,2004,1.90E+11,6.057320614,417660.0037,68951279,190
 Iraq,Middle East & North Africa,Upper middle income,2004,36627901762,3.348428329,88110.00061,26313838,36.62790176
 Ireland,Europe & Central Asia,High income,2004,1.94E+11,10.97963685,44689.99863,4070262,194
 Israel,Middle East & North Africa,High income,2004,1.36E+11,9.275958268,63159.99985,6809000,136
@@ -2564,7 +2564,7 @@ Jordan,Middle East & North Africa,Upper middle income,2004,11411390409,3.3296052
 Kazakhstan,Europe & Central Asia,Upper middle income,2004,43151647003,10.52622175,158029.9988,15012984,43.151647
 Kenya,Sub-Saharan Africa,Lower middle income,2004,16095337094,0.208781937,7440.000057,35635267,16.09533709
 Kiribati,East Asia & Pacific,Lower middle income,2004,102367039.3,0.552498406,50.00000075,90498,0.102367039
-"Korea, Rep.",East Asia & Pacific,High income,2004,7.93E+11,10.10575182,485910.0037,48082519,793
+S. Korea,East Asia & Pacific,High income,2004,7.93E+11,10.10575182,485910.0037,48082519,793
 Kuwait,Middle East & North Africa,High income,2004,59439090601,28.13454038,61909.99985,2200498,59.4390906
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2004,2211534585,1.089192302,5559.999943,5104700,2.211534585
 Lao PDR,East Asia & Pacific,Lower middle income,2004,2366398120,0.2136979,1210.000038,5662199,2.36639812
@@ -2614,7 +2614,7 @@ Poland,Europe & Central Asia,High income,2004,2.55E+11,7.905511788,301850.0061,3
 Portugal,Europe & Central Asia,High income,2004,1.89E+11,5.92625189,62130.00107,10483861,189
 Qatar,Middle East & North Africa,High income,2004,31734065934,49.20805129,37069.99969,753332,31.73406593
 Romania,Europe & Central Asia,High income,2004,74972669057,4.444859154,95349.99847,21451748,74.97266906
-Russian Federation,Europe & Central Asia,Upper middle income,2004,5.91E+11,11.11272164,1600979.98,144067316,591
+Russia,Europe & Central Asia,Upper middle income,2004,5.91E+11,11.11272164,1600979.98,144067316,591
 Rwanda,Sub-Saharan Africa,Low income,2004,2375376873,0.064512294,560.0000024,8680516,2.375376873
 Samoa,East Asia & Pacific,Lower middle income,2004,407749576.9,1.063847644,189.9999976,178597,0.407749577
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2004,114582561.6,0.455326015,70.0000003,153736,0.114582562
@@ -2739,7 +2739,7 @@ Hungary,Europe & Central Asia,High income,2005,1.13E+11,5.543733303,55919.99817,
 Iceland,Europe & Central Asia,High income,2005,16852963067,7.717349417,2289.999962,296734,16.85296307
 India,South Asia,Lower middle income,2005,8.20E+11,0.99029291,1136469.971,1147609924,820
 Indonesia,East Asia & Pacific,Lower middle income,2005,2.86E+11,1.512001407,342149.9939,226289468,286
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2005,2.26E+11,6.461795522,450790.0085,69762345,226
+Iran,Middle East & North Africa,Lower middle income,2005,2.26E+11,6.461795522,450790.0085,69762345,226
 Iraq,Middle East & North Africa,Upper middle income,2005,49954890353,3.162065041,85129.99725,26922279,49.95489035
 Ireland,Europe & Central Asia,High income,2005,2.12E+11,11.21417451,46650.00153,4159914,212
 Israel,Middle East & North Africa,High income,2005,1.43E+11,8.803624525,61009.99832,6930100,143
@@ -2750,7 +2750,7 @@ Jordan,Middle East & North Africa,Upper middle income,2005,12588665303,3.4462790
 Kazakhstan,Europe & Central Asia,Upper middle income,2005,57123671734,11.17116807,169210.0067,15147029,57.12367173
 Kenya,Sub-Saharan Africa,Lower middle income,2005,18737897745,0.227167866,8319.999695,36624897,18.73789775
 Kiribati,East Asia & Pacific,Lower middle income,2005,112133944.3,0.758240452,70.0000003,92319,0.112133944
-"Korea, Rep.",East Asia & Pacific,High income,2005,9.35E+11,9.982450603,481000,48184561,935
+S. Korea,East Asia & Pacific,High income,2005,9.35E+11,9.982450603,481000,48184561,935
 Kuwait,Middle East & North Africa,High income,2005,80798630137,30.79469952,69910.00366,2270196,80.79863014
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2005,2460248026,1.026614534,5300.000191,5162600,2.460248026
 Lao PDR,East Asia & Pacific,Lower middle income,2005,2735558726,0.219066618,1259.99999,5751675,2.735558726
@@ -2800,7 +2800,7 @@ Poland,Europe & Central Asia,High income,2005,3.06E+11,7.895886085,301350.0061,3
 Portugal,Europe & Central Asia,High income,2005,1.97E+11,6.233261377,65470.00122,10503330,197
 Qatar,Middle East & North Africa,High income,2005,44530494505,44.53380584,38540.00092,865410,44.53049451
 Romania,Europe & Central Asia,High income,2005,98452791983,4.442373285,94709.99908,21319685,98.45279198
-Russian Federation,Europe & Central Asia,Upper middle income,2005,7.64E+11,11.23183738,1611979.98,143518814,764
+Russia,Europe & Central Asia,Upper middle income,2005,7.64E+11,11.23183738,1611979.98,143518814,764
 Rwanda,Sub-Saharan Africa,Low income,2005,2932340855,0.062215648,550.0000119,8840220,2.932340855
 Samoa,East Asia & Pacific,Lower middle income,2005,476801791.1,1.168471269,209.9999934,179722,0.476801791
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2005,136450274.7,0.508026812,79.99999821,157472,0.136450275
@@ -2925,7 +2925,7 @@ Hungary,Europe & Central Asia,High income,2006,1.16E+11,5.506698601,55459.99908,
 Iceland,Europe & Central Asia,High income,2006,17465318552,7.669973612,2329.999924,303782,17.46531855
 India,South Asia,Lower middle income,2006,9.40E+11,1.042663453,1215209.961,1165486291,940
 Indonesia,East Asia & Pacific,Lower middle income,2006,3.65E+11,1.589363176,364470.0012,229318262,365
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2006,2.66E+11,6.862471364,484179.9927,70554756,266
+Iran,Middle East & North Africa,Lower middle income,2006,2.66E+11,6.862471364,484179.9927,70554756,266
 Iraq,Middle East & North Africa,Upper middle income,2006,65140147197,3.022428749,82959.99908,27448124,65.1401472
 Ireland,Europe & Central Asia,High income,2006,2.32E+11,11.05861518,47259.99832,4273591,232
 Israel,Middle East & North Africa,High income,2006,1.54E+11,9.120036553,64330.00183,7053700,154
@@ -2936,7 +2936,7 @@ Jordan,Middle East & North Africa,Upper middle income,2006,15056929760,3.3664093
 Kazakhstan,Europe & Central Asia,Upper middle income,2006,81003884545,12.1047148,185300.0031,15308085,81.00388455
 Kenya,Sub-Saharan Africa,Lower middle income,2006,25825524821,0.247018262,9300.000191,37649039,25.82552482
 Kiribati,East Asia & Pacific,Lower middle income,2006,110234939.8,0.74198917,70.0000003,94341,0.11023494
-"Korea, Rep.",East Asia & Pacific,High income,2006,1.05E+12,10.07157738,487850.0061,48438292,1050
+S. Korea,East Asia & Pacific,High income,2006,1.05E+12,10.07157738,487850.0061,48438292,1050
 Kuwait,Middle East & North Africa,High income,2006,1.02E+11,30.51404573,72430.00031,2373661,102
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2006,2834168889,1.019469602,5320.000172,5218400,2.834168889
 Lao PDR,East Asia & Pacific,Lower middle income,2006,3455031448,0.280530097,1639.999986,5846075,3.455031448
@@ -2986,7 +2986,7 @@ Poland,Europe & Central Asia,High income,2006,3.45E+11,8.234912499,314089.9963,3
 Portugal,Europe & Central Asia,High income,2006,2.09E+11,5.74494832,60450.00076,10522288,209
 Qatar,Middle East & North Africa,High income,2006,60882142857,42.79830768,43770.00046,1022704,60.88214286
 Romania,Europe & Central Asia,High income,2006,1.22E+11,4.683454099,99260.00214,21193760,122
-Russian Federation,Europe & Central Asia,Upper middle income,2006,9.90E+11,11.56836194,1654849.976,143049637,990
+Russia,Europe & Central Asia,Upper middle income,2006,9.90E+11,11.56836194,1654849.976,143049637,990
 Rwanda,Sub-Saharan Africa,Low income,2006,3318107347,0.060818225,550.0000119,9043342,3.318107347
 Samoa,East Asia & Pacific,Lower middle income,2006,499923741.4,1.105742135,200.000003,180874,0.499923741
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2006,142775597.3,0.494816783,79.99999821,161676,0.142775597
@@ -3111,7 +3111,7 @@ Hungary,Europe & Central Asia,High income,2007,1.40E+11,5.355128938,53849.99847,
 Iceland,Europe & Central Asia,High income,2007,21652505597,7.638831305,2380.000114,311566,21.6525056
 India,South Asia,Lower middle income,2007,1.22E+12,1.129757683,1336739.99,1183209471,1220
 Indonesia,East Asia & Pacific,Lower middle income,2007,4.32E+11,1.635120972,379959.9915,232374239,432
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2007,3.50E+11,7.207252776,514140.0146,71336476,350
+Iran,Middle East & North Africa,Lower middle income,2007,3.50E+11,7.207252776,514140.0146,71336476,350
 Iraq,Middle East & North Africa,Upper middle income,2007,88837055195,2.746205329,76650.00153,27911242,88.8370552
 Ireland,Europe & Central Asia,High income,2007,2.70E+11,10.5388979,46360.00061,4398942,270
 Israel,Middle East & North Africa,High income,2007,1.79E+11,9.275636617,66599.99847,7180100,179
@@ -3122,7 +3122,7 @@ Jordan,Middle East & North Africa,Upper middle income,2007,17110587447,3.3715463
 Kazakhstan,Europe & Central Asia,Upper middle income,2007,1.05E+11,12.81242182,198389.9994,15484192,105
 Kenya,Sub-Saharan Africa,Lower middle income,2007,31958195182,0.242081741,9369.999886,38705934,31.95819518
 Kiribati,East Asia & Pacific,Lower middle income,2007,132671743,0.621561971,59.99999866,96531,0.132671743
-"Korea, Rep.",East Asia & Pacific,High income,2007,1.17E+12,10.34618659,503690.0024,48683638,1170
+S. Korea,East Asia & Pacific,High income,2007,1.17E+12,10.34618659,503690.0024,48683638,1170
 Kuwait,Middle East & North Africa,High income,2007,1.15E+11,28.19459481,70599.99847,2504026,115
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2007,3802566171,1.228076796,6469.99979,5268400,3.802566171
 Lao PDR,East Asia & Pacific,Lower middle income,2007,4223152219,0.291003292,1730.000019,5944950,4.223152219
@@ -3172,7 +3172,7 @@ Poland,Europe & Central Asia,High income,2007,4.29E+11,8.220760788,313380.0049,3
 Portugal,Europe & Central Asia,High income,2007,2.40E+11,5.577179172,58799.99924,10542964,240
 Qatar,Middle East & North Africa,High income,2007,79712087912,40.89652419,49830.00183,1218441,79.71208791
 Romania,Europe & Central Asia,High income,2007,1.75E+11,4.632001472,96730.00336,20882982,175
-Russian Federation,Europe & Central Asia,Upper middle income,2007,1.30E+12,11.61127902,1658150.024,142805114,1300
+Russia,Europe & Central Asia,Upper middle income,2007,1.30E+12,11.61127902,1658150.024,142805114,1300
 Rwanda,Sub-Saharan Africa,Low income,2007,4068224991,0.062542059,579.9999833,9273759,4.068224991
 Samoa,East Asia & Pacific,Lower middle income,2007,573548460.4,1.098629476,200.000003,182045,0.57354846
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2007,149146423.1,0.481066996,79.99999821,166297,0.149146423
@@ -3297,7 +3297,7 @@ Hungary,Europe & Central Asia,High income,2008,1.58E+11,5.280833386,53009.99832,
 Iceland,Europe & Central Asia,High income,2008,18074622987,6.868002252,2180.000067,317414,18.07462299
 India,South Asia,Lower middle income,2008,1.20E+12,1.18632121,1424380.005,1200669762,1200
 Indonesia,East Asia & Pacific,Lower middle income,2008,5.10E+11,1.597402667,376140.0146,235469755,510
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2008,4.12E+11,7.25243453,523049.9878,72120608,412
+Iran,Middle East & North Africa,Lower middle income,2008,4.12E+11,7.25243453,523049.9878,72120608,412
 Iraq,Middle East & North Africa,Upper middle income,2008,1.32E+11,3.105080315,88139.99939,28385739,132
 Ireland,Europe & Central Asia,High income,2008,2.75E+11,10.19702642,45779.99878,4489544,275
 Israel,Middle East & North Africa,High income,2008,2.17E+11,9.127353202,66709.99908,7308800,217
@@ -3308,7 +3308,7 @@ Jordan,Middle East & North Africa,Upper middle income,2008,22657662393,3.0519457
 Kazakhstan,Europe & Central Asia,Upper middle income,2008,1.33E+11,15.34074602,242029.9988,15776938,133
 Kenya,Sub-Saharan Africa,Lower middle income,2008,35895153328,0.24904513,9909.999847,39791984,35.89515333
 Kiribati,East Asia & Pacific,Lower middle income,2008,141042610.3,0.607533401,59.99999866,98760,0.14104261
-"Korea, Rep.",East Asia & Pacific,High income,2008,1.05E+12,10.49685145,514919.9829,49054708,1050
+S. Korea,East Asia & Pacific,High income,2008,1.05E+12,10.49685145,514919.9829,49054708,1050
 Kuwait,Middle East & North Africa,High income,2008,1.47E+11,28.55410798,75839.99634,2656010,147
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2008,5139957785,1.411999216,7510.000229,5318700,5.139957785
 Lao PDR,East Asia & Pacific,Lower middle income,2008,5446434032,0.339031816,2049.999952,6046630,5.446434032
@@ -3358,7 +3358,7 @@ Poland,Europe & Central Asia,High income,2008,5.34E+11,8.087182909,308329.9866,3
 Portugal,Europe & Central Asia,High income,2008,2.63E+11,5.38350514,56840.00015,10558177,263
 Qatar,Middle East & North Africa,High income,2008,1.15E+11,36.91870848,53040.00092,1436670,115
 Romania,Europe & Central Asia,High income,2008,2.14E+11,4.646050196,95419.99817,20537875,214
-Russian Federation,Europe & Central Asia,Upper middle income,2008,1.66E+12,11.59564597,1655189.941,142742366,1660
+Russia,Europe & Central Asia,Upper middle income,2008,1.66E+12,11.59564597,1655189.941,142742366,1660
 Rwanda,Sub-Saharan Africa,Low income,2008,5177230923,0.05879554,560.0000024,9524532,5.177230923
 Samoa,East Asia & Pacific,Lower middle income,2008,641346174.9,0.927593178,170.0000018,183270,0.641346175
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2008,188021190.6,0.525940578,90.00000358,171122,0.188021191
@@ -3484,7 +3484,7 @@ Hungary,Europe & Central Asia,High income,2009,1.31E+11,4.773188743,47840.00015,
 Iceland,Europe & Central Asia,High income,2009,13154414219,6.624824238,2109.999895,318499,13.15441422
 India,South Asia,Lower middle income,2009,1.34E+12,1.285083612,1564880.005,1217726217,1340
 Indonesia,East Asia & Pacific,Lower middle income,2009,5.40E+11,1.638919951,391079.9866,238620554,540
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2009,4.16E+11,7.436286869,542289.978,72924833,416
+Iran,Middle East & North Africa,Lower middle income,2009,4.16E+11,7.436286869,542289.978,72924833,416
 Iraq,Middle East & North Africa,Upper middle income,2009,1.12E+11,3.251285214,94199.99695,28973157,112
 Ireland,Europe & Central Asia,High income,2009,2.36E+11,8.943031474,40560.00137,4535375,236
 Israel,Middle East & North Africa,High income,2009,2.08E+11,8.780859698,65730.00336,7485600,208
@@ -3495,7 +3495,7 @@ Jordan,Middle East & North Africa,Upper middle income,2009,24537876056,2.9971313
 Kazakhstan,Europe & Central Asia,Upper middle income,2009,1.15E+11,13.27361979,213610.0006,16092822,115
 Kenya,Sub-Saharan Africa,Lower middle income,2009,42347217913,0.286295484,11710.00004,40901798,42.34721791
 Kiribati,East Asia & Pacific,Lower middle income,2009,132419903.3,0.594483183,59.99999866,100928,0.132419903
-"Korea, Rep.",East Asia & Pacific,High income,2009,9.44E+11,10.68065582,526640.0146,49307835,944
+S. Korea,East Asia & Pacific,High income,2009,9.44E+11,10.68065582,526640.0146,49307835,944
 Kuwait,Middle East & North Africa,High income,2009,1.06E+11,27.5253006,77650.00153,2821041,106
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2009,4690062255,1.255735372,6760.000229,5383300,4.690062255
 Lao PDR,East Asia & Pacific,Lower middle income,2009,5836138127,0.413100752,2539.999962,6148621,5.836138127
@@ -3545,7 +3545,7 @@ Poland,Europe & Central Asia,High income,2009,4.40E+11,7.791547049,297260.0098,3
 Portugal,Europe & Central Asia,High income,2009,2.45E+11,5.327278898,56299.99924,10568247,245
 Qatar,Middle East & North Africa,High income,2009,97798351648,32.67180019,54069.99969,1654944,97.79835165
 Romania,Europe & Central Asia,High income,2009,1.74E+11,3.962688135,80709.99908,20367487,174
-Russian Federation,Europe & Central Asia,Upper middle income,2009,1.22E+12,10.83213407,1546670.044,142785349,1220
+Russia,Europe & Central Asia,Upper middle income,2009,1.22E+12,10.83213407,1546670.044,142785349,1220
 Rwanda,Sub-Saharan Africa,Low income,2009,5671592572,0.060310114,589.9999738,9782770,5.671592572
 Samoa,East Asia & Pacific,Lower middle income,2009,628006123.3,0.975329619,180.0000072,184553,0.628006123
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2009,187820464.6,0.51172128,90.00000358,175877,0.187820465
@@ -3671,7 +3671,7 @@ Hungary,Europe & Central Asia,High income,2010,1.32E+11,4.787989094,47880.00107,
 Iceland,Europe & Central Asia,High income,2010,13751161918,6.162727567,1960.000038,318041,13.75116192
 India,South Asia,Lower middle income,2010,1.68E+12,1.344896147,1659979.98,1234281163,1680
 Indonesia,East Asia & Pacific,Lower middle income,2010,7.55E+11,1.718201745,415519.989,241834226,755
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2010,4.87E+11,7.336652683,541169.9829,73762519,487
+Iran,Middle East & North Africa,Lower middle income,2010,4.87E+11,7.336652683,541169.9829,73762519,487
 Iraq,Middle East & North Africa,Upper middle income,2010,1.39E+11,3.649723858,108550.0031,29741977,139
 Ireland,Europe & Central Asia,High income,2010,2.22E+11,8.813296615,40189.99863,4560155,222
 Israel,Middle East & North Africa,High income,2010,2.35E+11,9.250222551,70519.99664,7623600,235
@@ -3682,7 +3682,7 @@ Jordan,Middle East & North Africa,Upper middle income,2010,27133804225,2.7817787
 Kazakhstan,Europe & Central Asia,Upper middle income,2010,1.48E+11,14.07314044,229699.9969,16321872,148
 Kenya,Sub-Saharan Africa,Lower middle income,2010,45405587557,0.300732682,12640.00034,42030684,45.40558756
 Kiribati,East Asia & Pacific,Lower middle income,2010,155299728.5,0.485767033,50.00000075,102930,0.155299729
-"Korea, Rep.",East Asia & Pacific,High income,2010,1.14E+12,11.60791602,575219.9707,49554112,1140
+S. Korea,East Asia & Pacific,High income,2010,1.14E+12,11.60791602,575219.9707,49554112,1140
 Kuwait,Middle East & North Africa,High income,2010,1.15E+11,26.97965604,80720.00122,2991884,115
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2010,4794357795,1.165586722,6349.999905,5447900,4.794357795
 Lao PDR,East Asia & Pacific,Lower middle income,2010,7131773633,0.460861368,2880.000114,6249168,7.131773633
@@ -3733,7 +3733,7 @@ Poland,Europe & Central Asia,High income,2010,4.80E+11,8.247028077,313739.9902,3
 Portugal,Europe & Central Asia,High income,2010,2.38E+11,4.817886772,50939.99863,10573100,238
 Qatar,Middle East & North Africa,High income,2010,1.25E+11,32.63430234,60580.00183,1856329,125
 Romania,Europe & Central Asia,High income,2010,1.66E+11,3.83367893,77620.00275,20246871,166
-Russian Federation,Europe & Central Asia,Upper middle income,2010,1.52E+12,11.32541814,1617829.956,142849468,1520
+Russia,Europe & Central Asia,Upper middle income,2010,1.52E+12,11.32541814,1617829.956,142849468,1520
 Rwanda,Sub-Saharan Africa,Low income,2010,6121529488,0.059764899,600.0000238,10039338,6.121529488
 Samoa,East Asia & Pacific,Lower middle income,2010,663161528.4,1.021813006,189.9999976,185944,0.663161528
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2010,196652514.3,0.554409784,100.0000015,180372,0.196652514
@@ -3859,7 +3859,7 @@ Hungary,Europe & Central Asia,High income,2011,1.42E+11,4.704300453,46909.99985,
 Iceland,Europe & Central Asia,High income,2011,15221622926,5.924504836,1889.999986,319014,15.22162293
 India,South Asia,Lower middle income,2011,1.82E+12,1.405068333,1756739.99,1250287939,1820
 Indonesia,East Asia & Pacific,Lower middle income,2011,8.93E+11,1.939122786,475309.9976,245115988,893
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2011,6.26E+11,7.396667663,552049.9878,74634959,626
+Iran,Middle East & North Africa,Lower middle income,2011,6.26E+11,7.396667663,552049.9878,74634959,626
 Iraq,Middle East & North Africa,Upper middle income,2011,1.86E+11,3.679052199,113040.0009,30725305,186
 Ireland,Europe & Central Asia,High income,2011,2.39E+11,8.008586809,36680.00031,4580084,239
 Israel,Middle East & North Africa,High income,2011,2.62E+11,8.990702786,69819.99969,7765800,262
@@ -3870,7 +3870,7 @@ Jordan,Middle East & North Africa,Upper middle income,2011,29524149155,2.7091719
 Kazakhstan,Europe & Central Asia,Upper middle income,2011,1.93E+11,14.82436446,245449.9969,16557202,193
 Kenya,Sub-Saharan Africa,Lower middle income,2011,46869457318,0.301772158,13029.99973,43178270,46.86945732
 Kiribati,East Asia & Pacific,Lower middle income,2011,180665807.2,0.477395338,50.00000075,104735,0.180665807
-"Korea, Rep.",East Asia & Pacific,High income,2011,1.25E+12,11.98478721,598479.9805,49936638,1250
+S. Korea,East Asia & Pacific,High income,2011,1.25E+12,11.98478721,598479.9805,49936638,1250
 Kuwait,Middle East & North Africa,High income,2011,1.54E+11,26.29058751,83290.00092,3168054,154
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2011,6197766119,1.38178651,7619.999886,5514600,6.197766119
 Lao PDR,East Asia & Pacific,Lower middle income,2011,8750107402,0.478923877,3039.999962,6347564,8.750107402
@@ -3921,7 +3921,7 @@ Poland,Europe & Central Asia,High income,2011,5.28E+11,8.159838047,310589.9963,3
 Portugal,Europe & Central Asia,High income,2011,2.45E+11,4.723629222,49869.99893,10557560,245
 Qatar,Middle East & North Africa,High income,2011,1.68E+11,33.4944129,68190.00244,2035862,168
 Romania,Europe & Central Asia,High income,2011,1.83E+11,4.172223886,84059.99756,20147528,183
-Russian Federation,Europe & Central Asia,Upper middle income,2011,2.05E+12,11.88499702,1699089.966,142960908,2050
+Russia,Europe & Central Asia,Upper middle income,2011,2.05E+12,11.88499702,1699089.966,142960908,2050
 Rwanda,Sub-Saharan Africa,Low income,2011,6881379762,0.066062179,680.0000072,10293333,6.881379762
 Samoa,East Asia & Pacific,Lower middle income,2011,737401684.1,1.066843067,200.000003,187469,0.737401684
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2011,231489270.1,0.541943743,100.0000015,184521,0.23148927
@@ -4046,7 +4046,7 @@ Hungary,Europe & Central Asia,High income,2012,1.29E+11,4.377864468,43430.00031,
 Iceland,Europe & Central Asia,High income,2012,14751508134,5.799523611,1860.000014,320716,14.75150813
 India,South Asia,Lower middle income,2012,1.83E+12,1.508508252,1909439.941,1265780243,1830
 Indonesia,East Asia & Pacific,Lower middle income,2012,9.18E+11,1.938042616,481510.0098,248451714,918
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2012,6.44E+11,7.40165311,559119.9951,75539881,644
+Iran,Middle East & North Africa,Lower middle income,2012,6.44E+11,7.40165311,559119.9951,75539881,644
 Iraq,Middle East & North Africa,Upper middle income,2012,2.18E+11,4.045153699,129000,31890012,218
 Ireland,Europe & Central Asia,High income,2012,2.25E+11,8.072558903,37130.00107,4599533,225
 Israel,Middle East & North Africa,High income,2012,2.58E+11,9.615068271,76059.99756,7910500,258
@@ -4057,7 +4057,7 @@ Jordan,Middle East & North Africa,Upper middle income,2012,31634561690,2.9814723
 Kazakhstan,Europe & Central Asia,Upper middle income,2012,2.08E+11,14.56638251,244600.0061,16792090,208
 Kenya,Sub-Saharan Africa,Lower middle income,2012,56396706006,0.273997499,12149.99962,44343469,56.39670601
 Kiribati,East Asia & Pacific,Lower middle income,2012,189630114.9,0.564127142,59.99999866,106359,0.189630115
-"Korea, Rep.",East Asia & Pacific,High income,2012,1.28E+12,11.9586009,600320.0073,50199853,1280
+S. Korea,East Asia & Pacific,High income,2012,1.28E+12,11.9586009,600320.0073,50199853,1280
 Kuwait,Middle East & North Africa,High income,2012,1.74E+11,25.47440065,85309.99756,3348852,174
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2012,6605139933,1.794121918,10060.00042,5607200,6.605139933
 Lao PDR,East Asia & Pacific,Lower middle income,2012,10192848926,0.50740729,3269.999981,6444527,10.19284893
@@ -4108,7 +4108,7 @@ Poland,Europe & Central Asia,High income,2012,4.99E+11,7.969647665,303350.0061,3
 Portugal,Europe & Central Asia,High income,2012,2.16E+11,4.585897919,48220.00122,10514844,216
 Qatar,Middle East & North Africa,High income,2012,1.87E+11,34.18822184,75080.00183,2196078,187
 Romania,Europe & Central Asia,High income,2012,1.71E+11,4.080658872,81849.99847,20058035,171
-Russian Federation,Europe & Central Asia,Upper middle income,2012,2.21E+12,11.70209407,1675760.01,143201721,2210
+Russia,Europe & Central Asia,Upper middle income,2012,2.21E+12,11.70209407,1675760.01,143201721,2210
 Rwanda,Sub-Saharan Africa,Low income,2012,7650671477,0.071092285,750,10549668,7.650671477
 Samoa,East Asia & Pacific,Lower middle income,2012,760549577.7,1.057703002,200.000003,189089,0.760549578
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2012,250680845.7,0.636962946,119.9999973,188394,0.250680846
@@ -4233,7 +4233,7 @@ Hungary,Europe & Central Asia,High income,2013,1.36E+11,4.120050589,40759.99832,
 Iceland,Europe & Central Asia,High income,2013,16125060515,6.269999047,2029.999971,323764,16.12506052
 India,South Asia,Lower middle income,2013,1.86E+12,1.539947839,1972430.054,1280842119,1860
 Indonesia,East Asia & Pacific,Lower middle income,2013,9.13E+11,1.778914016,447940.0024,251805314,913
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2013,4.93E+11,7.631864943,583700.0122,76481963,493
+Iran,Middle East & North Africa,Lower middle income,2013,4.93E+11,7.631864943,583700.0122,76481963,493
 Iraq,Middle East & North Africa,Upper middle income,2013,2.35E+11,4.195185035,139100.0061,33157061,235
 Ireland,Europe & Central Asia,High income,2013,2.38E+11,7.723057986,35709.99908,4623816,238
 Israel,Middle East & North Africa,High income,2013,2.94E+11,8.313170792,67000,8059500,294
@@ -4244,7 +4244,7 @@ Jordan,Middle East & North Africa,Upper middle income,2013,34454440141,2.7937576
 Kazakhstan,Europe & Central Asia,Upper middle income,2013,2.37E+11,15.26278838,260010.0098,17035551,237
 Kenya,Sub-Saharan Africa,Lower middle income,2013,61671425370,0.309754058,14100.00038,45519986,61.67142537
 Kiribati,East Asia & Pacific,Lower middle income,2013,184550740.1,0.556137428,59.99999866,107887,0.18455074
-"Korea, Rep.",East Asia & Pacific,High income,2013,1.37E+12,11.89000868,599599.9756,50428893,1370
+S. Korea,East Asia & Pacific,High income,2013,1.37E+12,11.89000868,599599.9756,50428893,1370
 Kuwait,Middle East & North Africa,High income,2013,1.74E+11,24.77326637,87360.00061,3526382,174
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2013,7335027592,1.639974843,9380.000114,5719600,7.335027592
 Lao PDR,East Asia & Pacific,Lower middle income,2013,11983252611,0.635958995,4159.999847,6541302,11.98325261
@@ -4295,7 +4295,7 @@ Poland,Europe & Central Asia,High income,2013,5.21E+11,7.841704806,298299.9878,3
 Portugal,Europe & Central Asia,High income,2013,2.26E+11,4.452394369,46560.00137,10457295,226
 Qatar,Middle East & North Africa,High income,2013,1.99E+11,32.5989398,76169.99817,2336579,199
 Romania,Europe & Central Asia,High income,2013,1.91E+11,3.607441144,72089.99634,19983693,191
-Russian Federation,Europe & Central Asia,Upper middle income,2013,2.29E+12,11.37700677,1632680.054,143506995,2290
+Russia,Europe & Central Asia,Upper middle income,2013,2.29E+12,11.37700677,1632680.054,143506995,2290
 Rwanda,Sub-Saharan Africa,Low income,2013,7815975294,0.074919961,810.0000024,10811538,7.815975294
 Samoa,East Asia & Pacific,Lower middle income,2013,770059565,1.048701723,200.000003,190712,0.770059565
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2013,300554483.6,0.624752688,119.9999973,192076,0.300554484
@@ -4421,7 +4421,7 @@ Hungary,Europe & Central Asia,High income,2014,1.41E+11,4.11798843,40630.00107,9
 Iceland,Europe & Central Asia,High income,2014,17867662178,6.261721492,2049.999952,327386,17.86766218
 India,South Asia,Lower middle income,2014,2.04E+12,1.657231271,2147110.107,1295600768,2040
 Indonesia,East Asia & Pacific,Lower middle income,2014,8.91E+11,1.896733638,483910.0037,255128076,891
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2014,4.60E+11,7.81441898,605349.9756,77465769,460
+Iran,Middle East & North Africa,Lower middle income,2014,4.60E+11,7.81441898,605349.9756,77465769,460
 Iraq,Middle East & North Africa,Upper middle income,2014,2.28E+11,3.895158431,134039.9933,34411949,228
 Ireland,Europe & Central Asia,High income,2014,2.59E+11,7.628162753,35529.99878,4657740,259
 Israel,Middle East & North Africa,High income,2014,3.11E+11,7.877600353,64720.00122,8215700,311
@@ -4432,7 +4432,7 @@ Jordan,Middle East & North Africa,Upper middle income,2014,36847643521,2.8647280
 Kazakhstan,Europe & Central Asia,Upper middle income,2014,2.21E+11,12.10241477,209229.9957,17288285,221
 Kenya,Sub-Saharan Africa,Lower middle income,2014,68285768554,0.324410689,15149.99962,46700063,68.28576855
 Kiribati,East Asia & Pacific,Lower middle income,2014,177862310.4,0.548511237,59.99999866,109387,0.17786231
-"Korea, Rep.",East Asia & Pacific,High income,2014,1.48E+12,11.58874374,588090.0269,50746659,1480
+S. Korea,East Asia & Pacific,High income,2014,1.48E+12,11.58874374,588090.0269,50746659,1480
 Kuwait,Middle East & North Africa,High income,2014,1.63E+11,23.1838022,85569.99969,3690939,163
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2014,7468096567,1.663953395,9710.000038,5835500,7.468096567
 Lao PDR,East Asia & Pacific,Lower middle income,2014,13279248479,0.653637811,4340.000153,6639763,13.27924848
@@ -4483,7 +4483,7 @@ Poland,Europe & Central Asia,High income,2014,5.42E+11,7.516889481,285730.011,38
 Portugal,Europe & Central Asia,High income,2014,2.30E+11,4.415895252,45930.00031,10401062,230
 Qatar,Middle East & North Africa,High income,2014,2.06E+11,33.20589511,81660.00366,2459202,206
 Romania,Europe & Central Asia,High income,2014,2.00E+11,3.593353578,71540.00092,19908979,200
-Russian Federation,Europe & Central Asia,Upper middle income,2014,2.06E+12,11.20820257,1611959.961,143819667,2060
+Russia,Europe & Central Asia,Upper middle income,2014,2.06E+12,11.20820257,1611959.961,143819667,2060
 Rwanda,Sub-Saharan Africa,Low income,2014,8234762201,0.077591916,860.0000143,11083629,8.234762201
 Samoa,East Asia & Pacific,Lower middle income,2014,756805950.2,1.092498145,209.9999934,192220,0.75680595
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2014,346528329.2,0.613098843,119.9999973,195727,0.346528329
@@ -4609,7 +4609,7 @@ Hungary,Europe & Central Asia,High income,2015,1.25E+11,4.407180501,43380.00107,
 Iceland,Europe & Central Asia,High income,2015,17517210519,6.227045154,2059.999943,330815,17.51721052
 India,South Asia,Lower middle income,2015,2.10E+12,1.647151914,2158020.02,1310152392,2100
 Indonesia,East Asia & Pacific,Lower middle income,2015,8.61E+11,1.890795841,488549.9878,258383257,861
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2015,4.08E+11,7.633623871,599179.9927,78492208,408
+Iran,Middle East & North Africa,Lower middle income,2015,4.08E+11,7.633623871,599179.9927,78492208,408
 Iraq,Middle East & North Africa,Upper middle income,2015,1.67E+11,3.743646439,133169.9982,35572269,167
 Ireland,Europe & Central Asia,High income,2015,2.92E+11,7.881824817,37060.00137,4701957,292
 Israel,Middle East & North Africa,High income,2015,3.00E+11,7.892507176,66139.99939,8380100,300
@@ -4620,7 +4620,7 @@ Jordan,Middle East & North Africa,Upper middle income,2015,38587017887,2.7313225
 Kazakhstan,Europe & Central Asia,Upper middle income,2015,1.84E+11,10.87226272,190729.9957,17542806,184
 Kenya,Sub-Saharan Africa,Lower middle income,2015,70120413329,0.359452718,17209.99908,47878339,70.12041333
 Kiribati,East Asia & Pacific,Lower middle income,2015,170291002,0.540896253,59.99999866,110927,0.170291002
-"Korea, Rep.",East Asia & Pacific,High income,2015,1.47E+12,11.91474367,607830.0171,51014947,1470
+S. Korea,East Asia & Pacific,High income,2015,1.47E+12,11.91474367,607830.0171,51014947,1470
 Kuwait,Middle East & North Africa,High income,2015,1.15E+11,23.20895692,89019.99664,3835588,115
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2015,6678178340,1.724051177,10270.00046,5956900,6.67817834
 Lao PDR,East Asia & Pacific,Lower middle income,2015,14426381187,1.317280722,8880.000114,6741160,14.42638119
@@ -4671,7 +4671,7 @@ Poland,Europe & Central Asia,High income,2015,4.78E+11,7.610089275,289079.9866,3
 Portugal,Europe & Central Asia,High income,2015,1.99E+11,4.812669696,49849.99847,10358076,199
 Qatar,Middle East & North Africa,High income,2015,1.62E+11,33.04351032,84779.99878,2565708,162
 Romania,Europe & Central Asia,High income,2015,1.78E+11,3.700112058,73319.99969,19815616,178
-Russian Federation,Europe & Central Asia,Upper middle income,2015,1.36E+12,11.05201007,1592560.059,144096870,1360
+Russia,Europe & Central Asia,Upper middle income,2015,1.36E+12,11.05201007,1592560.059,144096870,1360
 Rwanda,Sub-Saharan Africa,Low income,2015,8539424910,0.086198815,980.0000191,11369066,8.53942491
 Samoa,East Asia & Pacific,Lower middle income,2015,788307314.9,1.240245954,239.9999946,193510,0.788307315
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2015,316066072.3,0.601687721,119.9999973,199439,0.316066072
@@ -4797,7 +4797,7 @@ Hungary,Europe & Central Asia,High income,2016,1.29E+11,4.50885432,44250,9814023
 Iceland,Europe & Central Asia,High income,2016,20793168031,4.859303764,1629.999995,335439,20.79316803
 India,South Asia,Lower middle income,2016,2.29E+12,1.657396308,2195250,1324517250,2290
 Indonesia,East Asia & Pacific,Lower middle income,2016,9.32E+11,1.844764783,482510.0098,261556386,932
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2016,4.58E+11,7.631719002,607210.022,79563991,458
+Iran,Middle East & North Africa,Lower middle income,2016,4.58E+11,7.631719002,607210.022,79563991,458
 Iraq,Middle East & North Africa,Upper middle income,2016,1.67E+11,3.884936915,142229.9957,36610632,167
 Ireland,Europe & Central Asia,High income,2016,2.99E+11,8.163462657,38819.99969,4755335,299
 Israel,Middle East & North Africa,High income,2016,3.19E+11,7.603557613,64980.00336,8546000,319
@@ -4808,7 +4808,7 @@ Jordan,Middle East & North Africa,Upper middle income,2016,39892551127,2.5977869
 Kazakhstan,Europe & Central Asia,Upper middle income,2016,1.37E+11,11.36053552,202149.9939,17794055,137
 Kenya,Sub-Saharan Africa,Lower middle income,2016,74815121315,0.389590299,19110.00061,49051531,74.81512132
 Kiribati,East Asia & Pacific,Lower middle income,2016,178509814.1,0.622061871,70.0000003,112529,0.178509814
-"Korea, Rep.",East Asia & Pacific,High income,2016,1.50E+12,12.02472517,615880.0049,51217803,1500
+S. Korea,East Asia & Pacific,High income,2016,1.50E+12,12.02472517,615880.0049,51217803,1500
 Kuwait,Middle East & North Africa,High income,2016,1.09E+11,23.13702198,91550.00305,3956862,109
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2016,6813092066,1.595525916,9699.999809,6079500,6.813092066
 Lao PDR,East Asia & Pacific,Lower middle income,2016,15912495369,2.293360853,15699.99981,6845848,15.91249537
@@ -4859,7 +4859,7 @@ Poland,Europe & Central Asia,High income,2016,4.73E+11,7.895688724,299799.9878,3
 Portugal,Europe & Central Asia,High income,2016,2.06E+11,4.722311267,48759.99832,10325452,206
 Qatar,Middle East & North Africa,High income,2016,1.52E+11,32.74588827,86919.99817,2654379,152
 Romania,Europe & Central Asia,High income,2016,1.88E+11,3.633591827,71589.99634,19702267,188
-Russian Federation,Europe & Central Asia,Upper middle income,2016,1.28E+12,10.88744577,1571520.02,144342397,1280
+Russia,Europe & Central Asia,Upper middle income,2016,1.28E+12,10.88744577,1571520.02,144342397,1280
 Rwanda,Sub-Saharan Africa,Low income,2016,8690878328,0.099410144,1159.999967,11668829,8.690878328
 Samoa,East Asia & Pacific,Lower middle income,2016,799493897.5,1.542099372,300.0000119,194540,0.799493898
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2016,345495615,0.639697646,129.9999952,203221,0.345495615
@@ -4984,7 +4984,7 @@ Hungary,Europe & Central Asia,High income,2017,1.43E+11,4.744601547,46439.99863,
 Iceland,Europe & Central Asia,High income,2017,24728285177,4.863133247,1669.999957,343400,24.72828518
 India,South Asia,Lower middle income,2017,2.65E+12,1.733360844,2320409.912,1338676779,2650
 Indonesia,East Asia & Pacific,Lower middle income,2017,1.02E+12,1.954725536,517320.0073,264650969,1020
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2017,4.87E+11,7.764841864,626419.9829,80673888,487
+Iran,Middle East & North Africa,Lower middle income,2017,4.87E+11,7.764841864,626419.9829,80673888,487
 Iraq,Middle East & North Africa,Upper middle income,2017,1.87E+11,4.129653375,155080.0018,37552789,187
 Ireland,Europe & Central Asia,High income,2017,3.35E+11,7.858737173,37779.99878,4807388,335
 Israel,Middle East & North Africa,High income,2017,3.55E+11,7.529868203,65610.00061,8713300,355
@@ -4995,7 +4995,7 @@ Jordan,Middle East & North Africa,Upper middle income,2017,41408960845,2.6722284
 Kazakhstan,Europe & Central Asia,Upper middle income,2017,1.67E+11,11.89614517,214580.0018,18037776,167
 Kenya,Sub-Saharan Africa,Lower middle income,2017,82035800868,0.377928444,18979.99954,50221146,82.03580087
 Kiribati,East Asia & Pacific,Lower middle income,2017,188192060.1,0.788415579,90.00000358,114153,0.18819206
-"Korea, Rep.",East Asia & Pacific,High income,2017,1.62E+12,12.20028602,626630.0049,51361911,1620
+S. Korea,East Asia & Pacific,High income,2017,1.62E+12,12.20028602,626630.0049,51361911,1620
 Kuwait,Middle East & North Africa,High income,2017,1.21E+11,22.36876769,90730.00336,4056102,121
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2017,7702934800,1.521409491,9430.000305,6198200,7.7029348
 Lao PDR,East Asia & Pacific,Lower middle income,2017,17071162084,2.739812211,19049.99924,6953031,17.07116208
@@ -5046,7 +5046,7 @@ Poland,Europe & Central Asia,High income,2017,5.27E+11,8.238615375,312859.9854,3
 Portugal,Europe & Central Asia,High income,2017,2.21E+11,5.177519279,53330.00183,10300300,221
 Qatar,Middle East & North Africa,High income,2017,1.61E+11,32.12798967,87540.00092,2724727,161
 Romania,Europe & Central Asia,High income,2017,2.12E+11,3.788405676,74209.99908,19588715,212
-Russian Federation,Europe & Central Asia,Upper middle income,2017,1.57E+12,11.03519747,1594550.049,144496739,1570
+Russia,Europe & Central Asia,Upper middle income,2017,1.57E+12,11.03519747,1594550.049,144496739,1570
 Rwanda,Sub-Saharan Africa,Low income,2017,9252834120,0.099324266,1190.000057,11980960,9.25283412
 Samoa,East Asia & Pacific,Lower middle income,2017,832025556.1,1.586830344,310.0000024,195358,0.832025556
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2017,375614126.2,0.676047635,140.0000006,207086,0.375614126
@@ -5171,7 +5171,7 @@ Hungary,Europe & Central Asia,High income,2018,1.61E+11,4.746529359,46400.00153,
 Iceland,Europe & Central Asia,High income,2018,26267063758,4.819673475,1700.000048,352721,26.26706376
 India,South Asia,Lower middle income,2018,2.70E+12,1.8126965,2451929.932,1352642283,2700
 Indonesia,East Asia & Pacific,Lower middle income,2018,1.04E+12,2.15559759,576989.9902,267670549,1040
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2018,3.31E+11,7.792523264,637429.9927,81800204,331
+Iran,Middle East & North Africa,Lower middle income,2018,3.31E+11,7.792523264,637429.9927,81800204,331
 Iraq,Middle East & North Africa,Upper middle income,2018,2.27E+11,4.244982955,163149.9939,38433604,227
 Ireland,Europe & Central Asia,High income,2018,3.85E+11,7.737323783,37659.99985,4867316,385
 Israel,Middle East & North Africa,High income,2018,3.74E+11,6.87621041,61080.00183,8882800,374
@@ -5182,7 +5182,7 @@ Jordan,Middle East & North Africa,Upper middle income,2018,42932112676,2.4866231
 Kazakhstan,Europe & Central Asia,Upper middle income,2018,1.79E+11,11.8513159,216600.0061,18276452,179
 Kenya,Sub-Saharan Africa,Lower middle income,2018,92202956321,0.340321563,17489.99977,51392570,92.20295632
 Kiribati,East Asia & Pacific,Lower middle income,2018,196230573.8,0.776920319,90.00000358,115842,0.196230574
-"Korea, Rep.",East Asia & Pacific,High income,2018,1.72E+12,12.22524582,630640.0146,51585058,1720
+S. Korea,East Asia & Pacific,High income,2018,1.72E+12,12.22524582,630640.0146,51585058,1720
 Kuwait,Middle East & North Africa,High income,2018,1.38E+11,22.08921039,91389.99939,4137314,138
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2018,8271108638,1.779275005,11250,6322800,8.271108638
 Lao PDR,East Asia & Pacific,Lower middle income,2018,18141651381,2.741627996,19360.00061,7061498,18.14165138
@@ -5233,7 +5233,7 @@ Poland,Europe & Central Asia,High income,2018,5.87E+11,8.213615723,311910.0037,3
 Portugal,Europe & Central Asia,High income,2018,2.42E+11,4.813385529,49500,10283822,242
 Qatar,Middle East & North Africa,High income,2018,1.83E+11,31.0675333,86419.99817,2781682,183
 Romania,Europe & Central Asia,High income,2018,2.41E+11,3.86105157,75190.00244,19473970,241
-Russian Federation,Europe & Central Asia,Upper middle income,2018,1.66E+12,11.49657125,1661000,144477859,1660
+Russia,Europe & Central Asia,Upper middle income,2018,1.66E+12,11.49657125,1661000,144477859,1660
 Rwanda,Sub-Saharan Africa,Low income,2018,9642440646,0.104861259,1289.999962,12301969,9.642440646
 Samoa,East Asia & Pacific,Lower middle income,2018,821286938.9,1.478626161,289.9999917,196128,0.821286939
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2018,412253809.7,0.6634065,140.0000006,211032,0.41225381
@@ -5358,7 +5358,7 @@ Hungary,Europe & Central Asia,High income,2019,1.64E+11,4.74663103,46380.00107,9
 Iceland,Europe & Central Asia,High income,2019,24857740445,4.548442258,1639.999986,360563,24.85774045
 India,South Asia,Lower middle income,2019,2.83E+12,1.797620119,2456300.049,1366417756,2830
 Indonesia,East Asia & Pacific,Lower middle income,2019,1.12E+12,2.290397148,619840.0269,270625567,1120
-"Iran, Islamic Rep.",Middle East & North Africa,Lower middle income,2019,2.91E+11,7.598364845,630010.0098,82913893,291
+Iran,Middle East & North Africa,Lower middle income,2019,2.91E+11,7.598364845,630010.0098,82913893,291
 Iraq,Middle East & North Africa,Upper middle income,2019,2.34E+11,4.440624129,174559.9976,39309789,234
 Ireland,Europe & Central Asia,High income,2019,3.99E+11,7.245143221,35750,4934340,399
 Israel,Middle East & North Africa,High income,2019,3.98E+11,6.919593718,62650.00153,9054000,398
@@ -5369,7 +5369,7 @@ Jordan,Middle East & North Africa,Upper middle income,2019,44502895915,2.4382041
 Kazakhstan,Europe & Central Asia,Upper middle income,2019,1.82E+11,11.45693783,212110.0006,18513673,182
 Kenya,Sub-Saharan Africa,Lower middle income,2019,1.00E+11,0.423783898,22280.00069,52573967,100
 Kiribati,East Asia & Pacific,Lower middle income,2019,177935349.3,0.765254095,90.00000358,117608,0.177935349
-"Korea, Rep.",East Asia & Pacific,High income,2019,1.65E+12,11.79932538,610789.978,51764822,1650
+S. Korea,East Asia & Pacific,High income,2019,1.65E+12,11.79932538,610789.978,51764822,1650
 Kuwait,Middle East & North Africa,High income,2019,1.36E+11,22.0224164,92650.00153,4207077,136
 Kyrgyz Republic,Europe & Central Asia,Lower middle income,2019,8871026074,1.556643256,10050.00019,6456200,8.871026074
 Lao PDR,East Asia & Pacific,Lower middle income,2019,18740559554,2.609681834,18709.99908,7169456,18.74055955
@@ -5420,7 +5420,7 @@ Poland,Europe & Central Asia,High income,2019,5.97E+11,7.773641839,295130.0049,3
 Portugal,Europe & Central Asia,High income,2019,2.40E+11,4.339768426,44639.99939,10286263,240
 Qatar,Middle East & North Africa,High income,2019,1.76E+11,32.47446876,91970.00122,2832071,176
 Romania,Europe & Central Asia,High income,2019,2.50E+11,3.817434477,73949.99695,19371648,250
-Russian Federation,Europe & Central Asia,Upper middle income,2019,1.69E+12,11.79720293,1703589.966,144406261,1690
+Russia,Europe & Central Asia,Upper middle income,2019,1.69E+12,11.79720293,1703589.966,144406261,1690
 Rwanda,Sub-Saharan Africa,Low income,2019,10356327149,0.105330369,1330.000043,12626938,10.35632715
 Samoa,East Asia & Pacific,Lower middle income,2019,852007104.7,1.522124134,300.0000119,197093,0.852007105
 Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,2019,427425039.7,0.697518721,150.000006,215048,0.42742504
