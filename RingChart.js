@@ -18,13 +18,14 @@ async function ringChart(year) {
 	var pi = Math.PI;
 	var formatPercent = d3.format(".0%");
 	var colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf", "#ccc"]
+	var outerCircleColors = ["teal", "red"];
 	
 	top10Countries = topCountries(fulldata, 2019, Co2Indicator.Total, 10);
 	
 	var aggData = aggregatedData(top10Countries);
 	top10Countries.push({r: 11, c: "Rest of the world", displayName: "none", percentTotal: aggData[2]})
 	
-	var top3 = [{name: "Top 3", percentTotal: aggData[0]}]
+	var top3 = [{name: "Top 10 emitters", percentTotal: aggData[1]}, {name: "Top 3 emitters", percentTotal: aggData[0]}]
 	
 	var numberOfValues = top10Countries.length;
 	var arcWidth = 60; // width of each arc in the graph
@@ -75,14 +76,14 @@ async function ringChart(year) {
 		.enter().append("path")
 		.each(function(d, index) {
 			var pathArc = d3.arc()
-				.innerRadius(width / 5 + 25 - 20)
-				.outerRadius(width / 5 + 25);
+				.innerRadius(width / 5 + (index + 1) * 25 - 20)
+				.outerRadius(width / 5 + (index + 1) * 25);
 
 			  return d3.select(this)
-				.style("fill", "red")
+				.style("fill", outerCircleColors[index])
 				.attr("id", function(d,i) { return "aggArc_"+ index; })
 				.attr("d", pathArc.startAngle(0))
-				.attr("d", pathArc.endAngle(aggData[0] * 360 * degree));
+				.attr("d", pathArc.endAngle(top3[index].percentTotal * 360 * degree));
 		});
 		
 	curves1.selectAll(".aggText")
@@ -90,11 +91,11 @@ async function ringChart(year) {
 		.enter().append("text")
 		.attr("class", "aggText")
 		.attr("x", 350)   //Move the text from the start angle of the arc
-		.attr("dy", -5) //Move the text down
+		.attr("dy", 13) //Move the text down
 		.append("textPath")
 		.attr("font-weight", 700)
 		.attr("xlink:href",function(d,i){return "#aggArc_"+i;})
-		.text(function(d, i) {return `Top 3 emitters - ${Math.round(d.percentTotal * 100)} %`});
+		.text(function(d, i) {return `${d.name} emitters - ${Math.round(d.percentTotal * 100)} %`});
 
 	// Function called for each path appended to increase scale and iterate.
 	function arcFunction(d, index) {
@@ -128,8 +129,7 @@ async function ringChart(year) {
 		var xval = 300;
 		var yval = -150;
 		var r = 10
-		var heading = ["53%", "71%"];
-		var colors = ["red", "teal"];
+		var heading = ["71%", "53%"];
 		var label3 = ["The 3 largest greenhoust gas emitters contribute", "over half of global emissions."]
 		var label10 = ["The 10 largest greenhoust gas emitters contribute", "over two thirds of global emissions."]
 		legendSvg.selectAll("ringLegnedCircle")
@@ -139,7 +139,7 @@ async function ringChart(year) {
 			.attr("cx", xval)
 			.attr("cy", function(d, i) {return yval + i * 100})
 			.attr("r", r)
-			.style("fill", function(d, i) {return colors[i]});
+			.style("fill", function(d, i) {return outerCircleColors[i]});
 			
 		legendSvg.selectAll("ringLegnedLabel")
 		  .data(heading)
