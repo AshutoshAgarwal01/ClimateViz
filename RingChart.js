@@ -151,7 +151,7 @@ async function ringChart(year) {
 			.text(function(d, i) {return d;});
 			
 		legendSvg.selectAll("ringLegnedLabel")
-		  .data(label3)
+		  .data(label10)
 		  .enter()
 		  .append("text")
 			.attr("x", xval - 10)
@@ -160,7 +160,7 @@ async function ringChart(year) {
 			.text(function(d, i) {return d;});
 			
 		legendSvg.selectAll("ringLegnedLabel")
-		  .data(label10)
+		  .data(label3)
 		  .enter()
 		  .append("text")
 			.attr("x", xval - 10)
