@@ -80,3 +80,9 @@ html, body { margin: 0; padding: 0; }
 .dashed{
    stroke-dasharray: 5,5; 
 }
+
+.button {
+	color: black;
+	text-align: center;
+	margin: 5px;
+ }

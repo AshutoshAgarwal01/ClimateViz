@@ -16,12 +16,15 @@
 			<p id="chart-desc"></p>
 		</div>
 		<div>
-			<button id="reset-chart" onclick="reset()">Reset</button>
-			<button id="back-to-home" onclick="backToHome()">Back</button>
+			<button id="reset-chart" class="button" onclick="reset()">Reset</button>
+			<button id="back-to-home" class="button" onclick="backToHome()">Back</button>
 		</div>
 		<div id="chart-selection-buttons" class="annotation-text" style="width:100%">
 			<!--Radio Buttons for chart selection-->
-			<input type="radio" id="btn-per-capita-co2" name="b_chart" checked="checked" onclick="onChartSelection(ChartType.Bubble, Co2Indicator.PerCapita)">
+			<input type="radio" id="btn-ring" name="b_chart" checked="checked" onclick="onChartSelection(ChartType.Ring, Co2Indicator.Total)">
+			<label for="btn-ring">Summary</label>
+			
+			<input type="radio" id="btn-per-capita-co2" name="b_chart" onclick="onChartSelection(ChartType.Bubble, Co2Indicator.PerCapita)">
 			<label for="btn-per-capita-co2">CO2 Per Capita</label>
 		
 			<input type="radio" id="btn-total-co2" name="b_chart" onclick="onChartSelection(ChartType.Bubble, Co2Indicator.Total)">
@@ -33,20 +36,19 @@
 			<input type="radio" id="btn-top10-per-capita" name="b_chart" onclick="onChartSelection(ChartType.Line, Co2Indicator.PerCapita)">
 			<label for="btn-top10-per-capita">Top countries by per capita CO2 emission</label>
 		</div>
-		<!--<div id="ringChart-outerdiv" class="annotation-text" style="width:100%">
+		<div id="ringChart-outerdiv" class="annotation-text" style="width:100%">
 			<div class="chart-legend-container" style="width:100%">
 				<div id="ringChart-wrapper" class="chart-and-legend-block" style="width:88%">
 				</div>
-				<div id="ringChart-legend" class="chart-and-legend-block chart-legend" style="width:10%"></div>
 			</div>
-		</div>-->
+		</div>
 		<div id="bubbleChart-outerdiv" class="annotation-text" style="width:100%">
 			<div id="bubble-chart-controls" style="width:100%">
 				<div class="slider-block" style="width:2%">
-					<button id="timer" onclick="startTimer()">Play</button>
+					<button id="timer" class="button" onclick="startTimer()">Play</button>
 				</div>
 				<div class="slider-block" style="width:3%">
-					<button id="pause-timer" onclick="pauseTimer()">Pause</button>
+					<button id="pause-timer" class="button" onclick="pauseTimer()">Pause</button>
 				</div>
 				<div class="slidecontainer" >
 					<div class="slider-block" style="width:70%">
@@ -106,7 +108,8 @@
 	// Enum for chart types
 	const ChartType = {
 		Bubble: 0,
-		Line: 1
+		Line: 1,
+		Ring: 2
 	}
 	
 	// Enum for Co2 indicators.
@@ -232,6 +235,7 @@
 	async function updateMainCanvas(year) {
 		removeLineChart();
 		removeBubbleChart();
+		hideRingChart();
 		
 		showChartSelectionButtons();
 		if (currentChartSelection.Type == ChartType.Bubble) {
@@ -240,6 +244,13 @@
 				showBubbleChartLegend();
 			}
 			await bubbleChart(year)
+		}
+		else if (currentChartSelection.Type == ChartType.Ring){
+			if (currentChartSelection.Type != prevChartSelection.Type) {
+				hideBubbleChartControls();
+				hideBubbleChartLegend();
+			}
+			await ringChart(2019);
 		}
 		else {
 			if (currentChartSelection.Type != prevChartSelection.Type) {
@@ -287,12 +298,22 @@
 		d3.select('#bubbleChartlegend').style("display", "block");
 	}
 
+	var hideRingChart = function() {
+		// d3.select('#ringChart-wrapper').style("display", "none");
+		d3.select('#ringChart').remove();
+	}
+	
+	var showRingChart = function() {
+		d3.select('#ringChart-wrapper').style("display", "block");
+	}
+	
 	// Update drill down line chart when country is selected
 	async function updateDrillDownLineChart(d) {
 		isPaused = true;
 		showBackToHomeButton();
 		removeLineChart();
 		removeBubbleChart();
+		hideRingChart();
 		
 		hideChartSelectionButtons();
 		hideBubbleChartControls();
@@ -303,6 +324,7 @@
 	async function backToHome() {
 		removeLineChart();
 		removeBubbleChart();
+		hideRingChart();
 		
 		hideBackToHomeButton();
 		showChartSelectionButtons();
@@ -361,30 +383,32 @@
 		isPaused = true;
 		bubbleChartButtonStatus = BubbleChartButtonStatus.PerCapita;
 		
-		currentChartSelection = { Type: ChartType.Bubble, Indicator: Co2Indicator.PerCapita };
-		prevChartSelection = { Type: ChartType.Bubble, Indicator: Co2Indicator.PerCapita };
+		currentChartSelection = { Type: ChartType.Ring, Indicator: Co2Indicator.TotalCO2 };
+		prevChartSelection = { Type: ChartType.Ring, Indicator: Co2Indicator.TotalCO2 };
 		
-		resetIncomeGroupSelectionStatus()
+		resetIncomeGroupSelectionStatus();
 		removeLineChart(); // This removes all components of line chart.
+		hideRingChart();
 		removeBubbleChart(); // Removes only bubble chart canvas. Not legends.
 		
 		// Recreate bubble chart legend.
 		removeBubbleChartLegend();
 		createBubbleChartLegend(outerheight, incomeGroups, colors, population2radius);
+		hideBubbleChartLegend();
+		hideBubbleChartControls();
 		
 		// Hide back to home button.
 		hideBackToHomeButton();
 		
 		// select first radio button.
-		d3.select("#btn-per-capita-co2").property("checked", true);
+		d3.select("#btn-ring").property("checked", true);
 		
 		// set slider to 2019.
 		delay(210).then(async function() { 
 			d3.select("#yearRange").property("value", 2019);
 			document.getElementById("yearValue").innerHTML = getTimeSliderValue();
 			var slider = document.getElementById("yearRange");	
-			await bubbleChart(slider.value);
-			// await ringChart(2019);
+			await ringChart(2019);
 		});
 	}
 </script>
