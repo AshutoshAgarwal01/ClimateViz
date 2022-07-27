@@ -71,9 +71,6 @@ async function lineChartForCountries(indicator, chart_title, chart_description) 
 			.attr("class", "chart-axis")
 			.text(getCo2IndicatorNames(indicator))
 			.attr("transform", "rotate(90)"));
-
-	// Tooltip
-	// createLineChartToolTip(lineSvg, data, xscale, yscale, 6, 'top', years)
 	
 	// Grid
 	grid = g => createLineChartGrid(g, xscale, yscale)
@@ -86,7 +83,6 @@ async function lineChartForCountries(indicator, chart_title, chart_description) 
 	// Create legend.
 	multiCountryLineChartLegend(outerheight, top10Countries.map(c => c.displayName), countryColors);
 
-	// Left line chart
 	for (const country of top10Countries) {
 		let countryData = data.filter(o => o.Country == country.c)
 		lineSvg.append("g") 
@@ -110,8 +106,6 @@ async function lineChartForCountries(indicator, chart_title, chart_description) 
 						.style("fill", countryColors(country.displayName)))
 			.append("title")
 			.text(function(d) {return Top10TooltipText(d)});
-			
-		// createLineChartToolTip(lineSvg, countryData, xscale, yscale, 6, `${country.c}`, years)
 	}
 	
 	// Recession line.
@@ -144,7 +138,7 @@ async function lineChartForCountries(indicator, chart_title, chart_description) 
 			.transition()
 			.duration(1000)
 			.attr('stroke-width',1)});
-	
+
 	// add axis
 	lineSvg.append("g") 
 		.attr("transform", "translate("+margin+","+margin+")") 

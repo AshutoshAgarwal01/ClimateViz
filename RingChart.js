@@ -37,8 +37,8 @@ async function ringChart(year) {
 	// Appending SVG to the body
 	var svg = d3.select("#ringChart-wrapper")
 		.append("svg")
-		.attr("width", width)
-		.attr("height", height)
+		.attr("width", outerwidth)
+		.attr("height", outerheight)
 		.attr("id", "ringChart");
 
 	// Container for the arcs
