@@ -95,7 +95,7 @@ async function ringChart(year) {
 		.append("textPath")
 		.attr("font-weight", 700)
 		.attr("xlink:href",function(d,i){return "#aggArc_"+i;})
-		.text(function(d, i) {return `${d.name} emitters - ${Math.round(d.percentTotal * 100)} %`});
+		.text(function(d, i) {return `${d.name} - ${Math.round(d.percentTotal * 100)} %`});
 
 	// Function called for each path appended to increase scale and iterate.
 	function arcFunction(d, index) {
@@ -130,8 +130,8 @@ async function ringChart(year) {
 		var yval = -150;
 		var r = 10
 		var heading = ["71%", "53%"];
-		var label3 = ["The 3 largest greenhoust gas emitters contribute", "over half of global emissions."]
-		var label10 = ["The 10 largest greenhoust gas emitters contribute", "over two thirds of global emissions."]
+		var label3 = ["The 3 largest greenhouse gas emitters contribute", "over half of global emissions."]
+		var label10 = ["The 10 largest greenhouse gas emitters contribute", "over two thirds of global emissions."]
 		legendSvg.selectAll("ringLegnedCircle")
 			.data(heading)
 			.enter()
