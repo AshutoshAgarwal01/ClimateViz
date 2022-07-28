@@ -185,15 +185,16 @@ var bubbleChartAnnotation = function(data, xscale, margin, yscale, chartWidth, c
 	}
 	
 	generateAnnotation([{c:countrySortedByEmission[0], l:'#1 capita carbon emission.'},
-		{c:countrySortedByEmission[1], l:'#2'},
-		{c:countrySortedByEmission[2], l:'#3'},
-		{c:countrySortedByEmission[3], l:'#4'},
-		{c:countrySortedByEmission[4], l:'#5'},
-		{c:'United States', l: `#${countrySortedByEmission.indexOf("United States") + 1}`},
-		{c:'India', l:`#${countrySortedByEmission.indexOf("India") + 1}`},
-		{c:'Canada', l:`#${countrySortedByEmission.indexOf("Canada") + 1}`},
-		{c:'China', l:`#${countrySortedByEmission.indexOf("China") + 1}`},
-		{c:'Ethiopia', l:`#${countrySortedByEmission.indexOf("Ethiopia") + 1}`}], data)
+			{c:countrySortedByEmission[1], l:'#2'},
+			{c:countrySortedByEmission[2], l:'#3'},
+			{c:countrySortedByEmission[3], l:'#4'},
+			{c:countrySortedByEmission[4], l:'#5'},
+			// {c:'United States', l: `#${countrySortedByEmission.indexOf("United States") + 1}`},
+			// {c:'India', l:`#${countrySortedByEmission.indexOf("India") + 1}`},
+			// {c:'Canada', l:`#${countrySortedByEmission.indexOf("Canada") + 1}`},
+			// {c:'China', l:`#${countrySortedByEmission.indexOf("China") + 1}`},
+			{c:'Ethiopia', l:`#${countrySortedByEmission.indexOf("Ethiopia") + 1}`}
+		], data)
 		
 	return annotationData;
 }
