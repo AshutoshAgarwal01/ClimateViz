@@ -69,9 +69,9 @@ async function lineChart(country) {
 	lineChartLegend(outerheight, axisKeys);
 	
 	// Create annotationData
-	const annotationInfo = [{y:2009, l:'Economic recession'}];
-	const annotationData = lineChartAnnotation(data, annotationInfo, Co2Indicator.Total, xscale, margin, yscale, width, height);
-	const makeAnnotations = d3.annotation().annotations(annotationData)
+	// const annotationInfo = [{y:2009, l:'Economic recession'}];
+	// const annotationData = drillDownLineChartAnnotation(data, annotationInfo, Co2Indicator.Total, xscale, margin, yscale, width, height);
+	// const makeAnnotations = d3.annotation().annotations(annotationData)
 	
 	// Left line chart
 	lineSvg.append("g") 
@@ -145,13 +145,13 @@ async function lineChart(country) {
 	lineSvg.append("g") 
 		.call(grid)
 		
-	lineSvg
-		.append("g")
-		.call(makeAnnotations);
+	// lineSvg
+	//	.append("g")
+	//	.call(makeAnnotations);
 }
 
 // Method - Create bubble chart annotations.
-var lineChartAnnotation = function(data, annotationInfo, indicator, xscale, margin, yscale, chartWidth, chartHeight){
+var drillDownLineChartAnnotation = function(data, annotationInfo, indicator, xscale, margin, yscale, chartWidth, chartHeight){
 	let annotationData = []
 	
 	for (const ann of annotationInfo) {
@@ -191,6 +191,16 @@ var lineChartLegend = function(outerheight, axisKeys) {
 		.attr("width", legendW)
 		.attr("height", legendH)
 		.attr("id", "lineChartlegend");
+	
+	legendSvg.selectAll("legendTitle")
+	  .data(["Indicator"])
+	  .enter()
+	  .append("text")
+		.attr("font-weight", 700)
+		.attr("x", 0)
+		.attr("y", 87)
+		.style("fill", "black")
+		.text(function(d){ return d});
 	
 	legendSvg.selectAll("rect")
 	  .data(axisKeys.y)

@@ -2,8 +2,8 @@ function topCountries(fulldata, year, indicator, countOfCountries) {
 	const data2019 = fulldata.filter(o => o.Year == year);
 	
 	const countrySortedByEmission = indicator == Co2Indicator.PerCapita ? 
-				data2019.sort((a,b) => b.PerCapitaCo2 - a.PerCapitaCo2).map(a => a.Country) : 
-				data2019.sort((a,b) => b.TotalCO2 - a.TotalCO2).map(a => a.Country);
+				data2019.sort((a,b) => b.PerCapitaCo2 - a.PerCapitaCo2) : //.map(a => a.Country) : 
+				data2019.sort((a,b) => b.TotalCO2 - a.TotalCO2); //.map(a => a.Country);
 	
 	var totalEmission = 0;
 	for (d of data2019) {
@@ -13,9 +13,15 @@ function topCountries(fulldata, year, indicator, countOfCountries) {
 	let topCountries = [];
 	
 	for (const rank in countrySortedByEmission) {
-		var ctryData = data2019.filter(o => o.Country == countrySortedByEmission[rank])[0]
+		var ctryData = data2019.filter(o => o.Country == countrySortedByEmission[rank].Country)[0]
 		var contribution = parseInt(indicator == Co2Indicator.PerCapita ? ctryData.PerCapitaCo2 : ctryData.TotalCO2);
-		topCountries.push({r: rank, c: countrySortedByEmission[rank], displayName: `${parseInt(rank) + 1} - ${countrySortedByEmission[rank]}`, percentTotal: contribution / totalEmission});
+		topCountries.push({
+			r: rank,
+			c: countrySortedByEmission[rank].Country,
+			displayName: `${parseInt(rank) + 1} - ${countrySortedByEmission[rank].Country}`,
+			percentTotal: contribution / totalEmission,
+			incomeGroup: countrySortedByEmission[rank].IncomeGroup});
+
 		if (rank == countOfCountries - 1) {
 			break;
 		}
@@ -74,6 +80,10 @@ async function lineChartForCountries(indicator, chart_title, chart_description) 
 	
 	// Grid
 	grid = g => createLineChartGrid(g, xscale, yscale)
+
+	// Create annotations
+	annotationData = lineChartAnnotation(data, xscale, margin, yscale, width, height, indicator)
+	const makeAnnotations = d3.annotation().annotations(annotationData)
 	
 	// Color scale by Income group.
 	var countryColors = d3.scaleOrdinal()
@@ -81,7 +91,8 @@ async function lineChartForCountries(indicator, chart_title, chart_description) 
 		.range(d3.schemeCategory10);
 	
 	// Create legend.
-	multiCountryLineChartLegend(outerheight, top10Countries.map(c => c.displayName), countryColors);
+	var legendTitle = "Top emitters with rank"
+	multiCountryLineChartLegend(outerheight, top10Countries.map(c => c.displayName), countryColors, legendTitle);
 
 	for (const country of top10Countries) {
 		let countryData = data.filter(o => o.Country == country.c)
@@ -150,10 +161,13 @@ async function lineChartForCountries(indicator, chart_title, chart_description) 
 		
 	lineSvg.append("g") 
 		.call(grid)
+		
+	lineSvg.append("g")
+		.call(makeAnnotations);
 }
 
 // Method - Genereate line chart legends
-var multiCountryLineChartLegend = function(outerheight, countries, countryColors) {
+var multiCountryLineChartLegend = function(outerheight, countries, countryColors, legendTitle) {
 	var marginLengend = 5
 	var legendW = 200
 	var legendH = outerheight
@@ -164,6 +178,17 @@ var multiCountryLineChartLegend = function(outerheight, countries, countryColors
 		.attr("width", legendW)
 		.attr("height", legendH)
 		.attr("id", "lineChartlegend");
+
+	legendSvg.selectAll("legendTitle")
+	  .data([legendTitle])
+	  .enter()
+	  .append("text")
+	  	.attr("font-weight", 700)
+		.attr("x", 0)
+		.attr("y", 87)
+		.style("fill", "black")
+		//.style("font-size", "1em")
+		.text(function(d){ return d});
 	
 	legendSvg.selectAll("rect")
 	  .data(countries)
@@ -183,6 +208,47 @@ var multiCountryLineChartLegend = function(outerheight, countries, countryColors
 		.attr("y", function(d,i){ return 117 + i*25})
 		.style("fill", function(d){ return countryColors(d)})
 		.text(function(d){ return d; });
+}
+
+var lineChartAnnotation = function(data, xscale, margin, yscale, chartWidth, chartHeight, indicator){
+	var xval = 2019
+	var selectedPoints = data.filter(o => o.Year == xval);
+	let annotationData = []
+	
+	var i = 1
+	for (const point of selectedPoints) {
+		var yval = indicator == Co2Indicator.PerCapita ? point.PerCapitaCo2 : point.TotalCO2
+		
+		var data2019 = data.filter(o => o.Country == point.Country && o.Year == 2019)[0];
+		var data1990 = data.filter(o => o.Country == point.Country && o.Year == 1990)[0];
+		
+		data2019 = Math.round(indicator == Co2Indicator.PerCapita ? data2019.PerCapitaCo2 : data2019.TotalCO2);
+		data1990 = Math.round(indicator == Co2Indicator.PerCapita ? data1990.PerCapitaCo2 : data1990.TotalCO2);
+		var change = data2019 - data1990;
+		var sign = change > 0 ? "+" : "";
+		
+		const xofctry = xscale(xval) + margin;
+		const yofctry = yscale(yval) + margin;
+		const dx = i == 2 ? -200 : -40; // Hack to ensure that Total CO2 annotations do not overlap.
+		const dy = i == 2 || i == 3 ? -40 : 40;
+		var a = {
+			note: {
+				label: `${point.Country} (${sign}${data2019 - data1990})`,
+				title: point.IncomeGroup,
+				wrap: 200,
+				padding: 10
+			},
+			color: [change > 0 ? "#cc0000" : "green"],
+			x: xofctry,
+			y: yofctry,
+			dy: dy,
+			dx: dx
+		}
+		annotationData.push(a);
+		i = i + 1;
+	}
+		
+	return annotationData;
 }
 
 var top10ToolTipTextArray = function(d, indicator) {
