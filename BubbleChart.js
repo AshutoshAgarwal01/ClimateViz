@@ -164,8 +164,21 @@ var bubbleChartAnnotation = function(data, xscale, margin, yscale, chartWidth, c
 			if (conuntryData && selectedIncomeGroups.includes(conuntryData.IncomeGroup)) {
 				const xofctry = xscale(data.find(o => o.Country == country.c).GDPB) + margin;
 				const yofctry = yscale(annotationY(country, data)) + margin;
-				const dx = xofctry + 100 > chartWidth ? -40 : 40; // Ensure that annotations are not going outside chart dimensions.
-				const dy = yofctry + 240 > chartHeight ? -40 : 40;
+				
+				var distx = disty = -40
+				
+				// Hack to fix overlapping annotations in total emission bubble chart.
+				if (bubbleChartButtonStatus == BubbleChartButtonStatus.Total) {
+					if (country.c == "Japan" || country.c == "Ethiopia") {
+						distx = disty = 40
+					}
+					else if(country.c == "United States") {
+						disty = 40
+					}
+				}
+				
+				const dx = distx; // Ensure that annotations are not going outside chart dimensions.
+				const dy = disty;
 				var a = {
 					note: {
 						label: country.l,
