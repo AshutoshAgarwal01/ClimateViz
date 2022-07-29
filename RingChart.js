@@ -126,7 +126,7 @@ async function ringChart(year) {
 	}
 	
 	function ringLegend(legendSvg) {
-		var xval = 300;
+		var xval = 270;
 		var yval = -250;
 		var r = 10
 		var heading = ["71%", "53%"];

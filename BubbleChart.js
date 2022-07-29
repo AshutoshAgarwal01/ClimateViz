@@ -17,7 +17,7 @@ async function bubbleChart(year) {
 	showBubbleChartControls();
 	
 	// Set name of country in the chart description.
-	d3.select("#chart-summary #chart-title").text("Wealth, population and per capita CO2 emission of nations.")
+	d3.select("#chart-summary #chart-title").text("Wealthy are top polluters.")
 	
 	const indicator = bubbleChartButtonStatus == BubbleChartButtonStatus.PerCapita ? "Per capita CO2 emission" : "Total CO2 emission";
 	document.getElementById("chart-desc").innerHTML = `Notice that developing country (e.g. Japan) emits far more CO2 per year then other developing nation (e.g., Ethiopia). <br/><br/>This visualization shows GDP(<em>x</em>), ${indicator} (<em>y</em>) and population (<em>area</em>) of nations between 1990 and 2019, colored by income group.`

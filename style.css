@@ -42,7 +42,8 @@ h1, h2, h3, h4, h5, h6{
 p {
     font-weight: 300;
     font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	/*line-height: 1.75;*/
+	line-height: 1.75;
+	font-size: 14px;
 }
 
 html, body { margin: 0; padding: 0; font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;}
