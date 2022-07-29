@@ -11,8 +11,8 @@
 <body onload='init()'>
 	<div class="main-container-w3">
 		<header>
-			<h1>Total CO2 emission, top emitters vs others</h1>
-			<p>Very few countries are responsible for most of the CO2 emission of the world. Most of these high emitters are rich countries. Rich countries are somewhat successful in reducing their total CO2 emission, however poorer countries are emitting more CO2 than before every year.</p>
+			<h2>Total CO2 emission, top emitters vs others</h2>
+			<p>Very few countries are responsible for most of the CO2 emission of the world. Most of these high emitters are rich countries who are somewhat successful in reducing their total CO2 emission, however poorer countries are emitting more CO2 than before every year. Data source: <a href="https://data.worldbank.org/topic/climate-change\">World Bank</a></p>
 		</header>
 		
 		<section>
@@ -42,7 +42,7 @@
 
 		<section>
 		  <nav id="chart-summary">
-			<h2 id="chart-title"></h2>
+			<h3 id="chart-title"></h3>
 			<p id="chart-desc"></p>
 		  </nav>
 		  
@@ -273,8 +273,8 @@
 			}
 		
 			const detail = currentChartSelection.Indicator == Co2Indicator.Total ? "total CO2" : "per capita CO2"
-			const chart_title = 'Comparing trend of top CO2 emission.';
-			var chart_description = `This visualization displays trend of ${detail} emission for the countries that were highest ${detail} emittors in 2019.`;
+			const chart_title = 'Rich nations are improving.';
+			var chart_description = 'Rich nations have reduced their total CO2 emission since 1990, however developing nations are trendign upwards.';
 			
 			await lineChartForCountries(currentChartSelection.Indicator, chart_title, chart_description)
 		}
