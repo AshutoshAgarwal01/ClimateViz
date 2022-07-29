@@ -145,6 +145,7 @@ async function ringChart(year) {
 		  .data(heading)
 		  .enter()
 		  .append("text")
+			.attr("font-weight",700)
 			.attr("x", xval + 2 * r)
 			.attr("y", function(d, i) { return yval + 5 + i * 100})
 			.style("fill", "black")
