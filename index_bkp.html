@@ -9,72 +9,76 @@
 <link rel="stylesheet" href="style.css"/>
 
 <body onload='init()'>
-	<div class="main-container-w3">
-		<header>
-			<h1>Total CO2 emission, top emitters vs others</h1>
-			<p>Very few countries are responsible for most of the CO2 emission of the world. Most of these high emitters are rich countries. Rich countries are somewhat successful in reducing their total CO2 emission, however poorer countries are emitting more CO2 than before every year.</p>
-		</header>
-		
-		<section>
-		  <nav></nav>
-		  <article>
-				<button id="back-to-home" class="button" onclick="backToHome()">Back</button>
-				<div id="chart-selection-buttons">
-					<button id="reset-chart" class="button" onclick="reset()">Reset</button>
-					<!--Radio Buttons for chart selection-->
-					<input type="radio" id="btn-ring" name="b_chart" checked="checked" onclick="onChartSelection(ChartType.Ring, Co2Indicator.Total)">
-					<label for="btn-ring">Summary</label>
-				
-					<input type="radio" id="btn-top10-total" name="b_chart" onclick="onChartSelection(ChartType.Line, Co2Indicator.Total)">
-					<label for="btn-top10-total">Top total CO2 emitters.</label>
-					
-					<!--<input type="radio" id="btn-top10-per-capita" name="b_chart" onclick="onChartSelection(ChartType.Line, Co2Indicator.PerCapita)">
-					<label for="btn-top10-per-capita">Top per capita CO2 emitters</label>-->
-				
-					<input type="radio" id="btn-total-co2" name="b_chart" onclick="onChartSelection(ChartType.Bubble, Co2Indicator.Total)">
-					<label for="btn-total-co2">Explore total CO2 emission</label>
-					
-					<!--<input type="radio" id="btn-per-capita-co2" name="b_chart" onclick="onChartSelection(ChartType.Bubble, Co2Indicator.PerCapita)">
-					<label for="btn-per-capita-co2">Explore Per Capita CO2 emission</label>-->
-				</div>
-		  </article>
-		</section>
+<div class="main-container-w3">
+	<header>
+	  	<h2>CSS Layout Float</h2>
+		<p>In this example, we have created a header, two columns/boxes and a footer. On smaller screens, the columns will stack on top of each other.</p>
+		<p>Resize the browser window to see the responsive effect (you will learn more about this in our next chapter - HTML Responsive.)</p>
+	</header>
+	
+	<section>
+	  <nav></nav>
+	  <article><h2>Controls will come here.</h2></article>
+	  <nav></nav>
+	</section>
 
-		<section>
-		  <nav id="chart-summary">
+	<section>
+	  <nav>
+		<h2>Title</h2>
+		<p>Chart info here.</p>
+	  </nav>
+	  
+	  <article>
+		<h2>London</h2>
+		<p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+		<p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+	  </article>
+	  <nav>
+		<h2>London</h2>
+		<p>The legend will come here.</p>
+	  </nav>
+	</section>
+	<section>
+	  <nav></nav>
+	  <article>
+		<h2>Slider will come here.</h2>
+	  </article>
+	  <nav></nav>
+	</section>
+</div>
+
+	<div class="main-container">
+		<h1>CS411 - Narrative Visualization.</h1>
+		<div id="chart-summary" class="chart-text" style="width:88%">
 			<h2 id="chart-title"></h2>
 			<p id="chart-desc"></p>
-		  </nav>
-		  
-		  <article class="viz-panel">
-			<div id="ringChart-outerdiv" class="annotation-text" style="width:100%">
-				<div id="ringChart-wrapper" class="chart-and-legend-block viz" style="width:88%"></div>
-			</div>
-			<div id="bubbleChart-outerdiv" class="annotation-text" style="width:100%">
-				<div class="chart-legend-container" style="width:100%">
-					<div id="bubbleChart-wrapper" class="chart-and-legend-block viz" style="width:88%">
-						<!--<svg id="bubbleChart" width=1400 height=700></svg>-->
-					</div>
-					<div id="bubbleChart-legend" class="chart-and-legend-block chart-legend" style="width:10%"></div>
-				</div>
-			</div>
-			<div id="lineChart-outerdiv" class="annotation-text" style="100%">
-				<div class="chart-legend-container" style="100%">
-					<div id="line-chart-wrapper" class="chart-and-legend-block viz" style="width:88%">
-						<div id="line-chart-text" class="chart-text">
-							<h2 id="total-emission"></h2>
-						</div>
-						<!--<svg id="bubbleChart" width=1400 height=700></svg>-->
-					</div>
-					<div id="lineChart-legend" class="chart-and-legend-block chart-legend" style="width:10%"></div>
-				</div>
-			</div>
-		  </article>
-		</section>
-		<section>
-		  <nav></nav>
-		  <article>
-			<div id="bubble-chart-controls">
+		</div>
+		<div>
+			<button id="back-to-home" class="button" onclick="backToHome()">Back</button>
+		</div>
+		<div id="chart-selection-buttons" class="annotation-text" style="width:100%">
+			<button id="reset-chart" class="button" onclick="reset()">Reset</button>
+			<!--Radio Buttons for chart selection-->
+			<input type="radio" id="btn-ring" name="b_chart" checked="checked" onclick="onChartSelection(ChartType.Ring, Co2Indicator.Total)">
+			<label for="btn-ring">Summary</label>
+		
+			<input type="radio" id="btn-top10-total" name="b_chart" onclick="onChartSelection(ChartType.Line, Co2Indicator.Total)">
+			<label for="btn-top10-total">Top total CO2 emitters.</label>
+			
+			<!--<input type="radio" id="btn-top10-per-capita" name="b_chart" onclick="onChartSelection(ChartType.Line, Co2Indicator.PerCapita)">
+			<label for="btn-top10-per-capita">Top per capita CO2 emitters</label>-->
+		
+			<input type="radio" id="btn-total-co2" name="b_chart" onclick="onChartSelection(ChartType.Bubble, Co2Indicator.Total)">
+			<label for="btn-total-co2">Explore total CO2 emission</label>
+			
+			<!--<input type="radio" id="btn-per-capita-co2" name="b_chart" onclick="onChartSelection(ChartType.Bubble, Co2Indicator.PerCapita)">
+			<label for="btn-per-capita-co2">Explore Per Capita CO2 emission</label>-->
+		</div>
+		<div id="ringChart-outerdiv" class="annotation-text" style="width:100%">
+			<div id="ringChart-wrapper" class="chart-and-legend-block" style="width:80%"></div>
+		</div>
+		<div id="bubbleChart-outerdiv" class="annotation-text" style="width:100%">
+			<div id="bubble-chart-controls" style="width:100%">
 				<div class="slider-block" style="width:5%">
 					<button id="timer" class="button" onclick="startTimer()">Play</button>
 				</div>
@@ -94,12 +98,26 @@
 					<div id="yearValue" class="slider-label slider-block" style="width:10%"/>
 				</div>
 			</div>
-		  </article>
-		</section>
-	</div>
+			<div class="chart-legend-container" style="width:100%">
+				<div id="bubbleChart-wrapper" class="chart-and-legend-block" style="width:88%">
+					<!--<svg id="bubbleChart" width=1400 height=700></svg>-->
+				</div>
+				<div id="bubbleChart-legend" class="chart-and-legend-block chart-legend" style="width:10%"></div>
+			</div>
+		</div>
+		<div id="lineChart-outerdiv" class="annotation-text" style="100%">
+			<div class="chart-legend-container" style="100%">
+				<div id="line-chart-wrapper" class="chart-and-legend-block" style="width:88%">
+					<div id="line-chart-text" class="chart-text">
+						<h2 id="total-emission"></h2>
+					</div>
+					<!--<svg id="bubbleChart" width=1400 height=700></svg>-->
+				</div>
+				<div id="lineChart-legend" class="chart-and-legend-block chart-legend" style="width:10%"></div>
+			</div>
+		</div>
+	<div>
 <script>
-    var vizPanel = document.querySelector('.viz-panel');
-
 	var fulldata;
 	var isPaused = true;
 	
@@ -110,11 +128,8 @@
 	
 	var bubbleChartButtonStatus = BubbleChartButtonStatus.PerCapita;
 	const margin = 50; 
-	// const outerwidth = 1400 * 0.88; 
-	// const outerheight = 700; 
-	const outerwidth = vizPanel.offsetWidth * 0.85; 
+	const outerwidth = 1400 * 0.88; 
 	const outerheight = 700; 
-	
 	const width = outerwidth - 2 * margin; 
 	const height = outerheight - 2 * margin; 
 	const incomeGroups = [{name: 'Low income', id: "lowincome"},{name: 'Upper middle income', id: "upmidincome"}, {name: 'Lower middle income', id: "lowmidincome"}, {name: 'High income', id: "highincome"}]
@@ -329,8 +344,6 @@
 		removeBubbleChart();
 		hideRingChart();
 		
-		hideBubbleChartLegend();
-		
 		hideChartSelectionButtons();
 		hideBubbleChartControls();
 		await lineChart(d.Country)
@@ -341,7 +354,6 @@
 		removeLineChart();
 		removeBubbleChart();
 		hideRingChart();
-		showBubbleChartLegend();
 		
 		hideBackToHomeButton();
 		showChartSelectionButtons();

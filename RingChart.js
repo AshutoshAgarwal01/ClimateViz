@@ -126,8 +126,8 @@ async function ringChart(year) {
 	}
 	
 	function ringLegend(legendSvg) {
-		var xval = 300;
-		var yval = -150;
+		var xval = 350;
+		var yval = -250;
 		var r = 10
 		var heading = ["71%", "53%"];
 		var label3 = ["The 3 largest greenhouse gas emitters contribute", "over half of global emissions."]
