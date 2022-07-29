@@ -20,7 +20,7 @@ async function bubbleChart(year) {
 	d3.select("#chart-summary #chart-title").text("Wealthy are top polluters.")
 	
 	const indicator = bubbleChartButtonStatus == BubbleChartButtonStatus.PerCapita ? "Per capita CO2 emission" : "Total CO2 emission";
-	document.getElementById("chart-desc").innerHTML = `Notice that developing country (e.g. Japan) emits far more CO2 per year then other developing nation (e.g., Ethiopia). <br/><br/>This visualization shows GDP(<em>x</em>), ${indicator} (<em>y</em>) and population (<em>area</em>) of nations between 1990 and 2019, colored by income group.`
+	document.getElementById("chart-desc").innerHTML = `Notice that developing country (e.g. Japan) emits far more CO2 per year then other developing nation (e.g., Ethiopia). <br/><br/>This visualization shows GDP(<em>x</em>), ${indicator} (<em>y</em>) and population (<em>area</em>) of nations between 1990 and 2019, colored by income group. <br/><br/><i><b>Use slider in the bottom to change year and radio buttons in legends to change income group.</b></i>`
 	
 	// let data = fulldata.filter(o => o.Year == year)
 	
