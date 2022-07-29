@@ -114,7 +114,7 @@ nav {
 article {
   float: left;
   padding: 10px 0px 5px 0px; /* Top, right, bottom, left */
-  width: 80%;
+  width: 78%;
   /* background-color: #f1f1f1; */
   /* height: 300px; only for demonstration, should be removed */
 }

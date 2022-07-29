@@ -172,6 +172,8 @@ var multiCountryLineChartLegend = function(outerheight, countries, countryColors
 	var legendW = 200
 	var legendH = outerheight
 	
+	var ystart = 57 - 25;
+	
 	var legendSvg = d3.select("#lineChart-legend")
 		.append("svg")
 		.attr("transform", "translate("+marginLengend+","+marginLengend+")")
@@ -185,7 +187,7 @@ var multiCountryLineChartLegend = function(outerheight, countries, countryColors
 	  .append("text")
 	  	.attr("font-weight", 700)
 		.attr("x", 0)
-		.attr("y", 87)
+		.attr("y", ystart)
 		.style("fill", "black")
 		//.style("font-size", "1em")
 		.text(function(d){ return d});
@@ -195,7 +197,7 @@ var multiCountryLineChartLegend = function(outerheight, countries, countryColors
 	  .enter()
 	  .append("rect")
 		.attr("x", 10)
-		.attr("y", function(d,i){ return 107 + i*25})
+		.attr("y", function(d,i){ return ystart + 30 + i*25})
 		.attr("width", 10)
 		.attr("height", 10)
 		.style("fill", function(d){ return countryColors(d)})
@@ -205,7 +207,7 @@ var multiCountryLineChartLegend = function(outerheight, countries, countryColors
 	  .enter()
 	  .append("text")
 		.attr("x", 30)
-		.attr("y", function(d,i){ return 117 + i*25})
+		.attr("y", function(d,i){ return ystart + 40 + i*25})
 		.style("fill", function(d){ return countryColors(d)})
 		.text(function(d){ return d; });
 }
